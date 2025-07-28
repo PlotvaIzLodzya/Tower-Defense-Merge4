@@ -1,10 +1,12 @@
 ﻿using _Source.Scripts.Grid;
+using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    public class Path : Cell
+    public class Path :  MonoBehaviour, ICell
     {
-        public override bool HaveBuilding => false;
-        public override bool CanPaceBuilding => false;
+        public Vector3Int GridPosition => transform.position.ToGrid();
+        // public override bool HaveBuilding => false;
+        // public override bool CanPaceBuilding => false;
     }
 }

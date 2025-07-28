@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
-using _Source.Scripts.Buildings;
 using UnityEngine;
 
 namespace _Source.Scripts.Grid
@@ -11,48 +9,49 @@ namespace _Source.Scripts.Grid
     {
         public const float CellSize = 1f;
 
-        private Dictionary<Vector3Int, Cell> _cells;
+        private Dictionary<Vector3Int, ICell> _cells;
 
         private void Awake()
         {
-            var cells = GetComponentsInChildren<Cell>();
+            var cells = GetComponentsInChildren<ICell>();
             _cells = cells.ToDictionary(c => c.GridPosition, c => c);
         }
 
-        public bool HasCellAt(Vector3 position)
+        public bool HasCell<T>(Vector3 position) where T : ICell
         {
             var gridPosition = position.ToGrid();
-            return _cells.ContainsKey(gridPosition);
+            return _cells.ContainsKey(gridPosition) && _cells[gridPosition] is T;
         }
 
-        public void AddCell(Cell cell)
+        public void AddCell(ICell cell)
         {
             _cells.Add(cell.GridPosition, cell);
         }
 
-        public bool TryGetCellAt(Vector3 position, out Cell cell)
+        public bool TryGetCell<T>(Vector3 position, out T cell)  where T : ICell
         {
-            if (HasCellAt(position))
+            if (HasCell<T>(position))
             {
-                cell = GetCellAt(position);
+                cell = GetCell<T>(position);
+                
                 return true;
             }
-
-            cell = null;
+            
+            cell = default;
             return false;
         }
 
-        public Cell GetCellAt(Vector3 position)
+        public T GetCell<T>(Vector3 position) where T : ICell
         {
             var gridPosition = position.ToGrid();
             var cell = _cells[gridPosition];
 
-            return cell;
+            return (T)cell;
         }
 
-        public bool TryGetCellNeighbors(Vector3 position, List<Cell> cellNeighbors)
+        public bool TryGetCellNeighbors<T>(Vector3 position, List<T> cellNeighbors) where T : ICell
         {
-            if (TryGetCellAt(position, out var cell))
+            if (TryGetCell<T>(position, out var cell))
             {
                 return TryGetCellNeighbors(cell, cellNeighbors);
             }
@@ -60,20 +59,20 @@ namespace _Source.Scripts.Grid
             return false;
         }
 
-        public bool TryGetCellNeighbors(Cell cell, List<Cell> cellNeighbors)
+        public bool TryGetCellNeighbors<T>(ICell cell, List<T> cellNeighbors) where T : ICell
         {
             foreach (var offset in Helper.NeighborDirections)
             {
-                if (TryGetCellAt(cell.GridPosition - offset, out var cellNeighbor))
+                if (TryGetCell<T>(cell.GridPosition - offset, out var cellNeighbor))
                     cellNeighbors.Add(cellNeighbor);
             }
 
             return cellNeighbors.Count > 0;
         }
 
-        public bool SquareCheck(Vector3 position, List<Cell> cells, Func<Cell, bool> isValid)
+        public bool SquareCheck<T>(Vector3 position, List<T> cells, Func<T, bool> isValid) where T : ICell
         {
-            if (TryGetCellAt(position, out var cell))
+            if (TryGetCell<T>(position, out var cell))
             {
                 return SquareCheck(cell, cells, isValid);
             }
@@ -81,14 +80,14 @@ namespace _Source.Scripts.Grid
             return false;
         }
 
-        public bool SquareCheck(Cell cell, List<Cell> cells, Func<Cell, bool> isValid)
+        public bool SquareCheck<T>(ICell cell, List<T> cells, Func<T, bool> isValid) where T : ICell
         {
             foreach (var boxCheck in Helper.BoxChecks)
             {
                 cells.Clear();
                 foreach (var offset in boxCheck)
                 {
-                    if (TryGetCellAt(cell.GridPosition - offset, out var cellNeighbor) && isValid(cellNeighbor))
+                    if (TryGetCell<T>(cell.GridPosition - offset, out var cellNeighbor) && isValid(cellNeighbor))
                     {
                         cells.Add(cellNeighbor);
                         if (cells.Count == 4)

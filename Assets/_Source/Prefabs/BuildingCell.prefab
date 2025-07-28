@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1194110009206152179}
-  - component: {fileID: 1908749945234379123}
   - component: {fileID: 8515686118659666377}
+  - component: {fileID: 7000237064957653183}
   m_Layer: 0
   m_Name: BuildingCell
   m_TagString: Untagged
@@ -34,19 +34,6 @@ Transform:
   - {fileID: 7927402129533806790}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1908749945234379123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4637134884546351021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36801c1675484905804f13b9e44b13a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Grid.Cell
-  _spriteRenderer: {fileID: 4706914951540511098}
 --- !u!65 &8515686118659666377
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -68,6 +55,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7000237064957653183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4637134884546351021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9928c0ed2d4cc3884f4e9a1caa4148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingCell
 --- !u!1 &5766973784219375339
 GameObject:
   m_ObjectHideFlags: 0

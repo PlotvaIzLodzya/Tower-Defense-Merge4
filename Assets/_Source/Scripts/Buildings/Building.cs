@@ -13,7 +13,7 @@ namespace _Source.Scripts.Buildings
             Level += config.Level;
         }
     }
-    
+
     public class Building : MonoBehaviour
     {
         [SerializeField] private TMP_Text _lvl;

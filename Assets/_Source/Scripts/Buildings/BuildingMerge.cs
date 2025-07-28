@@ -8,15 +8,15 @@ namespace _Source.Scripts.Buildings
     public class BuildingMerge
     {
         private CellGrid _cellGrid;
-        private List<Cell> _squareCell;
+        private List<BuildingCell> _squareCell;
 
         public BuildingMerge(CellGrid cellGrid)
         {
-            _squareCell = new List<Cell>(4);
+            _squareCell = new List<BuildingCell>(4);
             _cellGrid = cellGrid;
         }
 
-        public void TryMerge(List<Cell> cellsBeenPlacingOn)
+        public void TryMerge(List<BuildingCell> cellsBeenPlacingOn)
         {
             foreach (var cell in cellsBeenPlacingOn)
             {
@@ -30,7 +30,7 @@ namespace _Source.Scripts.Buildings
             }
         }
 
-        private void SquareMerge(Cell cell, List<Cell> squareCell)
+        private void SquareMerge(BuildingCell cell, List<BuildingCell> squareCell)
         {
             squareCell.Clear();
             while (_cellGrid.SquareCheck(cell, squareCell, IsCellValid))
@@ -39,12 +39,12 @@ namespace _Source.Scripts.Buildings
             }
         }
 
-        private bool IsCellValid(Cell cell)
+        private bool IsCellValid(BuildingCell cell)
         {
-            return cell.CanPaceBuilding && cell.HaveBuilding;
+            return cell.HaveBuilding;
         }
 
-        private Cell Merge(List<Cell> cellToMerge)
+        private BuildingCell Merge(List<BuildingCell> cellToMerge)
         {
             cellToMerge = cellToMerge.OrderBy(c => c.GridPosition.x)
                                      .ThenByDescending(c => c.GridPosition.z)

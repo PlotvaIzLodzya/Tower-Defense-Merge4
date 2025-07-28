@@ -56,7 +56,7 @@ public static class Helper
         RightDownSquare,
     };
 
-public static Vector3Int ToGrid(this Vector3 position)
+    public static Vector3Int ToGrid(this Vector3 position)
     {
         int x = Mathf.RoundToInt(position.x / CellGrid.CellSize);
         int y = Mathf.RoundToInt(position.y / CellGrid.CellSize);

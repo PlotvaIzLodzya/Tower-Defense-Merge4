@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Grid;
-using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
@@ -16,14 +15,14 @@ namespace _Source.Scripts.Buildings
             _cellGrid = cellGrid;
         }
 
-        public void TryMerge(List<BuildingCell> cellsBeenPlacingOn)
+        public void TryMerge(List<BindBuildingToCell> bindBuildingsToCells)
         {
-            foreach (var cell in cellsBeenPlacingOn)
+            foreach (var bind in bindBuildingsToCells)
             {
                 _squareCell.Clear();
-                if (_cellGrid.SquareCheck(cell, _squareCell, IsCellValid))
+                if (_cellGrid.SquareCheck(bind.Cell, _squareCell, IsCellValid))
                 {
-                    SquareMerge(cell, _squareCell);
+                    SquareMerge(bind.Cell, _squareCell);
                     
                     break;
                 }        
@@ -51,8 +50,8 @@ namespace _Source.Scripts.Buildings
                                      .ToList();
             
             var cellMergeTo = cellToMerge.First();
-            var mergeConfig = new BuildingConfig();
-            mergeConfig.Add(cellMergeTo.Building.Config);
+            var mergeConfig = new BuildingStats();
+            mergeConfig.Add(cellMergeTo.Building.Stats);
             
             for (int i = 1; i < cellToMerge.Count; i++)
             {

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Grid.BuildPlacement
   _cellGrid: {fileID: 51141570}
-  _buildingPrefab: {fileID: 6996596641172576044, guid: bfe105e8ddf107446a1c19f8cab0929e, type: 3}
+  _buildingBlockPrefab: {fileID: 7421993068248166449, guid: ff5a612d467c1ba4fa159dcce8e547cf, type: 3}
 --- !u!1001 &85289311
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -14,9 +14,9 @@ namespace _Source.Scripts.Buildings
             Building = building;
         }
         
-        public BuildingConfig DestroyBuilding()
+        public BuildingStats DestroyBuilding()
         {
-            var config = Building.Config;
+            var config = Building.Stats;
             Building.Destroy();
             Building = null;
             

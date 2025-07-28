@@ -1,42 +1,41 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    public struct BuildingConfig
+    public class BuildingConfig : ScriptableObject
     {
-        public int Level;
-
-        public void Add(BuildingConfig config)
-        {
-            Level += config.Level;
-        }
+        public BuildingStats BuildingStats;
     }
 
+
+    
     public class Building : MonoBehaviour
     {
         [SerializeField] private TMP_Text _lvl;
+        [SerializeField] private BuildingConfig _config;
         
-        public readonly Vector3 [] Form = new Vector3[]
-        {
-            new Vector3( 0, 0, 0),
-        };
-        
-        public BuildingConfig Config { get; private set; }
+        public Vector3Int GridPosition => transform.position.ToGrid();
+        public BuildingStats Stats { get; private set; }
 
         private void Awake()
         {
-            Config = new BuildingConfig()
+            Stats = new BuildingStats()
             {
                 Level = 1
             };
         }
 
-        public void Merge(BuildingConfig config)
+        public void OnBuild()
         {
-            Config = config;
-            _lvl.text = $"{Config.Level}";
+            transform.localPosition = Vector3.zero;
+        }
+
+        public void Merge(BuildingStats stats)
+        {
+            Stats = stats;
+            _lvl.text = $"{Stats.Level}";
         }
 
         public void Destroy()

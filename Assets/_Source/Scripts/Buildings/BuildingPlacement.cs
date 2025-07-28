@@ -5,12 +5,25 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
+
+    public class BindBuildingToCell
+    {
+        public BuildingCell Cell;
+        public Building Building;
+
+        public void Build()
+        {
+            var building = Object.Instantiate(Building, Cell.transform);
+            building.OnBuild();
+            Cell.SetBuilding(building);   
+        }
+    }
     public class BuildingPlacement : MonoBehaviour
     {
         [SerializeField] private CellGrid _cellGrid;
-        [SerializeField] private Building _buildingPrefab;
+        [SerializeField] private BuildingBlock _buildingBlockPrefab;
         
-        private List<BuildingCell> _buildingCells;
+        private List<BindBuildingToCell> _buildingCells;
         private BuildingMerge _buildingMerge;
         private Camera _camera;
 
@@ -29,13 +42,13 @@ namespace _Source.Scripts.Buildings
                 if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
                 {
                     _buildingCells.Clear();
-                    if (TryGetCellsBy(_buildingPrefab, hit.point, _buildingCells))
+                    if (TryGetCellsBy(_buildingBlockPrefab, hit.point, _buildingCells))
                     {
-                        var canPlace = _buildingCells.All(c => c.HaveBuilding == false);
+                        var canPlace = _buildingCells.All(bind => bind.Cell.HaveBuilding == false);
                     
                         if (canPlace)
                         {
-                            PlaceBuilding(_buildingCells, _buildingPrefab);
+                            PlaceBuilding(_buildingCells, _buildingBlockPrefab);
                             _buildingMerge.TryMerge(_buildingCells);
                         }
                     }
@@ -43,13 +56,13 @@ namespace _Source.Scripts.Buildings
             }
         }
 
-        private bool TryGetCellsBy(Building building, Vector3 point, List<BuildingCell> cellsToPlace)
+        private bool TryGetCellsBy(BuildingBlock building, Vector3 point, List<BindBuildingToCell> bindings)
         {
-            foreach (var offset in building.Form)
+            foreach (var piece in building.Form)
             {
-                var cellPos = point - offset;
+                var cellPos = point - piece.Offset;
                 if (_cellGrid.TryGetCell<BuildingCell>(cellPos, out var cell))
-                    cellsToPlace.Add(cell);
+                    bindings.Add(new BindBuildingToCell { Cell = cell, Building = piece.Building });
                 else
                     return false;
             }
@@ -57,12 +70,11 @@ namespace _Source.Scripts.Buildings
             return true;
         }
 
-        private void PlaceBuilding(List<BuildingCell> cellsToPlace, Building buildingPrefab)
+        private void PlaceBuilding(List<BindBuildingToCell> binds, BuildingBlock buildingPrefab)
         {
-            foreach (var cell in cellsToPlace)
+            foreach (var bind in binds)
             {
-                var building = Instantiate(buildingPrefab, cell.transform);
-                cell.SetBuilding(building);                
+                bind.Build();
             }
         }
     }

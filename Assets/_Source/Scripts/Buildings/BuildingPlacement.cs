@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Grid;
+using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
@@ -20,15 +21,18 @@ namespace _Source.Scripts.Buildings
 
     public class BuildingPlacement : MonoBehaviour
     {
-        [SerializeField] private CellGrid _cellGrid;
+        [SerializeField] private BuildingPresets _presets;
+        [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private BuildingBlock _buildingBlockPrefab;
         
         private List<BindBuildingToCell> _buildingCells;
         private BuildingMerge _buildingMerge;
         private Camera _camera;
+        private CellGrid _cellGrid;
 
-        private void Awake()
+        private void Start()
         {
+            _cellGrid = _cellGridReference.Value;
             _buildingCells = new();
             _buildingMerge = new(_cellGrid);
             _camera = Camera.main;
@@ -36,21 +40,30 @@ namespace _Source.Scripts.Buildings
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
+                Place();
+        }
+
+        public void CreateBuilding(BuildingBlockBlueprint blueprint)
+        {
+            if(_presets.TryGetPreset(blueprint, out var prefab))
+                _buildingBlockPrefab = prefab;
+        }
+
+        private void Place()
+        {
+            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
             {
-                var ray = _camera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
+                _buildingCells.Clear();
+                if (TryGetCellsBy(_buildingBlockPrefab, hit.point, _buildingCells))
                 {
-                    _buildingCells.Clear();
-                    if (TryGetCellsBy(_buildingBlockPrefab, hit.point, _buildingCells))
-                    {
-                        var canPlace = _buildingCells.All(bind => bind.Cell.HaveBuilding == false);
+                    var canPlace = _buildingCells.All(bind => bind.Cell.HaveBuilding == false);
                     
-                        if (canPlace)
-                        {
-                            PlaceBuilding(_buildingCells);
-                            _buildingMerge.TryMerge(_buildingCells);
-                        }
+                    if (canPlace)
+                    {
+                        PlaceBuilding(_buildingCells);
+                        _buildingMerge.TryMerge(_buildingCells);
                     }
                 }
             }

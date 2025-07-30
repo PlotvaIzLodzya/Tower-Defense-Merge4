@@ -1,12 +1,15 @@
-﻿using UnityEngine;
+﻿using _Source.Scripts.Buildings;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Source.Scripts.UI
 {
     public class BuildingBlockShop : Panel
     {
+        [SerializeField] private BuildingPresets _presets;
         [SerializeField] BuildingBlockPreview[] _previews;
         [SerializeField] Button _refreshButton;
+        
         private void Awake()
         {
             _refreshButton.onClick.AddListener(Generate);
@@ -26,8 +29,8 @@ namespace _Source.Scripts.UI
         {
             foreach (var b in _previews)
             {
-                var blueprint = FormPresets.GenerateBuildingBlockBlueprint(4);
-                b.Consruct(blueprint);
+                var blueprint = _presets.GetRandomBlueprint(4);
+                b.Construct(blueprint);
             }
         }
     }

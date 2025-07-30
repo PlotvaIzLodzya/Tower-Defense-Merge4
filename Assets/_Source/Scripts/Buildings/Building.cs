@@ -8,8 +8,6 @@ namespace _Source.Scripts.Buildings
     {
         public BuildingStats BuildingStats;
     }
-
-
     
     public class Building : MonoBehaviour
     {

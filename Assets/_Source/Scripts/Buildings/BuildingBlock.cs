@@ -10,22 +10,31 @@ namespace _Source.Scripts.Buildings
         public Vector3Int Offset;
         public Building Building;
     }
+
+    [Serializable]
+    public class BuildingBlueprint
+    {
+        public Vector3Int Offset;
+        public BuildingStats Stats;
+    }
+
+    public class BuildingBlockBlueprint
+    {
+        public BuildingBlueprint[] BuildingBlueprints;
+    }
     
     public class BuildingBlock : MonoBehaviour
     {
-        public Building[] Buildings;
-
         public BuildingBlockPiece[] Form;
-        public Vector3Int GridPosition => Buildings[0].GridPosition;
 
         [ContextMenu("Setup form")]
         public void UpdateForm()
         {
-            Buildings = GetComponentsInChildren<Building>();
-            Form = new BuildingBlockPiece[Buildings.Length];
-            for (int i = 0; i < Buildings.Length; i++)
+            var buildings = GetComponentsInChildren<Building>();
+            Form = new BuildingBlockPiece[buildings.Length];
+            for (int i = 0; i < buildings.Length; i++)
             {
-                var building = Buildings[i];
+                var building = buildings[i];
                 Form[i] = new BuildingBlockPiece()
                 {
                     Building = building,

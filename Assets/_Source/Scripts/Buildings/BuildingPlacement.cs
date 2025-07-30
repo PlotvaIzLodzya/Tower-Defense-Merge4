@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-
     public class BindBuildingToCell
     {
         public BuildingCell Cell;
@@ -18,6 +17,7 @@ namespace _Source.Scripts.Buildings
             Cell.SetBuilding(building);   
         }
     }
+
     public class BuildingPlacement : MonoBehaviour
     {
         [SerializeField] private CellGrid _cellGrid;
@@ -48,7 +48,7 @@ namespace _Source.Scripts.Buildings
                     
                         if (canPlace)
                         {
-                            PlaceBuilding(_buildingCells, _buildingBlockPrefab);
+                            PlaceBuilding(_buildingCells);
                             _buildingMerge.TryMerge(_buildingCells);
                         }
                     }
@@ -70,7 +70,7 @@ namespace _Source.Scripts.Buildings
             return true;
         }
 
-        private void PlaceBuilding(List<BindBuildingToCell> binds, BuildingBlock buildingPrefab)
+        private void PlaceBuilding(List<BindBuildingToCell> binds)
         {
             foreach (var bind in binds)
             {

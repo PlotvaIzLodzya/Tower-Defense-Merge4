@@ -1,6 +1,7 @@
 ﻿using _Source.Scripts.Grid;
 using UnityEngine;
 
+
 public static class Helper
 {
     public static readonly Vector3Int[] NeighborDirections = new Vector3Int[]
@@ -56,20 +57,20 @@ public static class Helper
         RightDownSquare,
     };
 
-    public static Vector3Int ToGrid(this Vector3 position)
+    public static Vector3Int ToGrid(this Vector3 position, float cellSize = CellGrid.CellSize)
     {
-        int x = Mathf.RoundToInt(position.x / CellGrid.CellSize);
-        int y = Mathf.RoundToInt(position.y / CellGrid.CellSize);
-        int z = Mathf.RoundToInt(position.z / CellGrid.CellSize);
+        int x = Mathf.RoundToInt(position.x / cellSize);
+        int y = Mathf.RoundToInt(position.y / cellSize);
+        int z = Mathf.RoundToInt(position.z / cellSize);
 
         return new Vector3Int(x, y, z);
     }
 
-    public static Vector3 ToWorld(this Vector3Int position)
+    public static Vector3 ToWorld(this Vector3Int position, float cellSize = CellGrid.CellSize)
     {
-        float x = position.x * CellGrid.CellSize;
-        float y = position.y * CellGrid.CellSize;
-        float z = position.z * CellGrid.CellSize;
+        float x = position.x * cellSize;
+        float y = position.y * cellSize;
+        float z = position.z * cellSize;
 
         return new Vector3(x, y, z);
     }

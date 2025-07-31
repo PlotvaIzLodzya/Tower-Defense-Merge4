@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741aa385800b475d87b45bef3db044b2, type: 3}
   m_Name: LevelConfig
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.LevelConfig
+  Presets: {fileID: 11400000, guid: efb8afc885fc4c4468ab1aa68d5f871d, type: 2}

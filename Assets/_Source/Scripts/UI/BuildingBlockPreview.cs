@@ -9,28 +9,23 @@ namespace _Source.Scripts.UI
 {
     public class BuildingBlockPreview : Panel
     {
-        [SerializeField] private BuildingPlacement _buildingPlacementReference;
+        [SerializeField] private BuildingPlacementReference _buildingPlacementReference;
         [SerializeField] private TowerPreview[] _towerPreviews;
         [SerializeField] private Button _getBlueprintButton;
         
         private int _gridSize;
-        [SerializeField] private BuildingPlacement  _buildingPlacement;
+        private BuildingPlacement  _buildingPlacement;
         private BuildingBlockBlueprint _blueprint;
 
-        private void Awake()
+        public void Awake()
         {
+            _buildingPlacement = _buildingPlacementReference.Value;
+            _gridSize = 3;
             _getBlueprintButton.onClick.AddListener(OnGetBlueprintButtonClick);
             foreach (var towerPreview in _towerPreviews)
             {
                 towerPreview.Hide();
             }
-
-            _gridSize = 3;
-        }
-
-        private void Start()
-        {
-            // _buildingPlacement = _buildingPlacementReference.Value;
         }
 
         private void OnDestroy()
@@ -63,7 +58,6 @@ namespace _Source.Scripts.UI
 
         private void OnGetBlueprintButtonClick()
         {
-            Debug.Log("GetBlueprintButtonClick");
             _buildingPlacement.CreateBuilding(_blueprint);
         }
 

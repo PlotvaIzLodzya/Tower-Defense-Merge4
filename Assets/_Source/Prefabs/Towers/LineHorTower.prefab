@@ -50,9 +50,9 @@ MonoBehaviour:
   Form:
   - Offset: {x: 0, y: 0, z: 0}
     Building: {fileID: 3856216817926257890}
-  - Offset: {x: 0, y: 0, z: 1}
+  - Offset: {x: 1, y: 0, z: 0}
     Building: {fileID: 5799517824170730119}
-  - Offset: {x: 0, y: 0, z: -1}
+  - Offset: {x: -1, y: 0, z: 0}
     Building: {fileID: 8363462999624171242}
 --- !u!1001 &330931004752366634
 PrefabInstance:

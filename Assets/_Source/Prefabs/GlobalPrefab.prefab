@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20238087a1c2465f8a4e2b8de41a39f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingPlacement
-  _presets: {fileID: 11400000, guid: a9fc25d361f93e94b843e567085daefb, type: 2}
+  _presets: {fileID: 11400000, guid: efb8afc885fc4c4468ab1aa68d5f871d, type: 2}
   _cellGridReference: {fileID: 11400000, guid: fd3f57a5a032b4447b36432d36265bc1, type: 2}
   _buildingBlockPrefab: {fileID: 7421993068248166449, guid: ff5a612d467c1ba4fa159dcce8e547cf, type: 3}
 --- !u!114 &7218254832180057170
@@ -189,7 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42ec48ee5854a21bec32f0210a013cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.UI.BuildingBlockShop
-  _placementReference: {fileID: 11400000, guid: 6272ccb0646ece5459050ded2e498b2a, type: 2}
   _presets: {fileID: 11400000, guid: a9fc25d361f93e94b843e567085daefb, type: 2}
   _previews:
   - {fileID: 196150878706080212}

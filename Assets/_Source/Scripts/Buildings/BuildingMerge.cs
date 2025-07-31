@@ -45,8 +45,8 @@ namespace _Source.Scripts.Buildings
 
         private BuildingCell Merge(List<BuildingCell> cellToMerge)
         {
-            cellToMerge = cellToMerge.OrderBy(c => c.GridPosition.x)
-                                     .ThenByDescending(c => c.GridPosition.z)
+            cellToMerge = cellToMerge.OrderByDescending(c => c.GridPosition.x)
+                                     .ThenBy(c => c.GridPosition.z)
                                      .ToList();
             
             var cellMergeTo = cellToMerge.First();

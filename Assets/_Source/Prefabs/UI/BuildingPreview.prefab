@@ -292,15 +292,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.UI.BuildingBlockPreview
   _buildingPlacementReference: {fileID: 11400000, guid: 6272ccb0646ece5459050ded2e498b2a, type: 2}
   _towerPreviews:
-  - {fileID: 1430564126698810260}
-  - {fileID: 4753488837629414854}
-  - {fileID: 8693883967049751253}
-  - {fileID: 844939960302933599}
-  - {fileID: 1405643381727311579}
-  - {fileID: 568438965752631502}
   - {fileID: 5330013835142025572}
   - {fileID: 7095241336994899134}
   - {fileID: 4959822930386159515}
+  - {fileID: 844939960302933599}
+  - {fileID: 1405643381727311579}
+  - {fileID: 568438965752631502}
+  - {fileID: 1430564126698810260}
+  - {fileID: 4753488837629414854}
+  - {fileID: 8693883967049751253}
   _getBlueprintButton: {fileID: 3553292870285369066}
 --- !u!1001 &2459900592699196722
 PrefabInstance:

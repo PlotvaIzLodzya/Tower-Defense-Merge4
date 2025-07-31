@@ -51,10 +51,12 @@ MonoBehaviour:
   Form:
   - Offset: {x: 0, y: 0, z: 0}
     Building: {fileID: 3018700411106963117}
+  - Offset: {x: -1, y: 0, z: 0}
+    Building: {fileID: 3318197018076988971}
+  - Offset: {x: -1, y: 0, z: -1}
+    Building: {fileID: 8290476543426671000}
   - Offset: {x: 0, y: 0, z: 1}
-    Building: {fileID: 0}
-  - Offset: {x: 0, y: 0, z: -1}
-    Building: {fileID: 0}
+    Building: {fileID: 345690507063416428}
 --- !u!1001 &1798958505153470053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -185,6 +187,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+--- !u!114 &3318197018076988971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3536376003587485896, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 2242548137966270179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8df67d1b89f4fb3be9ea201c13d4e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Building
 --- !u!4 &4592633394633076600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
@@ -247,6 +260,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+--- !u!114 &345690507063416428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3536376003587485896, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 3881989158221211300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8df67d1b89f4fb3be9ea201c13d4e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Building
 --- !u!4 &1548383441927765823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
@@ -314,3 +338,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 4764257828861608272}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8290476543426671000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3536376003587485896, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 4764257828861608272}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8df67d1b89f4fb3be9ea201c13d4e91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Building

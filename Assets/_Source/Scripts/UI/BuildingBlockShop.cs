@@ -1,5 +1,4 @@
 ﻿using _Source.Scripts.Buildings;
-using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +6,11 @@ namespace _Source.Scripts.UI
 {
     public class BuildingBlockShop : Panel
     {
-        [SerializeField] private BuildingPresets _presets;
+        [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private BuildingBlockPreview[] _previews;
         [SerializeField] private Button _refreshButton;
         
+        private LevelConfig _levelConfig;
         private void Awake()
         {
             _refreshButton.onClick.AddListener(Generate);
@@ -18,6 +18,7 @@ namespace _Source.Scripts.UI
 
         private void Start()
         {
+            _levelConfig = _levelConfigProvider.LevelConfig;
             Generate();
         }
 
@@ -30,7 +31,7 @@ namespace _Source.Scripts.UI
         {
             foreach (var b in _previews)
             {
-                var blueprint = _presets.GetRandomBlueprint(4);
+                var blueprint = _levelConfig.Presets.GetRandomBlueprint(4);
                 b.Construct(blueprint);
             }
         }

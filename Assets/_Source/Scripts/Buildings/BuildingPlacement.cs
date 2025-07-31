@@ -21,7 +21,7 @@ namespace _Source.Scripts.Buildings
 
     public class BuildingPlacement : MonoBehaviour
     {
-        [SerializeField] private BuildingPresets _presets;
+        [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private BuildingBlock _buildingBlockPrefab;
         
@@ -29,9 +29,11 @@ namespace _Source.Scripts.Buildings
         private BuildingMerge _buildingMerge;
         private Camera _camera;
         private CellGrid _cellGrid;
+        private LevelConfig _levelConfig;
 
         private void Start()
         {
+            _levelConfig = _levelConfigProvider.LevelConfig;
             _cellGrid = _cellGridReference.Value;
             _buildingCells = new();
             _buildingMerge = new(_cellGrid);
@@ -46,7 +48,7 @@ namespace _Source.Scripts.Buildings
 
         public void CreateBuilding(BuildingBlockBlueprint blueprint)
         {
-            if(_presets.TryGetPreset(blueprint, out var prefab))
+            if(_levelConfig.Presets.TryGetPreset(blueprint, out var prefab))
                 _buildingBlockPrefab = prefab;
         }
 

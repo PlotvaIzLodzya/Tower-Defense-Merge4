@@ -63,7 +63,6 @@ namespace _Source.Scripts.Buildings
             
             for (int i = 0; i < buildingBlueprints.Length; i++)
             {
-                Debug.Log($" form: {form[i].Offset}, {buildingBlueprints[i].Offset}");
                 if(form[i].Offset != buildingBlueprints[i].Offset)
                     return false;
             }

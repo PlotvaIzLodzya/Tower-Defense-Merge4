@@ -1,4 +1,5 @@
 ﻿using _Source.Scripts.Buildings;
+using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,8 @@ namespace _Source.Scripts.UI
     public class BuildingBlockShop : Panel
     {
         [SerializeField] private BuildingPresets _presets;
-        [SerializeField] BuildingBlockPreview[] _previews;
-        [SerializeField] Button _refreshButton;
+        [SerializeField] private BuildingBlockPreview[] _previews;
+        [SerializeField] private Button _refreshButton;
         
         private void Awake()
         {

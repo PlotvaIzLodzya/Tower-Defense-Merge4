@@ -23,8 +23,6 @@ namespace _Source.Scripts.Buildings
                 if (_cellGrid.SquareCheck(bind.Cell, _squareCell, IsCellValid))
                 {
                     SquareMerge(bind.Cell, _squareCell);
-                    
-                    break;
                 }        
             }
         }

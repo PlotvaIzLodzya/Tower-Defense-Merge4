@@ -1,0 +1,29 @@
+﻿using System.Collections;
+using _Source.Scripts.Grid;
+using UnityEngine;
+
+namespace _Source.Scripts.Enemy
+{
+    public class EnemySpawner : MonoBehaviour
+    {
+        [SerializeField] private Path[] _paths;
+        [SerializeField] private Enemy _enemyPrefab;
+        [SerializeField] private int _amount;
+        [SerializeField] private float _delay;
+
+        private void Awake()
+        {
+            StartCoroutine(Spawning());
+        }
+
+        private IEnumerator Spawning()
+        {
+            for (int i = 0; i < _amount; i++)
+            {
+                var enemy = Instantiate(_enemyPrefab, _paths[0].transform.position, Quaternion.identity);
+                enemy.StartMoving(_paths);
+                yield return new WaitForSeconds(_delay);
+            }
+        }
+    }
+}

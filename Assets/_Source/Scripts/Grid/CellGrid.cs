@@ -28,6 +28,11 @@ namespace _Source.Scripts.Grid
             _cells.Add(cell.GridPosition, cell);
         }
 
+        public T[] GetAllCells<T>() where T : ICell
+        {
+            return _cells.Values.OfType<T>().ToArray();
+        }
+
         public bool TryGetCell<T>(Vector3 position, out T cell)  where T : ICell
         {
             if (HasCell<T>(position))

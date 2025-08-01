@@ -14,7 +14,7 @@ namespace _Source.Scripts.Buildings
             var index = Random.Range(0, _presets.Length);
             var preset = _presets[index];
             
-            var level = Random.Range(0, levelRangeExclusive);
+            var level = Random.Range(1, levelRangeExclusive);
             foreach (var blueprint  in preset.Blueprints)
             {
                 blueprint.Stats = new TowerStats()

@@ -29,7 +29,7 @@ namespace _Source.Scripts.Buildings
             transform.localPosition = Vector3.zero;
         }
 
-        public void Merge(TowerStats stats)
+        public void SetStats(TowerStats stats)
         {
             Stats = stats;
             _lvl.text = $"{Stats.Level}";

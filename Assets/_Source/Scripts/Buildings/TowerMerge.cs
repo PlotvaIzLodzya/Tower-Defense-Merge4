@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Grid;
+using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
@@ -57,7 +58,7 @@ namespace _Source.Scripts.Buildings
                 mergeConfig.Add(config);
             }
             
-            cellMergeTo.Tower.Merge(mergeConfig);
+            cellMergeTo.Tower.SetStats(mergeConfig);
             return cellMergeTo;
         }
     }

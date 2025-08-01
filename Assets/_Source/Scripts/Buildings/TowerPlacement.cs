@@ -10,11 +10,13 @@ namespace _Source.Scripts.Buildings
     {
         public BuildingCell Cell;
         public Tower Tower;
+        public TowerStats Stats;
 
         public void Build()
         {
             var building = Object.Instantiate(Tower, Cell.transform);
             building.OnBuild();
+            building.SetStats(Stats);
             Cell.SetBuilding(building);   
         }
     }
@@ -77,7 +79,10 @@ namespace _Source.Scripts.Buildings
                 var cellPos = point - blueprint.Offset;
                 if (_cellGrid.TryGetCell<BuildingCell>(cellPos, out var cell))
                 {
-                    bindings.Add(new BindTowerToCell { Cell = cell, Tower = _levelConfig.TowerPrefab });
+                    var towerPrefab = _levelConfig.TowerPrefab;
+                    var bind = new BindTowerToCell { Cell = cell, Tower = towerPrefab, Stats = blueprint.Stats};
+                    bindings.Add(bind);
+                    
                 }
                 else
                 {

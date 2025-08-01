@@ -4,18 +4,18 @@ using _Source.Scripts.Grid;
 
 namespace _Source.Scripts.Buildings
 {
-    public class BuildingMerge
+    public class TowerMerge
     {
         private CellGrid _cellGrid;
         private List<BuildingCell> _squareCell;
 
-        public BuildingMerge(CellGrid cellGrid)
+        public TowerMerge(CellGrid cellGrid)
         {
             _squareCell = new List<BuildingCell>(4);
             _cellGrid = cellGrid;
         }
 
-        public void TryMerge(List<BindBuildingToCell> bindBuildingsToCells)
+        public void TryMerge(List<BindTowerToCell> bindBuildingsToCells)
         {
             foreach (var bind in bindBuildingsToCells)
             {
@@ -48,8 +48,8 @@ namespace _Source.Scripts.Buildings
                                      .ToList();
             
             var cellMergeTo = cellToMerge.First();
-            var mergeConfig = new BuildingStats();
-            mergeConfig.Add(cellMergeTo.Building.Stats);
+            var mergeConfig = new TowerStats();
+            mergeConfig.Add(cellMergeTo.Tower.Stats);
             
             for (int i = 1; i < cellToMerge.Count; i++)
             {
@@ -57,7 +57,7 @@ namespace _Source.Scripts.Buildings
                 mergeConfig.Add(config);
             }
             
-            cellMergeTo.Building.Merge(mergeConfig);
+            cellMergeTo.Tower.Merge(mergeConfig);
             return cellMergeTo;
         }
     }

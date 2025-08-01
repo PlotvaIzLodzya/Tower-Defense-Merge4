@@ -4,27 +4,27 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    [CreateAssetMenu(fileName = "BuildingPresets", menuName = "BuildingPlacement/BuildingPresets")]
+    [CreateAssetMenu(fileName = "BuildingPresets", menuName = "TowerPlacement/BuildingPresets")]
     public class BuildingPresets : ScriptableObject
     {
-        [SerializeField] private BuildingBlock[] _presets;
+        [SerializeField] private TowersBlock[] _presets;
 
-        public BuildingBlock GetRandom()
+        public TowersBlock GetRandom()
         {
             var index = Random.Range(0, _presets.Length);
             return _presets[index];
         }
 
-        public BuildingBlockBlueprint GetRandomBlueprint(int levelRangeExclusive =2)
+        public TowersBlockBlueprint GetRandomBlueprint(int levelRangeExclusive =2)
         {
-            var buildingBlueprint = new List<BuildingBlueprint>();
+            var buildingBlueprint = new List<TowerBlueprint>();
             var index = Random.Range(0, _presets.Length);
             var preset = _presets[index];
         
             foreach (var piece in preset.Form)
             {
                 var level = Random.Range(1, levelRangeExclusive);
-                buildingBlueprint.Add(new BuildingBlueprint()
+                buildingBlueprint.Add(new TowerBlueprint()
                 {
                     Offset = piece.Offset,
                     Stats = new()
@@ -34,14 +34,14 @@ namespace _Source.Scripts.Buildings
                 });
             }
 
-            var buildingBlockBlueprint = new BuildingBlockBlueprint()
+            var buildingBlockBlueprint = new TowersBlockBlueprint()
             {
                 BuildingBlueprints = buildingBlueprint.ToArray(),
             };
             return buildingBlockBlueprint;
         }
         
-        public bool TryGetPreset(BuildingBlockBlueprint blueprint, out BuildingBlock preset)
+        public bool TryGetPreset(TowersBlockBlueprint blueprint, out TowersBlock preset)
         {
             for (int i = 0; i < _presets.Length; i++)
             {
@@ -56,7 +56,7 @@ namespace _Source.Scripts.Buildings
             return false;
         }
 
-        private bool IsValid(BuildingBlockPiece[] form, BuildingBlueprint[] buildingBlueprints)
+        private bool IsValid(TowerBlockPiece[] form, TowerBlueprint[] buildingBlueprints)
         {
             if (form.Length != buildingBlueprints.Length)
                 return false;

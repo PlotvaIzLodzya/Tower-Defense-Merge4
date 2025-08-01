@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741c5f22e4f9a034e957091ed75d54d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.UI.BuildingBlockPreview
-  _buildingPlacementReference: {fileID: 11400000, guid: 6272ccb0646ece5459050ded2e498b2a, type: 2}
+  _towerPlacementReference: {fileID: 11400000, guid: 6272ccb0646ece5459050ded2e498b2a, type: 2}
   _towerPreviews:
   - {fileID: 5330013835142025572}
   - {fileID: 7095241336994899134}

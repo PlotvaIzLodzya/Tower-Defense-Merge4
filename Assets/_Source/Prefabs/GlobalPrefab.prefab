@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingPlacement
   _levelConfigProvider: {fileID: 7265722961766445261}
   _cellGridReference: {fileID: 11400000, guid: fd3f57a5a032b4447b36432d36265bc1, type: 2}
-  _buildingBlockPrefab: {fileID: 7421993068248166449, guid: ff5a612d467c1ba4fa159dcce8e547cf, type: 3}
+  _towersBlockPrefab: {fileID: 5362317712528028255, guid: bfe105e8ddf107446a1c19f8cab0929e, type: 3}
 --- !u!114 &7218254832180057170
 MonoBehaviour:
   m_ObjectHideFlags: 0

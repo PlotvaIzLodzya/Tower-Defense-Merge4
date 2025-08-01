@@ -3,22 +3,22 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    public class BuildingConfig : ScriptableObject
+    public class TowerConfig : ScriptableObject
     {
-        public BuildingStats BuildingStats;
+        public TowerStats TowerStats;
     }
     
-    public class Building : MonoBehaviour
+    public class Tower : MonoBehaviour
     {
         [SerializeField] private TMP_Text _lvl;
-        [SerializeField] private BuildingConfig _config;
+        [SerializeField] private TowerConfig _config;
         
         public Vector3Int GridPosition => transform.position.ToGrid();
-        public BuildingStats Stats { get; private set; }
+        public TowerStats Stats { get; private set; }
 
         private void Awake()
         {
-            Stats = new BuildingStats()
+            Stats = new TowerStats()
             {
                 Level = 1
             };
@@ -29,7 +29,7 @@ namespace _Source.Scripts.Buildings
             transform.localPosition = Vector3.zero;
         }
 
-        public void Merge(BuildingStats stats)
+        public void Merge(TowerStats stats)
         {
             Stats = stats;
             _lvl.text = $"{Stats.Level}";

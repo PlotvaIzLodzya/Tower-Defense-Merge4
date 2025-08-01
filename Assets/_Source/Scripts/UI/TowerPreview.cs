@@ -8,7 +8,7 @@ namespace _Source.Scripts.UI
     {
         [SerializeField] private TMP_Text _lvl;
 
-        public void UpdateView(BuildingStats stats)
+        public void UpdateView(TowerStats stats)
         {
             _lvl.text = $"{stats.Level}";
         }

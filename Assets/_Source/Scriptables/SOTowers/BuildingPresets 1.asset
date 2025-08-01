@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: BuildingPresets 1
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingPresets
   _presets:
-  - {fileID: 5362317712528028255, guid: bfe105e8ddf107446a1c19f8cab0929e, type: 3}
   - {fileID: 3448406145302960946, guid: 161311b60f3460f40941c255bc1d05e6, type: 3}
   - {fileID: 1479724793632737726, guid: 4d760cfb28b22364aa9f758285552aa9, type: 3}
   - {fileID: 1826323353243672104, guid: db3487a554a9e9d4797f67553183b9b3, type: 3}

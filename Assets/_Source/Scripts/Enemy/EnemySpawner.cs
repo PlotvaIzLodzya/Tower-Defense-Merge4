@@ -21,6 +21,7 @@ namespace _Source.Scripts.Enemy
             for (int i = 0; i < _amount; i++)
             {
                 var enemy = Instantiate(_enemyPrefab, _paths[0].transform.position, Quaternion.identity);
+                enemy.transform.SetParent(transform);
                 enemy.StartMoving(_paths);
                 yield return new WaitForSeconds(_delay);
             }

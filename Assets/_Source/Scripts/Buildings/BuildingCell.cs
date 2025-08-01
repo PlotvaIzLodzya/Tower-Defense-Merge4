@@ -5,20 +5,20 @@ namespace _Source.Scripts.Buildings
 {
     public class BuildingCell : MonoBehaviour, ICell
     {
-        public Building Building { get; private set; }
+        public Tower Tower { get; private set; }
         public Vector3Int GridPosition => transform.position.ToGrid();
-        public bool HaveBuilding => Building != null;
+        public bool HaveBuilding => Tower != null;
 
-        public void SetBuilding(Building building)
+        public void SetBuilding(Tower tower)
         {
-            Building = building;
+            Tower = tower;
         }
         
-        public BuildingStats DestroyBuilding()
+        public TowerStats DestroyBuilding()
         {
-            var config = Building.Stats;
-            Building.Destroy();
-            Building = null;
+            var config = Tower.Stats;
+            Tower.Destroy();
+            Tower = null;
             
             return config;
         }

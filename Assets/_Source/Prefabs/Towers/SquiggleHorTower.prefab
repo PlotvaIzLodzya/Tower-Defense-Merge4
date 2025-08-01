@@ -50,13 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingBlock
   Form:
   - Offset: {x: 0, y: 0, z: 0}
-    Building: {fileID: 1744454346790432461}
+    Tower: {fileID: 1744454346790432461}
   - Offset: {x: -1, y: 0, z: 0}
-    Building: {fileID: 8424063867784077882}
+    Tower: {fileID: 8424063867784077882}
   - Offset: {x: 0, y: 0, z: -1}
-    Building: {fileID: 3701433845276899255}
+    Tower: {fileID: 3701433845276899255}
   - Offset: {x: 1, y: 0, z: -1}
-    Building: {fileID: 1601654304152078202}
+    Tower: {fileID: 1601654304152078202}
 --- !u!1001 &165957286091179903
 PrefabInstance:
   m_ObjectHideFlags: 0

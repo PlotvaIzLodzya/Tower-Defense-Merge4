@@ -7,19 +7,19 @@ using UnityEngine.UI;
 
 namespace _Source.Scripts.UI
 {
-    public class BuildingBlockPreview : Panel
+    public class TowersBlockPreview : Panel
     {
-        [SerializeField] private BuildingPlacementReference _buildingPlacementReference;
+        [SerializeField] private TowerPlacementReference _towerPlacementReference;
         [SerializeField] private TowerPreview[] _towerPreviews;
         [SerializeField] private Button _getBlueprintButton;
         
         private int _gridSize;
-        private BuildingPlacement  _buildingPlacement;
-        private BuildingBlockBlueprint _blueprint;
+        private TowerPlacement  _towerPlacement;
+        private TowersBlockBlueprint _blueprint;
 
         public void Awake()
         {
-            _buildingPlacement = _buildingPlacementReference.Value;
+            _towerPlacement = _towerPlacementReference.Value;
             _gridSize = 3;
             _getBlueprintButton.onClick.AddListener(OnGetBlueprintButtonClick);
             foreach (var towerPreview in _towerPreviews)
@@ -33,7 +33,7 @@ namespace _Source.Scripts.UI
             _getBlueprintButton.onClick.RemoveListener(OnGetBlueprintButtonClick);
         }
 
-        public void Construct(BuildingBlockBlueprint blueprint)
+        public void Construct(TowersBlockBlueprint blueprint)
         {
             _blueprint = blueprint;
             var centerIndex = _towerPreviews.Length / 2;
@@ -58,7 +58,7 @@ namespace _Source.Scripts.UI
 
         private void OnGetBlueprintButtonClick()
         {
-            _buildingPlacement.CreateBuilding(_blueprint);
+            _towerPlacement.CreateBuilding(_blueprint);
         }
 
         private Vector3Int GetByIndex(int index, int gridSize)

@@ -6,27 +6,27 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    public class BindBuildingToCell
+    public class BindTowerToCell
     {
         public BuildingCell Cell;
-        public Building Building;
+        public Tower Tower;
 
         public void Build()
         {
-            var building = Object.Instantiate(Building, Cell.transform);
+            var building = Object.Instantiate(Tower, Cell.transform);
             building.OnBuild();
             Cell.SetBuilding(building);   
         }
     }
 
-    public class BuildingPlacement : MonoBehaviour
+    public class TowerPlacement : MonoBehaviour
     {
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
-        [SerializeField] private BuildingBlock _buildingBlockPrefab;
+        [SerializeField] private TowersBlock _towersBlockPrefab;
         
-        private List<BindBuildingToCell> _buildingCells;
-        private BuildingMerge _buildingMerge;
+        private List<BindTowerToCell> _binds;
+        private TowerMerge _towerMerge;
         private Camera _camera;
         private CellGrid _cellGrid;
         private LevelConfig _levelConfig;
@@ -35,8 +35,8 @@ namespace _Source.Scripts.Buildings
         {
             _levelConfig = _levelConfigProvider.LevelConfig;
             _cellGrid = _cellGridReference.Value;
-            _buildingCells = new();
-            _buildingMerge = new(_cellGrid);
+            _binds = new();
+            _towerMerge = new(_cellGrid);
             _camera = Camera.main;
         }
 
@@ -46,10 +46,10 @@ namespace _Source.Scripts.Buildings
                 Place();
         }
 
-        public void CreateBuilding(BuildingBlockBlueprint blueprint)
+        public void CreateBuilding(TowersBlockBlueprint blueprint)
         {
             if(_levelConfig.Presets.TryGetPreset(blueprint, out var prefab))
-                _buildingBlockPrefab = prefab;
+                _towersBlockPrefab = prefab;
         }
 
         private void Place()
@@ -57,27 +57,27 @@ namespace _Source.Scripts.Buildings
             var ray = _camera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
             {
-                _buildingCells.Clear();
-                if (TryGetCellsBy(_buildingBlockPrefab, hit.point, _buildingCells))
+                _binds.Clear();
+                if (TryGetCellsBy(_towersBlockPrefab, hit.point, _binds))
                 {
-                    var canPlace = _buildingCells.All(bind => bind.Cell.HaveBuilding == false);
+                    var canPlace = _binds.All(bind => bind.Cell.HaveBuilding == false);
                     
                     if (canPlace)
                     {
-                        PlaceBuilding(_buildingCells);
-                        _buildingMerge.TryMerge(_buildingCells);
+                        PlaceTower(_binds);
+                        _towerMerge.TryMerge(_binds);
                     }
                 }
             }
         }
 
-        private bool TryGetCellsBy(BuildingBlock building, Vector3 point, List<BindBuildingToCell> bindings)
+        private bool TryGetCellsBy(TowersBlock towers, Vector3 point, List<BindTowerToCell> bindings)
         {
-            foreach (var piece in building.Form)
+            foreach (var piece in towers.Form)
             {
                 var cellPos = point - piece.Offset;
                 if (_cellGrid.TryGetCell<BuildingCell>(cellPos, out var cell))
-                    bindings.Add(new BindBuildingToCell { Cell = cell, Building = piece.Building });
+                    bindings.Add(new BindTowerToCell { Cell = cell, Tower = piece.Tower });
                 else
                     return false;
             }
@@ -85,7 +85,7 @@ namespace _Source.Scripts.Buildings
             return true;
         }
 
-        private void PlaceBuilding(List<BindBuildingToCell> binds)
+        private void PlaceTower(List<BindTowerToCell> binds)
         {
             foreach (var bind in binds)
             {

@@ -7,7 +7,7 @@ namespace _Source.Scripts.UI
     public class BuildingBlockShop : Panel
     {
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
-        [SerializeField] private BuildingBlockPreview[] _previews;
+        [SerializeField] private TowersBlockPreview[] _previews;
         [SerializeField] private Button _refreshButton;
         
         private LevelConfig _levelConfig;

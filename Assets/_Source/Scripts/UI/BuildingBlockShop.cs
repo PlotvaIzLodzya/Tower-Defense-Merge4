@@ -29,10 +29,10 @@ namespace _Source.Scripts.UI
 
         public void Generate()
         {
-            foreach (var b in _previews)
+            foreach (var preview in _previews)
             {
-                var blueprint = _levelConfig.Presets.GetRandomBlueprint(4);
-                b.Construct(blueprint);
+                var blueprint = _levelConfig.Presets.GetRandomPreset(4);
+                preview.Construct(blueprint);
             }
         }
     }

@@ -10,11 +10,6 @@ namespace _Source.Scripts.Buildings
         public Vector3Int Offset;
         public TowerStats Stats;
     }
-
-    public class TowersBlockBlueprint
-    {
-        public TowerBlueprint[] TowersBlueprints;
-    }
     
     public class TowerBlockPreset : MonoBehaviour
     {

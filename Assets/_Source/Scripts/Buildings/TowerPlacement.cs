@@ -46,10 +46,9 @@ namespace _Source.Scripts.Buildings
                 Place();
         }
 
-        public void CreateBuilding(TowersBlockBlueprint blueprint)
+        public void CreateBuilding(TowerBlockPreset presetPrefab)
         {
-            if(_levelConfig.Presets.TryGetPreset(blueprint, out var prefab))
-                _towerBlockPresetPrefab = prefab;
+            _towerBlockPresetPrefab = presetPrefab;
         }
 
         private void Place()

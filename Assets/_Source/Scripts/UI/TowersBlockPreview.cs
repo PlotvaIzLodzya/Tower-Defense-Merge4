@@ -15,7 +15,7 @@ namespace _Source.Scripts.UI
         
         private int _gridSize;
         private TowerPlacement  _towerPlacement;
-        private TowersBlockBlueprint _blueprint;
+        private TowerBlockPreset _blueprint;
 
         public void Awake()
         {
@@ -33,7 +33,7 @@ namespace _Source.Scripts.UI
             _getBlueprintButton.onClick.RemoveListener(OnGetBlueprintButtonClick);
         }
 
-        public void Construct(TowersBlockBlueprint blueprint)
+        public void Construct(TowerBlockPreset blueprint)
         {
             _blueprint = blueprint;
             var centerIndex = _towerPreviews.Length / 2;
@@ -43,7 +43,7 @@ namespace _Source.Scripts.UI
                 var gridPos = GetByIndex(i, _gridSize);
                 var offset = centerGridPos - gridPos;
                 
-                var towerBlueprint = blueprint.TowersBlueprints.FirstOrDefault(b => b.Offset == offset);
+                var towerBlueprint = blueprint.Blueprints.FirstOrDefault(b => b.Offset == offset);
                 if (towerBlueprint != null)
                 {
                     _towerPreviews[i].UpdateView(towerBlueprint.Stats);

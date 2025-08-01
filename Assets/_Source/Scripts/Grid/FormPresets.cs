@@ -62,16 +62,16 @@ public static class FormPresets
         SquiggleHor,
     };
 
-    public static TowersBlockBlueprint GenerateBuildingBlockBlueprint(int levelRangeExclusive = 2)
+    public static TowerBlueprint[] GenerateTowerBlueprints(int levelRangeExclusive = 2)
     {
-        var buildingBlueprint = new List<TowerBlueprint>();
+        var towersBlueprints = new List<TowerBlueprint>();
         var index = Random.Range(0, Presets.Length);
         var preset = Presets[index];
         
         foreach (var offset in preset)
         {
             var level = Random.Range(1, levelRangeExclusive);
-            buildingBlueprint.Add(new TowerBlueprint()
+            towersBlueprints.Add(new TowerBlueprint()
             {
                 Offset = offset,
                 Stats = new()
@@ -80,11 +80,6 @@ public static class FormPresets
                 }
             });
         }
-
-        var buildingBlockBlueprint = new TowersBlockBlueprint()
-        {
-            TowersBlueprints = buildingBlueprint.ToArray(),
-        };
-        return buildingBlockBlueprint;
+        return towersBlueprints.ToArray();
     }
 }

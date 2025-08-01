@@ -43,7 +43,7 @@ namespace _Source.Scripts.UI
                 var gridPos = GetByIndex(i, _gridSize);
                 var offset = centerGridPos - gridPos;
                 
-                var towerBlueprint = blueprint.BuildingBlueprints.FirstOrDefault(b => b.Offset == offset);
+                var towerBlueprint = blueprint.TowersBlueprints.FirstOrDefault(b => b.Offset == offset);
                 if (towerBlueprint != null)
                 {
                     _towerPreviews[i].UpdateView(towerBlueprint.Stats);

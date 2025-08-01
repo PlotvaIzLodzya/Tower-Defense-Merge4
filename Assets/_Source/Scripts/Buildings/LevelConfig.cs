@@ -6,5 +6,6 @@ namespace _Source.Scripts.Buildings
     public class LevelConfig : ScriptableObject
     {
         public BuildingPresets Presets;
+        public Tower TowerPrefab;
     }
 }

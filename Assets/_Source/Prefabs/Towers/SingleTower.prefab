@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44853cc87c984b29a184d6988e26f275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingBlock
-  Form:
+  Blueprints:
   - Offset: {x: 0, y: 0, z: 0}
-    Tower: {fileID: 8798674284052450495}
+    Stats:
+      Level: 0
 --- !u!1001 &5406730342772227191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,14 +111,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 5406730342772227191}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8798674284052450495 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3536376003587485896, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
-  m_PrefabInstance: {fileID: 5406730342772227191}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8df67d1b89f4fb3be9ea201c13d4e91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Building

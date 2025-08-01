@@ -83,7 +83,7 @@ public static class FormPresets
 
         var buildingBlockBlueprint = new TowersBlockBlueprint()
         {
-            BuildingBlueprints = buildingBlueprint.ToArray(),
+            TowersBlueprints = buildingBlueprint.ToArray(),
         };
         return buildingBlockBlueprint;
     }

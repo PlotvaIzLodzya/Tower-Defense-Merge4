@@ -23,7 +23,7 @@ namespace _Source.Scripts.Buildings
     {
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
-        [SerializeField] private TowersBlock _towersBlockPrefab;
+        [SerializeField] private TowerBlockPreset _towerBlockPresetPrefab;
         
         private List<BindTowerToCell> _binds;
         private TowerMerge _towerMerge;
@@ -49,7 +49,7 @@ namespace _Source.Scripts.Buildings
         public void CreateBuilding(TowersBlockBlueprint blueprint)
         {
             if(_levelConfig.Presets.TryGetPreset(blueprint, out var prefab))
-                _towersBlockPrefab = prefab;
+                _towerBlockPresetPrefab = prefab;
         }
 
         private void Place()
@@ -58,7 +58,7 @@ namespace _Source.Scripts.Buildings
             if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
             {
                 _binds.Clear();
-                if (TryGetCellsBy(_towersBlockPrefab, hit.point, _binds))
+                if (TryGetCellsBy(_towerBlockPresetPrefab, hit.point, _binds))
                 {
                     var canPlace = _binds.All(bind => bind.Cell.HaveBuilding == false);
                     
@@ -71,15 +71,19 @@ namespace _Source.Scripts.Buildings
             }
         }
 
-        private bool TryGetCellsBy(TowersBlock towers, Vector3 point, List<BindTowerToCell> bindings)
+        private bool TryGetCellsBy(TowerBlockPreset towersBlock, Vector3 point, List<BindTowerToCell> bindings)
         {
-            foreach (var piece in towers.Form)
+            foreach (var blueprint in towersBlock.Blueprints)
             {
-                var cellPos = point - piece.Offset;
+                var cellPos = point - blueprint.Offset;
                 if (_cellGrid.TryGetCell<BuildingCell>(cellPos, out var cell))
-                    bindings.Add(new BindTowerToCell { Cell = cell, Tower = piece.Tower });
+                {
+                    bindings.Add(new BindTowerToCell { Cell = cell, Tower = _levelConfig.TowerPrefab });
+                }
                 else
+                {
                     return false;
+                }
             }
             
             return true;

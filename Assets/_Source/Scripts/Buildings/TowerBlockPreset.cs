@@ -5,13 +5,6 @@ using UnityEngine;
 namespace _Source.Scripts.Buildings
 {
     [Serializable]
-    public class TowerBlockPiece
-    {
-        public Vector3Int Offset;
-        public Tower Tower;
-    }
-
-    [Serializable]
     public class TowerBlueprint
     {
         public Vector3Int Offset;
@@ -20,24 +13,24 @@ namespace _Source.Scripts.Buildings
 
     public class TowersBlockBlueprint
     {
-        public TowerBlueprint[] BuildingBlueprints;
+        public TowerBlueprint[] TowersBlueprints;
     }
     
-    public class TowersBlock : MonoBehaviour
+    public class TowerBlockPreset : MonoBehaviour
     {
-        public TowerBlockPiece[] Form;
+        public TowerBlueprint[] Blueprints;
 
         [ContextMenu("Setup form")]
         public void UpdateForm()
         {
             var towers = GetComponentsInChildren<Tower>();
-            Form = new TowerBlockPiece[towers.Length];
+            Blueprints = new TowerBlueprint[towers.Length];
             for (int i = 0; i < towers.Length; i++)
             {
                 var tower = towers[i];
-                Form[i] = new TowerBlockPiece()
+                Blueprints[i] = new TowerBlueprint()
                 {
-                    Tower = tower,
+                    Stats = tower.Stats,
                     Offset = tower.transform.localPosition.ToGrid(),
                 };
             }

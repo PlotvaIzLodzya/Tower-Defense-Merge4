@@ -7,9 +7,9 @@ namespace _Source.Scripts.Buildings
     [CreateAssetMenu(fileName = "BuildingPresets", menuName = "TowerPlacement/BuildingPresets")]
     public class BuildingPresets : ScriptableObject
     {
-        [SerializeField] private TowersBlock[] _presets;
+        [SerializeField] private TowerBlockPreset[] _presets;
 
-        public TowersBlock GetRandom()
+        public TowerBlockPreset GetRandom()
         {
             var index = Random.Range(0, _presets.Length);
             return _presets[index];
@@ -21,7 +21,7 @@ namespace _Source.Scripts.Buildings
             var index = Random.Range(0, _presets.Length);
             var preset = _presets[index];
         
-            foreach (var piece in preset.Form)
+            foreach (var piece in preset.Blueprints)
             {
                 var level = Random.Range(1, levelRangeExclusive);
                 buildingBlueprint.Add(new TowerBlueprint()
@@ -36,34 +36,34 @@ namespace _Source.Scripts.Buildings
 
             var buildingBlockBlueprint = new TowersBlockBlueprint()
             {
-                BuildingBlueprints = buildingBlueprint.ToArray(),
+                TowersBlueprints = buildingBlueprint.ToArray(),
             };
             return buildingBlockBlueprint;
         }
         
-        public bool TryGetPreset(TowersBlockBlueprint blueprint, out TowersBlock preset)
+        public bool TryGetPreset(TowersBlockBlueprint blueprint, out TowerBlockPreset blockPreset)
         {
             for (int i = 0; i < _presets.Length; i++)
             {
-                if (IsValid(_presets[i].Form, blueprint.BuildingBlueprints))
+                if (IsValid(_presets[i].Blueprints, blueprint.TowersBlueprints))
                 {
-                    preset = _presets[i];
+                    blockPreset = _presets[i];
                     return true;
                 }
             }
             
-            preset = null;
+            blockPreset = null;
             return false;
         }
 
-        private bool IsValid(TowerBlockPiece[] form, TowerBlueprint[] buildingBlueprints)
+        private bool IsValid(TowerBlueprint[] blueprint, TowerBlueprint[] buildingBlueprints)
         {
-            if (form.Length != buildingBlueprints.Length)
+            if (blueprint.Length != buildingBlueprints.Length)
                 return false;
             
             for (int i = 0; i < buildingBlueprints.Length; i++)
             {
-                if(form[i].Offset != buildingBlueprints[i].Offset)
+                if(blueprint[i].Offset != buildingBlueprints[i].Offset)
                     return false;
             }
 

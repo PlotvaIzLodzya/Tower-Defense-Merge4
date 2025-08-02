@@ -1015,6 +1015,8 @@ GameObject:
   m_Component:
   - component: {fileID: 169122019}
   - component: {fileID: 169122018}
+  - component: {fileID: 169122021}
+  - component: {fileID: 169122020}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1034,6 +1036,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e203ddbc19734059a68e2e5c0ac323a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Enemy.EnemySpawner
+  _enemyPool: {fileID: 169122021}
   _paths:
   - {fileID: 1550661874}
   - {fileID: 1599101970}
@@ -1074,6 +1077,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &169122020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169122017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9285395ee6844d3b802ac1f14f77fcdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.ReferencesAndSources.EnemyPoolSource
+  _reference: {fileID: 11400000, guid: 2d248ac51c0c14a40857adf3284f3668, type: 2}
+  _referenceAsset: {fileID: 11400000, guid: 2d248ac51c0c14a40857adf3284f3668, type: 2}
+  _referenceListAsset: {fileID: 0}
+--- !u!114 &169122021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169122017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a40c46b8b043a993959dcd53b79c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Battle.EnemyPool
 --- !u!1001 &196983531
 PrefabInstance:
   m_ObjectHideFlags: 0

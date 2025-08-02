@@ -6,6 +6,7 @@ namespace _Source.Scripts.Battle
 {
     public class EnemySpawner : MonoBehaviour
     {
+        [SerializeField] private EnemyPool _enemyPool;
         [SerializeField] private Path[] _paths;
         [SerializeField] private Enemy _enemyPrefab;
         [SerializeField] private int _amount;
@@ -23,6 +24,7 @@ namespace _Source.Scripts.Battle
                 var enemy = Instantiate(_enemyPrefab, _paths[0].transform.position, Quaternion.identity);
                 enemy.transform.SetParent(transform);
                 enemy.StartMoving(_paths);
+                _enemyPool.Add(enemy);
                 yield return new WaitForSeconds(_delay);
             }
         }

@@ -7,13 +7,17 @@ namespace _Source.Scripts.Buildings
 {
     public class FirstAtPath : ITargetSeek
     {
-        private List<Enemy> _enemies;
+        private EnemyPool _enemiesPoolPool;
+        private Transform _shootPoint;
         private Enemy _current;
+        private TowerStats _stats;
         private bool _lockIn;
 
-        public FirstAtPath(List<Enemy> enemies, bool lockIn)
+        public FirstAtPath(EnemyPool enemiesPool, Transform shootPoint, TowerStats stats, bool lockIn)
         {
-            _enemies = enemies;
+            _stats = stats;
+            _shootPoint = shootPoint;
+            _enemiesPoolPool = enemiesPool;
             _lockIn = lockIn;
         }
 
@@ -21,7 +25,7 @@ namespace _Source.Scripts.Buildings
         {
             enemy = null;
             
-            if (_enemies.Count == 0)
+            if (_enemiesPoolPool.HaveEnemy == false)
                 return false;
             
             if (_lockIn && _current != null && _current.IsDead == false)
@@ -31,9 +35,24 @@ namespace _Source.Scripts.Buildings
                 return true;
             }
 
-            enemy = _enemies[0];
+            enemy = _enemiesPoolPool.GetEnemy(ChooseTarget);
+            if(enemy == null)
+                return false;
+            
             _current = enemy;
             return enemy;
+        }
+
+        private Enemy ChooseTarget(List<Enemy> enemies)
+        {
+            var enemyInRange = enemies.FirstOrDefault(e => IsInAttackRadius(e.transform.position));
+
+            return enemyInRange;
+        }
+
+        private bool IsInAttackRadius(Vector3 target)
+        {
+            return Vector3.Distance(_shootPoint.position, target) <= _stats.AttackRadius;
         }
     }
 }

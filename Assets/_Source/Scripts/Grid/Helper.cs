@@ -74,4 +74,12 @@ public static class Helper
 
         return new Vector3(x, y, z);
     }
+
+    public static void ThrowIfNull<T>(this T obj) where T : class
+    {
+        if (obj == null)
+        {
+            throw new System.Exception($"{typeof(T).Name} is not set");
+        }
+    }
 }

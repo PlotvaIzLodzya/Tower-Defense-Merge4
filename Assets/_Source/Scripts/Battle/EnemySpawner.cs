@@ -2,7 +2,7 @@
 using _Source.Scripts.Grid;
 using UnityEngine;
 
-namespace _Source.Scripts.Enemy
+namespace _Source.Scripts.Battle
 {
     public class EnemySpawner : MonoBehaviour
     {

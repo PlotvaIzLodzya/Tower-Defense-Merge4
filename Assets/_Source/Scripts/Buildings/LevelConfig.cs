@@ -7,5 +7,11 @@ namespace _Source.Scripts.Buildings
     {
         public BuildingPresets Presets;
         public Tower TowerPrefab;
+
+        private void OnValidate()
+        {
+            Presets.ThrowIfNull();
+            TowerPrefab.ThrowIfNull();
+        }
     }
 }

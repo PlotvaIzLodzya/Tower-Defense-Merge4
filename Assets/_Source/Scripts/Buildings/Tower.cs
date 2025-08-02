@@ -7,22 +7,15 @@ namespace _Source.Scripts.Buildings
     {
         public TowerStats TowerStats;
     }
-    
-    public class Tower : MonoBehaviour
+
+    public abstract class Tower : MonoBehaviour
     {
         [SerializeField] private TMP_Text _lvl;
-        [SerializeField] private TowerConfig _config;
+        
+        [field: SerializeField] public TowerStats Stats { get; private set; }
+        // [SerializeField] private TowerConfig _config;
         
         public Vector3Int GridPosition => transform.position.ToGrid();
-        public TowerStats Stats { get; private set; }
-
-        private void Awake()
-        {
-            Stats = new TowerStats()
-            {
-                Level = 1
-            };
-        }
 
         public void OnBuild()
         {

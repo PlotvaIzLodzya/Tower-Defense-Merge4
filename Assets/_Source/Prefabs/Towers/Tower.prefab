@@ -189,7 +189,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2351844493558421915}
   - component: {fileID: 8967496374974604238}
-  - component: {fileID: 3536376003587485896}
+  - component: {fileID: 764946558082808405}
+  - component: {fileID: 6980067135596368928}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -271,7 +272,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3536376003587485896
+--- !u!114 &764946558082808405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,8 +281,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 2584351095680270508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8df67d1b89f4fb3be9ea201c13d4e91, type: 3}
+  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Building
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
   _lvl: {fileID: 44428093014334853}
-  _config: {fileID: 0}
+  <Stats>k__BackingField:
+    Level: 1
+    AttackRadius: 25
+    Damage: 50
+    AttackSpeed: 300
+  _enemyTrigger: {fileID: 6980067135596368928}
+--- !u!135 &6980067135596368928
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2584351095680270508}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.50000006
+  m_Center: {x: 0, y: 0, z: 0}

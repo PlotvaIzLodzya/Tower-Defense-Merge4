@@ -16,9 +16,13 @@ namespace _Source.Scripts.Buildings
             _cellGrid = cellGrid;
         }
 
-        public void TryMerge(List<BindTowerToCell> bindBuildingsToCells)
+        public void TryMerge(List<BindTowerToCell> bindings)
         {
-            foreach (var bind in bindBuildingsToCells)
+            bindings = bindings.OrderByDescending(b=>b.Cell.GridPosition.x)
+                .ThenBy(b =>b.Cell.GridPosition.z)
+                .ToList();
+            
+            foreach (var bind in bindings)
             {
                 _squareCell.Clear();
                 if (_cellGrid.SquareCheck(bind.Cell, _squareCell, IsCellValid))

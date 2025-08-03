@@ -12,7 +12,7 @@ namespace _Source.Scripts.Battle
         [SerializeField] private int _amount;
         [SerializeField] private float _delay;
 
-        private void Awake()
+        private void Start()
         {
             StartCoroutine(Spawning());
         }

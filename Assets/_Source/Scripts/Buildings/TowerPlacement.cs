@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Grid;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _Source.Scripts.Buildings
 {
@@ -27,6 +29,7 @@ namespace _Source.Scripts.Buildings
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private TowerBlockPreset _towerBlockPresetPrefab;
         
+        private SortedSet<BindTowerToCell> _bindsSorted;
         private List<BindTowerToCell> _binds;
         private TowerMerge _towerMerge;
         private Camera _camera;
@@ -82,12 +85,12 @@ namespace _Source.Scripts.Buildings
                     var towerPrefab = _levelConfig.TowerPrefab;
                     var bind = new BindTowerToCell { Cell = cell, Tower = towerPrefab, Stats = blueprint.Stats};
                     bindings.Add(bind);
-                    
                 }
                 else
                 {
                     return false;
                 }
+                
             }
             
             return true;

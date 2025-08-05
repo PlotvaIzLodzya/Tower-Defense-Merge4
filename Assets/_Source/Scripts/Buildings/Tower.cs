@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
@@ -31,6 +32,19 @@ namespace _Source.Scripts.Buildings
         public void Destroy()
         {
             Destroy(gameObject);
+        }
+
+        public IEnumerator MergingEffect(Tower targetTower)
+        {
+            var time = 0.3f;
+            var elapsedTime = 0f;
+            var startPosition = transform.position;
+            while (elapsedTime < time)
+            {
+                transform.position = Vector3.Lerp(startPosition, targetTower.transform.position, elapsedTime / time);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }

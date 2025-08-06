@@ -11,43 +11,22 @@ namespace _Source.Scripts.Buildings
         public Tower Tower { get; private set; }
         public Vector3Int GridPosition => transform.position.ToGrid();
         public bool HaveBuilding => Tower != null;
-        public bool WillBeMerged { get; private set; }
+        public bool IsInMerge { get; private set; }
 
         public void SetBuilding(Tower tower)
         {
             Tower = tower;
         }
-
-        private void Update()
+        
+        public void MarkToMerge(bool value)
         {
-            if(WillBeMerged)
-                Debug.Log(transform.name );
-        }
-
-        public void SetWillBeMerged(bool value)
-        {
-            WillBeMerged = value;
+            IsInMerge = value;
         }
         
-        public TowerStats DestroyBuilding()
+        public void DestroyBuilding()
         {
-            var config = Tower.Stats;
             Tower.Destroy();
             Tower = null;
-            
-            return config;
-        }
-
-        public void MergeTo(Tower tower)
-        {
-            StartCoroutine(MergingTo(tower));
-        }
-
-        private IEnumerator MergingTo(Tower tower)
-        {
-            yield return Tower.MergingEffect(tower);
-            
-            DestroyBuilding();
         }
     }
 }

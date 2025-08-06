@@ -28,6 +28,7 @@ namespace _Source.Scripts.Buildings
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private TowerBlockPreset _towerBlockPresetPrefab;
+        [SerializeField] private MergeEffect _mergeEffect;
         
         private SortedSet<BindTowerToCell> _bindsSorted;
         private List<BindTowerToCell> _binds;
@@ -41,7 +42,7 @@ namespace _Source.Scripts.Buildings
             _levelConfig = _levelConfigProvider.LevelConfig;
             _cellGrid = _cellGridReference.Value;
             _binds = new();
-            _towerMerge = new(_cellGrid);
+            _towerMerge = new(_cellGrid, _mergeEffect);
             _camera = Camera.main;
         }
 

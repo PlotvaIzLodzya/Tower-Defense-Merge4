@@ -26,7 +26,7 @@ namespace _Source.Scripts.Buildings
 
         public void TryMerge(List<BindTowerToCell> bindings)
         {
-            bindings = bindings.OrderByDescending(b=>b.Cell.GridPosition.x)
+            bindings = bindings.OrderBy(b=>b.Cell.GridPosition.x)
                                .ThenBy(b =>b.Cell.GridPosition.z)
                                .ToList();
             
@@ -63,6 +63,7 @@ namespace _Source.Scripts.Buildings
                 mergeConfig.Add(cell.Tower.Stats);
                 cell.MarkToMerge(true);
             }
+            cellToMerge[0].MarkToMerge(false);
 
             var mergeData = new MergeData()
             {

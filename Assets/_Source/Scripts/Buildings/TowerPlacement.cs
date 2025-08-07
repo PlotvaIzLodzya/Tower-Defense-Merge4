@@ -70,7 +70,7 @@ namespace _Source.Scripts.Buildings
                     if (canPlace)
                     {
                         PlaceTower(_binds);
-                        _towerMerge.TryMerge(_binds);
+                        StartCoroutine(_towerMerge.TryMerge(_binds));
                     }
                 }
             }

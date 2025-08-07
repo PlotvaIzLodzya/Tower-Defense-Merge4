@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Grid;
 
@@ -24,7 +25,7 @@ namespace _Source.Scripts.Buildings
             _mergeEffect = mergeEffect;
         }
 
-        public void TryMerge(List<BindTowerToCell> bindings)
+        public IEnumerator TryMerge(List<BindTowerToCell> bindings)
         {
             bindings = bindings.OrderBy(b=>b.Cell.GridPosition.x)
                                .ThenBy(b =>b.Cell.GridPosition.z)
@@ -34,21 +35,33 @@ namespace _Source.Scripts.Buildings
             foreach (var bind in bindings)
             {
                 _squareCell.Clear();
-                
+
                 if (_cellGrid.SquareCheck(bind.Cell, _squareCell, IsCellValid))
-                    AddMergeData(bind.Cell, _squareCell, mergeData);
+                    yield return SquareChecking(bind.Cell, _squareCell, mergeData);
             }
-            
-            _mergeEffect.Play(mergeData);
         }
-        
-        private void AddMergeData(BuildingCell cell, List<BuildingCell> squareCell, List<MergeData> mergeData)
+
+        private IEnumerator SquareChecking(BuildingCell cell, List<BuildingCell> squareCell, List<MergeData> mergeData)
         {
             squareCell.Clear();
             while (_cellGrid.SquareCheck(cell, squareCell, IsCellValid))
             {
-                mergeData.Add(CreateMergeData(squareCell));
+                yield return Merging(squareCell);
             }
+        }
+
+        private IEnumerator Merging(List<BuildingCell> cellToMerge)
+        {
+            var mergeData = CreateMergeData(cellToMerge);
+            
+            yield return _mergeEffect.Play(mergeData, Merge);
+        }
+
+        private void Merge(MergeData mergeData)
+        {
+            var cellsToMerge = mergeData.CellsToMerge;
+            var cellMergeTo = cellsToMerge[0];
+            cellMergeTo.Tower.SetStats(mergeData.Config);
         }
 
         private MergeData CreateMergeData(List<BuildingCell> cellToMerge)
@@ -61,9 +74,7 @@ namespace _Source.Scripts.Buildings
             foreach (var cell in cellToMerge)
             {
                 mergeConfig.Add(cell.Tower.Stats);
-                cell.MarkToMerge(true);
             }
-            cellToMerge[0].MarkToMerge(false);
 
             var mergeData = new MergeData()
             {
@@ -73,12 +84,10 @@ namespace _Source.Scripts.Buildings
             
             return mergeData;
         }
-        
 
         private bool IsCellValid(BuildingCell cell)
         {
-            return cell.HaveBuilding && cell.IsInMerge == false;
+            return cell.HaveBuilding;
         }
-        
     }
 }

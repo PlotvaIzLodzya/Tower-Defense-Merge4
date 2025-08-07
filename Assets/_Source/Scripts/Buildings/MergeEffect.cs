@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using _Source.Scripts.GameFeatures;
 using UnityEngine;
@@ -9,24 +10,22 @@ namespace _Source.Scripts.Buildings
     {
         [SerializeField] private GamePause _gamePause;
         
-        public void Play(List<MergeData> mergeData)
+        public Coroutine Play(MergeData mergeData, Action<MergeData> afterMerge)
         {
-            StartCoroutine(MergingTowers(mergeData));
+            return StartCoroutine(MergingTowers(mergeData,afterMerge));
         }
 
-        private IEnumerator MergingTowers(List<MergeData> mergeData)
+        private IEnumerator MergingTowers(MergeData mergeData, Action<MergeData> afterMerge)
         {
-            foreach (var data in mergeData)
-            {
-                _gamePause.Pause();
-                var cellsToMerge = data.CellsToMerge;
-                var cellMergeTo = cellsToMerge[0];
-                yield return MergingTower(cellsToMerge);
-                cellMergeTo.MarkToMerge(false);
-                cellMergeTo.Tower.SetStats(data.Config);
-                _gamePause.Resume();
-                yield return new WaitForSeconds(0.1f);
-            }
+            _gamePause.Pause();
+
+            yield return MergingTower(mergeData.CellsToMerge);
+            
+            afterMerge(mergeData);
+            _gamePause.Resume();
+            
+            yield return new WaitForSeconds(0.1f);
+
         }
 
         private IEnumerator MergingTower(List<BuildingCell> cellsToMerge)
@@ -43,7 +42,6 @@ namespace _Source.Scripts.Buildings
             for (int i = 1; i < cellsToMerge.Count; i++)
             {
                 cellsToMerge[i].DestroyBuilding();
-                cellsToMerge[i].MarkToMerge(false);
             }
         }
         

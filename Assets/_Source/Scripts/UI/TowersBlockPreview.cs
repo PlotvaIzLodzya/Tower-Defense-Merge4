@@ -15,7 +15,7 @@ namespace _Source.Scripts.UI
         
         private int _gridSize;
         private TowerPlacement  _towerPlacement;
-        private TowerBlockPreset _blueprint;
+        private TowerBlockPreset _preset;
 
         public void Awake()
         {
@@ -35,7 +35,7 @@ namespace _Source.Scripts.UI
 
         public void Construct(TowerBlockPreset blueprint)
         {
-            _blueprint = blueprint;
+            _preset = blueprint;
             var centerIndex = _towerPreviews.Length / 2;
             var centerGridPos = GetByIndex(centerIndex, _gridSize);
             for (int i = 0; i < _towerPreviews.Length; i++)
@@ -58,7 +58,7 @@ namespace _Source.Scripts.UI
 
         private void OnGetBlueprintButtonClick()
         {
-            _towerPlacement.CreateBuilding(_blueprint);
+            _towerPlacement.SetPresetPrefab(_preset);
         }
 
         private Vector3Int GetByIndex(int index, int gridSize)

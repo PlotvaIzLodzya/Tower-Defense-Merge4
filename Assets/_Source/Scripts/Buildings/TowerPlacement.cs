@@ -52,7 +52,7 @@ namespace _Source.Scripts.Buildings
                 Place();
         }
 
-        public void CreateBuilding(TowerBlockPreset presetPrefab)
+        public void SetPresetPrefab(TowerBlockPreset presetPrefab)
         {
             _towerBlockPresetPrefab = presetPrefab;
         }

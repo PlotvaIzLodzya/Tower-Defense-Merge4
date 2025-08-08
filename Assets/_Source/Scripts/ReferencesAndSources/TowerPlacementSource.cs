@@ -3,7 +3,7 @@ using BananaParty.Arch;
 
 namespace _Source.Scripts.ReferencesAndSources
 {
-    public class BuildingPlacementSource : ReferenceSource<TowerPlacement>
+    public class TowerPlacementSource : ReferenceSource<TowerPlacement>
     {
 
     }

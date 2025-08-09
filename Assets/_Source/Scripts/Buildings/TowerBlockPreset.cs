@@ -14,11 +14,13 @@ namespace _Source.Scripts.Buildings
     public class TowerBlockPreset : MonoBehaviour
     {
         public TowerBlueprint[] Blueprints;
-
+        [SerializeField] private Tower[] _towers;
+        
         [ContextMenu("Setup form")]
         public void UpdateForm()
         {
             var towers = GetComponentsInChildren<Tower>();
+            _towers = towers;
             Blueprints = new TowerBlueprint[towers.Length];
             for (int i = 0; i < towers.Length; i++)
             {
@@ -32,6 +34,15 @@ namespace _Source.Scripts.Buildings
 #if UNITY_EDITOR
             EditorUtility.SetDirty(gameObject);
 #endif
+        }
+        
+        public void UpdateTowersView()
+        {
+            for (int i = 0; i < _towers.Length; i++)
+            {
+                _towers[i].SetStats(Blueprints[i].Stats);
+                
+            }
         }
     }
 }

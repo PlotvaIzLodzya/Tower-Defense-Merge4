@@ -12,7 +12,6 @@ namespace _Source.Scripts.UI
     {
         [SerializeField] private TowerPlacementBufferReference _towerPlacementBufferReference;
         [SerializeField] private TowerPreview[] _towerPreviews;
-        [SerializeField] private Button _getBlueprintButton;
         
         private int _gridSize;
         private TowerPlacementBuffer  _placementBuffer;
@@ -22,24 +21,23 @@ namespace _Source.Scripts.UI
         {
             _placementBuffer = _towerPlacementBufferReference.Value;
             _gridSize = 3;
-            // _getBlueprintButton.onClick.AddListener(OnGetBlueprintButtonClick);
             foreach (var towerPreview in _towerPreviews)
             {
                 towerPreview.Hide();
             }
         }
 
-        public void Construct(TowerBlockPreset blueprint)
+        public void Construct(TowerBlockPreset preset)
         {
-            _preset = blueprint;
+            _preset = preset;
             var centerIndex = _towerPreviews.Length / 2;
             var centerGridPos = GetByIndex(centerIndex, _gridSize);
             for (int i = 0; i < _towerPreviews.Length; i++)
             {
                 var gridPos = GetByIndex(i, _gridSize);
-                var offset = centerGridPos - gridPos;
+                var offset = gridPos - centerGridPos;
                 
-                var towerBlueprint = blueprint.Blueprints.FirstOrDefault(b => b.Offset == offset);
+                var towerBlueprint = preset.Blueprints.FirstOrDefault(b => b.Offset == offset);
                 if (towerBlueprint != null)
                 {
                     _towerPreviews[i].UpdateView(towerBlueprint.Stats);

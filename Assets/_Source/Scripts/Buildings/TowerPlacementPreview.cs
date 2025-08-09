@@ -1,7 +1,5 @@
-﻿using System;
-using _Source.Scripts.Controls;
+﻿using _Source.Scripts.Controls;
 using _Source.Scripts.ReferencesAndSources;
-using _Source.Scripts.UI;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
@@ -33,6 +31,8 @@ namespace _Source.Scripts.Buildings
         {
             _towerBlockPreset = towerBlockPreset;
             _towerPreview = Instantiate(_towerBlockPreset, transform);
+            _towerPreview.UpdateTowersView();
+            _towerPreview.transform.localPosition = Vector3.zero;
         }
 
         public void DeletePreview()

@@ -50,13 +50,23 @@ MonoBehaviour:
   Blueprints:
   - Offset: {x: 0, y: 0, z: 0}
     Stats:
-      Level: 0
+      Level: 1
+      ProjectileStats:
+        Speed: 15
   - Offset: {x: 0, y: 0, z: 1}
     Stats:
-      Level: 0
+      Level: 1
+      ProjectileStats:
+        Speed: 15
   - Offset: {x: 0, y: 0, z: -1}
     Stats:
-      Level: 0
+      Level: 1
+      ProjectileStats:
+        Speed: 15
+  _towers:
+  - {fileID: 8229819208286572781}
+  - {fileID: 1489317672261841343}
+  - {fileID: 7551702349142857628}
 --- !u!1001 &2177134587267648490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,6 +124,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+--- !u!114 &1489317672261841343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 2177134587267648490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
 --- !u!4 &4509741793323782769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
@@ -181,6 +202,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 7084350856745348553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7551702349142857628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 7084350856745348553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
 --- !u!1001 &8695204171994196664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -243,3 +275,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 8695204171994196664}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8229819208286572781 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 8695204171994196664}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower

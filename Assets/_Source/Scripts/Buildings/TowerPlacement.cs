@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Controls;
 using _Source.Scripts.Grid;
@@ -87,16 +86,22 @@ namespace _Source.Scripts.Buildings
                         PlaceTower(_binds);
                         StartCoroutine(_towerMerge.TryMerge(_binds));
                         _towerPreview.DeletePreview();
+                        
+                        return;
                     }
                 }
             }
+            
+            _towerBlockPresetPrefab = null;
+            _towerPreview.DeletePreview();
+            
         }
 
         private bool TryGetCellsBy(TowerBlockPreset towersBlock, Vector3 point, List<BindTowerToCell> bindings)
         {
             foreach (var blueprint in towersBlock.Blueprints)
             {
-                var cellPos = point - blueprint.Offset;
+                var cellPos = point + blueprint.Offset;
                 if (_cellGrid.TryGetCell<BuildingCell>(cellPos, out var cell))
                 {
                     var towerPrefab = _levelConfig.TowerPrefab;

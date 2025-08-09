@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20238087a1c2465f8a4e2b8de41a39f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingPlacement
+  _inputReference: {fileID: 11400000, guid: 221510a13266b60448a46fef3fbda2d4, type: 2}
   _towerPreview: {fileID: 3724447693819148725}
   _levelConfigProvider: {fileID: 7265722961766445261}
   _cellGridReference: {fileID: 11400000, guid: fd3f57a5a032b4447b36432d36265bc1, type: 2}
@@ -638,6 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780db63de3c24569aef0e7587677d6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.TowerPlacementPreview
+  _inputReference: {fileID: 11400000, guid: 221510a13266b60448a46fef3fbda2d4, type: 2}
 --- !u!1 &6963854364453966661
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +685,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.MergeEffect
   _gamePause: {fileID: 7284086839940560962}
+--- !u!1 &6980336513310535049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7124556823234203799}
+  - component: {fileID: 5690287204582345706}
+  - component: {fileID: 7118201099007378503}
+  m_Layer: 0
+  m_Name: Input
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7124556823234203799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980336513310535049}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5304119267724303426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5690287204582345706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980336513310535049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84ff0497946dcee4686344d90c18571e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Controls.DefaultInput
+--- !u!114 &7118201099007378503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6980336513310535049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9251889fa1b64e888c001d3d7cbd6eb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.ReferencesAndSources.InputSource
+  _reference: {fileID: 11400000, guid: 221510a13266b60448a46fef3fbda2d4, type: 2}
+  _referenceAsset: {fileID: 11400000, guid: 221510a13266b60448a46fef3fbda2d4, type: 2}
+  _referenceListAsset: {fileID: 0}
 --- !u!1 &7236025179404489872
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +774,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7124556823234203799}
   - {fileID: 4549222762410108265}
   - {fileID: 8359477012597061571}
   - {fileID: 8458247869299244233}

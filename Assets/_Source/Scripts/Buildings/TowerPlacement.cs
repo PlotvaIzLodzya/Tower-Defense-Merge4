@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using _Source.Scripts.Controls;
 using _Source.Scripts.Grid;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
@@ -25,21 +26,24 @@ namespace _Source.Scripts.Buildings
 
     public class TowerPlacement : MonoBehaviour
     {
+        [SerializeField] private InputReference _inputReference;
         [SerializeField] private TowerPlacementPreview _towerPreview;
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private TowerBlockPreset _towerBlockPresetPrefab;
         [SerializeField] private MergeEffect _mergeEffect;
         
-        private SortedSet<BindTowerToCell> _bindsSorted;
-        private List<BindTowerToCell> _binds;
+        private IInput _input;
         private TowerMerge _towerMerge;
         private Camera _camera;
         private CellGrid _cellGrid;
         private LevelConfig _levelConfig;
+        private SortedSet<BindTowerToCell> _bindsSorted;
+        private List<BindTowerToCell> _binds;
 
         private void Start()
         {
+            _input = _inputReference.Value;
             _levelConfig = _levelConfigProvider.LevelConfig;
             _cellGrid = _cellGridReference.Value;
             _binds = new();
@@ -49,7 +53,7 @@ namespace _Source.Scripts.Buildings
 
         private void Update()
         {
-            if (Input.GetMouseButtonUp(0))
+            if (_input.PointerUp)
                 Place();
         }
 
@@ -61,7 +65,7 @@ namespace _Source.Scripts.Buildings
 
         private void Place()
         {
-            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+            var ray = _camera.ScreenPointToRay(_input.PointerPosition);
             if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
             {
                 _binds.Clear();

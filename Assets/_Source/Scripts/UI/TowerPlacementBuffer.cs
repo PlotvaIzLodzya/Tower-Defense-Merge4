@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace _Source.Scripts.UI
 {
-    public class TowerPlacementBuffer : MonoBehaviour, IPointerExitHandler
+    public class TowerPlacementBuffer : MonoBehaviour, IPointerExitHandler, IPointerClickHandler
     {
         [SerializeField] private TowerPlacementReference _towerPlacementReference;
         
@@ -29,6 +29,12 @@ namespace _Source.Scripts.UI
                 _towerPlacement.SetPresetPrefab(_prefab);
             
             _prefab = null;
+        }
+        
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            _prefab = null;
+            _towerPlacement.DeleteCurrent();
         }
     }
 }

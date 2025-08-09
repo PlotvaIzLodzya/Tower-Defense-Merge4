@@ -63,8 +63,17 @@ namespace _Source.Scripts.Buildings
             _towerPreview.SetTowerBlockPreset(presetPrefab);
         }
 
+        public void DeleteCurrent()
+        {
+            _towerBlockPresetPrefab = null;
+            _towerPreview.DeletePreview();
+        }
+
         private void Place()
         {
+            if(_towerBlockPresetPrefab == null)
+                return;
+            
             var ray = _camera.ScreenPointToRay(_input.PointerPosition);
             if (Physics.Raycast(ray, out var hit) && _cellGrid.HasCell<BuildingCell>(hit.point))
             {

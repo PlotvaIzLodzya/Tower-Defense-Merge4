@@ -37,7 +37,8 @@ namespace _Source.Scripts.Buildings
 
         public void DeletePreview()
         {
-            Destroy(_towerPreview.gameObject);
+            if(_towerPreview != null)
+                Destroy(_towerPreview.gameObject);
         }
     }
 }

@@ -25,6 +25,7 @@ namespace _Source.Scripts.Buildings
 
     public class TowerPlacement : MonoBehaviour
     {
+        [SerializeField] private TowerPlacementPreview _towerPreview;
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private TowerBlockPreset _towerBlockPresetPrefab;
@@ -55,6 +56,7 @@ namespace _Source.Scripts.Buildings
         public void SetPresetPrefab(TowerBlockPreset presetPrefab)
         {
             _towerBlockPresetPrefab = presetPrefab;
+            _towerPreview.SetTowerBlockPreset(presetPrefab);
         }
 
         private void Place()
@@ -71,6 +73,7 @@ namespace _Source.Scripts.Buildings
                     {
                         PlaceTower(_binds);
                         StartCoroutine(_towerMerge.TryMerge(_binds));
+                        _towerPreview.DeletePreview();
                     }
                 }
             }

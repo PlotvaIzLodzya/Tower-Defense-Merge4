@@ -3,34 +3,30 @@ using System.Linq;
 using _Source.Scripts.Buildings;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace _Source.Scripts.UI
 {
-    public class TowersBlockPreview : Panel
+    public class TowersBlockPreview : Panel, IPointerDownHandler
     {
-        [SerializeField] private TowerPlacementReference _towerPlacementReference;
+        [SerializeField] private TowerPlacementBufferReference _towerPlacementBufferReference;
         [SerializeField] private TowerPreview[] _towerPreviews;
         [SerializeField] private Button _getBlueprintButton;
         
         private int _gridSize;
-        private TowerPlacement  _towerPlacement;
+        private TowerPlacementBuffer  _placementBuffer;
         private TowerBlockPreset _preset;
 
         public void Awake()
         {
-            _towerPlacement = _towerPlacementReference.Value;
+            _placementBuffer = _towerPlacementBufferReference.Value;
             _gridSize = 3;
-            _getBlueprintButton.onClick.AddListener(OnGetBlueprintButtonClick);
+            // _getBlueprintButton.onClick.AddListener(OnGetBlueprintButtonClick);
             foreach (var towerPreview in _towerPreviews)
             {
                 towerPreview.Hide();
             }
-        }
-
-        private void OnDestroy()
-        {
-            _getBlueprintButton.onClick.RemoveListener(OnGetBlueprintButtonClick);
         }
 
         public void Construct(TowerBlockPreset blueprint)
@@ -55,10 +51,14 @@ namespace _Source.Scripts.UI
                 }
             }
         }
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            OnGetBlueprintButtonClick();
+        }
 
         private void OnGetBlueprintButtonClick()
         {
-            _towerPlacement.SetPresetPrefab(_preset);
+            _placementBuffer.Add(_preset);
         }
 
         private Vector3Int GetByIndex(int index, int gridSize)
@@ -68,5 +68,6 @@ namespace _Source.Scripts.UI
             var gridPos = new Vector3Int(x, 0, z);
             return gridPos;
         }
+
     }
 }

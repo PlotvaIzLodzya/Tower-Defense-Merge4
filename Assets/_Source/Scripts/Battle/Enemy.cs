@@ -43,6 +43,7 @@ namespace _Source.Scripts.Battle
         public void DealDamage(int damage)
         {
             _health -= damage;
+            
             if (_health <= 0)
             {
                 Die();

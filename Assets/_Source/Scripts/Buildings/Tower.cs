@@ -25,7 +25,7 @@ namespace _Source.Scripts.Buildings
 
         public void SetStats(TowerStats stats)
         {
-            Stats = stats;
+            Stats.SetValues(stats);
             _lvl.text = $"{Stats.Level}";
         }
 

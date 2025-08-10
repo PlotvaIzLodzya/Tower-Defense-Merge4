@@ -73,7 +73,7 @@ namespace _Source.Scripts.Buildings
             var mergeConfig = new TowerStats();
             foreach (var cell in cellToMerge)
             {
-                mergeConfig.Add(cell.Tower.Stats);
+                mergeConfig.Upgrade(cell.Tower.Stats);
             }
 
             var mergeData = new MergeData()

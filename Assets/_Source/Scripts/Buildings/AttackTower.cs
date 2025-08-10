@@ -19,7 +19,7 @@ namespace _Source.Scripts.Buildings
         {
             _enemies = new();
             var seekTarget = new FirstAtPath(_enemyPoolReference.Value, transform, Stats, lockIn: true);
-            _attackBehaviour = new SingleTargetAttack(seekTarget, Stats,_projectile, transform);
+            _attackBehaviour = new SingleTargetAttack(seekTarget, Stats, _projectile, transform);
         }
 
         private void Start()

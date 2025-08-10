@@ -3,7 +3,7 @@ using BananaParty.Arch;
 
 namespace _Source.Scripts.ReferencesAndSources
 {
-    public class WalletSource : ReferenceListAsset<Wallet>
+    public class WalletSource : ReferenceSource<Wallet>
     {
         
     }

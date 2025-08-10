@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Source.Scripts.ReferencesAndSources;
+using _Source.Scripts.Trade;
 using UnityEngine;
 
 namespace _Source.Scripts.Battle
 {
     public class EnemyPool : MonoBehaviour
     {
+        [SerializeField] private WalletReference _walletReference;
+        
         private List<Enemy> _enemies;
+        private Wallet _wallet;
         
         public bool HaveEnemy => _enemies.Count > 0;
 
         private void Awake()
         {
+            _wallet = _walletReference.Value;
             _enemies = new();
         }
 
@@ -21,6 +27,7 @@ namespace _Source.Scripts.Battle
             {
                 if (_enemies[i].IsDead)
                 {
+                    _wallet.Add(_enemies[i].Reward);
                     _enemies.RemoveAt(i);
                 }
             }
@@ -40,7 +47,5 @@ namespace _Source.Scripts.Battle
         {
             _enemies.Remove(enemy);
         }
-
-
     }
 }

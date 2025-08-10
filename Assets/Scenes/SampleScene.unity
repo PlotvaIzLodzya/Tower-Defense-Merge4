@@ -1105,6 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Battle.EnemyPool
   _walletReference: {fileID: 11400000, guid: 5c6b72c7bbe74b04e973c375a1adadd1, type: 2}
+  _rewardEffectPrefab: {fileID: 4999459512682305650, guid: 4a25c321ea2566c43ac7ddd3d1732629, type: 3}
 --- !u!1001 &196983531
 PrefabInstance:
   m_ObjectHideFlags: 0

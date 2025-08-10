@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Controls;
 using _Source.Scripts.Grid;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace _Source.Scripts.Buildings
 {
@@ -22,6 +24,7 @@ namespace _Source.Scripts.Buildings
         }
     }
 
+
     public class TowerPlacement : MonoBehaviour
     {
         [SerializeField] private InputReference _inputReference;
@@ -38,6 +41,7 @@ namespace _Source.Scripts.Buildings
         private LevelConfig _levelConfig;
         private SortedSet<BindTowerToCell> _bindsSorted;
         private List<BindTowerToCell> _binds;
+        private Action _onPlacement;
 
         private void Start()
         {
@@ -55,10 +59,11 @@ namespace _Source.Scripts.Buildings
                 Place();
         }
 
-        public void SetPresetPrefab(TowerBlockPreset presetPrefab)
+        public void SetPresetPrefab(BlockPlacementDto placementDto)
         {
-            _towerBlockPresetPrefab = presetPrefab;
-            _towerPreview.SetTowerBlockPreset(presetPrefab);
+            _towerBlockPresetPrefab = placementDto.Prefab;
+            _onPlacement = placementDto.OnPlacement;
+            _towerPreview.SetTowerBlockPreset(placementDto.Prefab);
         }
 
         public void DeleteCurrent()
@@ -85,8 +90,7 @@ namespace _Source.Scripts.Buildings
                         PlaceTower(_binds);
                         StartCoroutine(_towerMerge.TryMerge(_binds));
                         _towerPreview.DeletePreview();
-                        
-                        return;
+                        _onPlacement?.Invoke();
                     }
                 }
             }

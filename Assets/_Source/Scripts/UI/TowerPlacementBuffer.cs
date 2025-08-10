@@ -1,5 +1,4 @@
-﻿using System;
-using _Source.Scripts.Buildings;
+﻿using _Source.Scripts.Buildings;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,29 +10,29 @@ namespace _Source.Scripts.UI
         [SerializeField] private TowerPlacementReference _towerPlacementReference;
         
         private TowerPlacement _towerPlacement;
-        private TowerBlockPreset _prefab;
+        private BlockPlacementDto _placementDto;
 
         private void Awake()
         {
             _towerPlacement = _towerPlacementReference.Value;
         }
 
-        public void Add(TowerBlockPreset presetPrefab)
+        public void Add(BlockPlacementDto placementDto)
         {
-            _prefab = presetPrefab;
+            _placementDto = placementDto;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if(Input.GetMouseButton(0) && _prefab != null)
-                _towerPlacement.SetPresetPrefab(_prefab);
+            if(Input.GetMouseButton(0) && _placementDto != null)
+                _towerPlacement.SetPresetPrefab(_placementDto);
             
-            _prefab = null;
+            _placementDto = null;
         }
         
         public void OnPointerClick(PointerEventData eventData)
         {
-            _prefab = null;
+            _placementDto = null;
             _towerPlacement.DeleteCurrent();
         }
     }

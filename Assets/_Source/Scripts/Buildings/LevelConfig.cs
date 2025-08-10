@@ -2,6 +2,11 @@
 
 namespace _Source.Scripts.Buildings
 {
+    public class GameConfig
+    {
+        public const int WalletMaxAmount = 999;
+    }
+    
     [CreateAssetMenu(fileName = "LevelConfig", menuName = "Levels/LevelConfig")]
     public class LevelConfig : ScriptableObject
     {

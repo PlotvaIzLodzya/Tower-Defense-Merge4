@@ -16,6 +16,8 @@ namespace _Source.Scripts.UI
         private int _gridSize;
         private TowerPlacementBuffer  _placementBuffer;
         private TowerBlockPreset _preset;
+        
+        public bool IsAvailable { get; private set; }
 
         public void Awake()
         {
@@ -30,6 +32,7 @@ namespace _Source.Scripts.UI
         public void Construct(TowerBlockPreset preset)
         {
             _preset = preset;
+            IsAvailable = true;
             var centerIndex = _towerPreviews.Length / 2;
             var centerGridPos = GetByIndex(centerIndex, _gridSize);
             for (int i = 0; i < _towerPreviews.Length; i++)
@@ -49,14 +52,33 @@ namespace _Source.Scripts.UI
                 }
             }
         }
+        
         public void OnPointerDown(PointerEventData eventData)
         {
             OnGetBlueprintButtonClick();
         }
 
+        private void OnPlace()
+        {
+            IsAvailable = false;
+            foreach (var towerPreview in _towerPreviews)
+            {
+                towerPreview.Hide();
+            }
+        }
+
         private void OnGetBlueprintButtonClick()
         {
-            _placementBuffer.Add(_preset);
+            if (IsAvailable)
+            {
+                var dto = new BlockPlacementDto()
+                {
+                    OnPlacement = OnPlace,
+                    Prefab = _preset,
+                };
+                
+                _placementBuffer.Add(dto);
+            }
         }
 
         private Vector3Int GetByIndex(int index, int gridSize)

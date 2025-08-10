@@ -13,8 +13,9 @@ namespace _Source.Scripts.Buildings
     
     public class TowerBlockPreset : MonoBehaviour
     {
-        public TowerBlueprint[] Blueprints;
         [SerializeField] private Tower[] _towers;
+        
+        public TowerBlueprint[] Blueprints;
         
         [ContextMenu("Setup form")]
         public void UpdateForm()

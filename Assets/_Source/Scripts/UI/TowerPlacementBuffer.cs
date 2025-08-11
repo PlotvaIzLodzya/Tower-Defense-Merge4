@@ -24,7 +24,7 @@ namespace _Source.Scripts.UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if(Input.GetMouseButton(0) && _placementDto != null)
+            if(_placementDto != null)
                 _towerPlacement.SetPresetPrefab(_placementDto);
             
             _placementDto = null;

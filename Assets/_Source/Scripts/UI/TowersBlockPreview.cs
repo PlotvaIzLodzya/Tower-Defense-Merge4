@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using _Source.Scripts.Buildings;
 using _Source.Scripts.ReferencesAndSources;
+using _Source.Scripts.Trade;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,8 +13,12 @@ namespace _Source.Scripts.UI
     {
         [SerializeField] private TowerPlacementBufferReference _towerPlacementBufferReference;
         [SerializeField] private TowerPreview[] _towerPreviews;
+        [SerializeField] private PriceView _priceView;
+        [SerializeField] private WalletReference _walletReference;
         
         private int _gridSize;
+        private int _price;
+        private Wallet _wallet;
         private TowerPlacementBuffer  _placementBuffer;
         private TowerBlockPreset _preset;
         
@@ -22,16 +27,20 @@ namespace _Source.Scripts.UI
         public void Awake()
         {
             _placementBuffer = _towerPlacementBufferReference.Value;
+            _wallet = _walletReference.Value;
             _gridSize = 3;
             foreach (var towerPreview in _towerPreviews)
             {
                 towerPreview.Hide();
             }
         }
-
+        
         public void Construct(TowerBlockPreset preset)
         {
             _preset = preset;
+            _price = preset.GetPrice();
+            _priceView.SetPrice(_price);
+            _priceView.Show();
             IsAvailable = true;
             var centerIndex = _towerPreviews.Length / 2;
             var centerGridPos = GetByIndex(centerIndex, _gridSize);
@@ -65,11 +74,13 @@ namespace _Source.Scripts.UI
             {
                 towerPreview.Hide();
             }
+            _priceView.Hide();
+            _wallet.Spend(_price);
         }
 
         private void OnGetBlueprintButtonClick()
         {
-            if (IsAvailable)
+            if (IsAvailable && _wallet.Have(_price))
             {
                 var dto = new BlockPlacementDto()
                 {

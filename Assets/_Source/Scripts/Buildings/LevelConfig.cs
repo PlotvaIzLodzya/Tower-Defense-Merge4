@@ -5,6 +5,9 @@ namespace _Source.Scripts.Buildings
     public class GameConfig
     {
         public const int WalletMaxAmount = 999;
+        public const int PricePerTowerLvl = 10;
+        public const int StartMoney = 100;
+        public const int RefreshPrice = 10;
     }
     
     [CreateAssetMenu(fileName = "LevelConfig", menuName = "Levels/LevelConfig")]

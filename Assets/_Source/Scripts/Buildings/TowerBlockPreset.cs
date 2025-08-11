@@ -45,5 +45,15 @@ namespace _Source.Scripts.Buildings
                 
             }
         }
+
+        public int GetPrice()
+        {
+            var price = 0;
+            
+            foreach (var blueprint in Blueprints)
+                price += blueprint.Stats.Level * GameConfig.PricePerTowerLvl;
+            
+            return price;
+        }
     }
 }

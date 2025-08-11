@@ -28,7 +28,7 @@ namespace _Source.Scripts.Trade
         {
             if (Have(amount))
             {
-                Spend(-amount);
+                Spend(amount);
                 return true;
             }
             

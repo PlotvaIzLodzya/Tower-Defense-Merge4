@@ -25,7 +25,7 @@ namespace _Source.Scripts.Buildings
                 yield return null;
             }
             
-            enemy.DealDamage(_stats.Damage);
+            enemy.TakeDamage(_stats.Damage);
             DestroyProjectile();
         }
 

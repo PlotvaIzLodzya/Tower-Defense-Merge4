@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using _Source.Scripts.Buildings;
 using _Source.Scripts.Grid;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
@@ -18,9 +19,9 @@ namespace _Source.Scripts.Battle
     {
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private EnemyConfig _config;
-
-        private int _health;
+        
         private float _speed;
+        private Health _health;
         private CellGrid _cellGrid;
         private Path[] _paths;
         
@@ -29,7 +30,7 @@ namespace _Source.Scripts.Battle
 
         private void Awake()
         {
-            _health = _config.Health;
+            _health = new(_config.Health);
             _speed = _config.Speed;
             Reward = _config.Reward;
         }
@@ -40,11 +41,11 @@ namespace _Source.Scripts.Battle
             StartCoroutine(MovingByPath());
         }
 
-        public void DealDamage(int damage)
+        public void TakeDamage(int damage)
         {
-            _health -= damage;
+            _health.TakeDamage(damage);
             
-            if (_health <= 0)
+            if (_health.IsEmpty)
             {
                 Die();
             }

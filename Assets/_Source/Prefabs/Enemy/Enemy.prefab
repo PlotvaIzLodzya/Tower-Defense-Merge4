@@ -49,9 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Enemy.Enemy
   _cellGridReference: {fileID: 11400000, guid: fd3f57a5a032b4447b36432d36265bc1, type: 2}
   _config:
+    Damage: 50
     Health: 100
     Reward: 10
-    Speed: 1
+    Speed: 10
 --- !u!135 &3797211425401664401
 SphereCollider:
   m_ObjectHideFlags: 0

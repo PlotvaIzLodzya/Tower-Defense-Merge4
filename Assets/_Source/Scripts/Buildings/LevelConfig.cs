@@ -4,6 +4,7 @@ namespace _Source.Scripts.Buildings
 {
     public class GameConfig
     {
+        public const int GateHealth = 100;
         public const int WalletMaxAmount = 999;
         public const int PricePerTowerLvl = 10;
         public const int StartMoney = 100;

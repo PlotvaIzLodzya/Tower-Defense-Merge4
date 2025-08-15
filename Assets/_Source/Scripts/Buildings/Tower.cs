@@ -33,7 +33,5 @@ namespace _Source.Scripts.Buildings
         {
             Destroy(gameObject);
         }
-
-
     }
 }

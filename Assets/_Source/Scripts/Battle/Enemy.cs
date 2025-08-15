@@ -10,16 +10,18 @@ namespace _Source.Scripts.Battle
     [Serializable]
     public class EnemyConfig
     {
+        public int Damage = 50;
         public int Health = 100;
         public int Reward = 10;
-        public float Speed = 1f;
+        public float Speed = 100f;
     }
     
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private EnemyConfig _config;
-        
+
+        private int _damage;
         private float _speed;
         private Health _health;
         private CellGrid _cellGrid;
@@ -32,7 +34,17 @@ namespace _Source.Scripts.Battle
         {
             _health = new(_config.Health);
             _speed = _config.Speed;
+            _damage = _config.Damage;
             Reward = _config.Reward;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Gates gates))
+            {
+                gates.TakeDamage(_damage);
+                Die();
+            }
         }
 
         public void StartMoving(Path[] paths)
@@ -70,6 +82,7 @@ namespace _Source.Scripts.Battle
             var startPos = transform.position.ToGrid();
             var dist = Vector3Int.Distance(startPos, path.GridPosition);
             var time = dist / _speed;
+            Debug.Log(_speed);
             var elapsedTime = 0f;
             while (elapsedTime < time)
             {

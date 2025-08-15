@@ -24,6 +24,7 @@ namespace _Source.Scripts.Battle
             _reward.text = $"{reward}";
             var startPosition = transform.position;
             var endPosition = startPosition + Vector3.forward * _height;
+            
             while (elapsedTime < _playTime)
             {
                 elapsedTime += Time.deltaTime;

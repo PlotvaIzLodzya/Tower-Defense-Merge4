@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Grid;
+using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
     public class MergeData
     {
         public List<BuildingCell> CellsToMerge;
-
+        public BuildingCell CellMergeTo;
         public TowerStats Config;
     }
 
@@ -31,17 +32,16 @@ namespace _Source.Scripts.Buildings
                                .ThenBy(b =>b.Cell.GridPosition.z)
                                .ToList();
             
-            var mergeData = new List<MergeData>();
             foreach (var bind in bindings)
             {
                 _squareCell.Clear();
 
                 if (_cellGrid.SquareCheck(bind.Cell, _squareCell, IsCellValid))
-                    yield return SquareChecking(bind.Cell, _squareCell, mergeData);
+                    yield return SquareChecking(bind.Cell, _squareCell);
             }
         }
 
-        private IEnumerator SquareChecking(BuildingCell cell, List<BuildingCell> squareCell, List<MergeData> mergeData)
+        private IEnumerator SquareChecking(BuildingCell cell, List<BuildingCell> squareCell)
         {
             squareCell.Clear();
             while (_cellGrid.SquareCheck(cell, squareCell, IsCellValid))
@@ -59,29 +59,29 @@ namespace _Source.Scripts.Buildings
 
         private void Merge(MergeData mergeData)
         {
-            var cellsToMerge = mergeData.CellsToMerge;
-            var cellMergeTo = cellsToMerge[0];
-            cellMergeTo.Tower.SetStats(mergeData.Config);
+            mergeData.CellMergeTo.Tower.SetStats(mergeData.Config);
         }
 
-        private MergeData CreateMergeData(List<BuildingCell> cellToMerge)
+        private MergeData CreateMergeData(List<BuildingCell> cellsToMerge)
         {
-            cellToMerge = cellToMerge.OrderByDescending(c => c.GridPosition.x)
+            cellsToMerge = cellsToMerge.OrderByDescending(c => c.GridPosition.x)
                                      .ThenBy(c => c.GridPosition.z)
                                      .ToList();
             
             var mergeConfig = new TowerStats();
-            foreach (var cell in cellToMerge)
+            foreach (var cell in cellsToMerge)
             {
                 mergeConfig.Upgrade(cell.Tower.Stats);
             }
 
             var mergeData = new MergeData()
             {
-                CellsToMerge = cellToMerge,
+                CellsToMerge = cellsToMerge,
+                CellMergeTo = cellsToMerge[0],
                 Config = mergeConfig,
             };
             
+           
             return mergeData;
         }
 

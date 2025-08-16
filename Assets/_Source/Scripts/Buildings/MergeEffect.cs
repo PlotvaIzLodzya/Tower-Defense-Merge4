@@ -19,7 +19,7 @@ namespace _Source.Scripts.Buildings
         {
             _gamePause.Pause();
 
-            yield return MergingTower(mergeData.CellsToMerge);
+            yield return MergingTower(mergeData.CellsToMerge, mergeData.CellMergeTo);
             
             afterMerge(mergeData);
             _gamePause.Resume();
@@ -28,11 +28,10 @@ namespace _Source.Scripts.Buildings
 
         }
 
-        private IEnumerator MergingTower(List<BuildingCell> cellsToMerge)
+        private IEnumerator MergingTower(List<BuildingCell> cellsToMerge, BuildingCell cellMergeTo)
         {
-            var cellMergeTo = cellsToMerge[0];
             Coroutine mergingCoroutine = null;
-            for (int i = 1; i < cellsToMerge.Count; i++)
+            for (int i = 0; i < cellsToMerge.Count; i++)
             {
                 mergingCoroutine = StartCoroutine(PlayingEffect(cellsToMerge[i].Tower, cellMergeTo.Tower));
             }

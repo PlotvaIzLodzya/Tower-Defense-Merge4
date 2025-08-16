@@ -19,6 +19,16 @@ namespace _Source.Scripts.Buildings
         
         public ProjectileStats ProjectileStats;
 
+        public TowerStats()
+        {
+
+        }
+
+        public TowerStats(TowerStats stats)
+        {
+            Upgrade(stats);
+        }
+
         public void Upgrade(TowerStats stats)
         {
             Level += stats.Level;

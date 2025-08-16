@@ -92,7 +92,8 @@ namespace _Source.Scripts.Grid
                 cells.Clear();
                 foreach (var offset in boxCheck)
                 {
-                    if (TryGetCell<T>(cell.GridPosition - offset, out var cellNeighbor) && isValid(cellNeighbor))
+                    var neigbourPos = cell.GridPosition + offset;
+                    if (TryGetCell<T>(neigbourPos, out var cellNeighbor) && isValid(cellNeighbor))
                     {
                         cells.Add(cellNeighbor);
                         if (cells.Count == 4)

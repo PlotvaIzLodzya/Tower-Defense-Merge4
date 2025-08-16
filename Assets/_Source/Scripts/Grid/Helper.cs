@@ -21,8 +21,8 @@ public static class Helper
     {
         new Vector3Int(-1, 0, 1),
         new Vector3Int( 0, 0, 1),
-        new Vector3Int(-1, 0, 0),
         new Vector3Int( 0, 0, 0),
+        new Vector3Int(-1, 0, 0),
     };
     
     public static readonly Vector3Int[] RightUpSquare = new Vector3Int[]
@@ -36,9 +36,9 @@ public static class Helper
     public static readonly Vector3Int[] LeftDownSquare = new Vector3Int[]
     {
         new Vector3Int(-1, 0,-1),
-        new Vector3Int( 0, 0,-1),
         new Vector3Int(-1, 0, 0),
         new Vector3Int( 0, 0, 0),
+        new Vector3Int( 0, 0,-1),
     };
     
     public static readonly Vector3Int[] RightDownSquare = new Vector3Int[]
@@ -51,9 +51,9 @@ public static class Helper
     
     public static readonly Vector3Int[][] BoxChecks = new Vector3Int[][]
     {
+        LeftDownSquare,
         LeftUpSquare,
         RightUpSquare,
-        LeftDownSquare,
         RightDownSquare,
     };
 

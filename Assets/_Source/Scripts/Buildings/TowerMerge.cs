@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿using _Source.Scripts.Grid;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using _Source.Scripts.Grid;
-using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {

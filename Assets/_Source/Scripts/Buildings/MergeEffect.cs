@@ -31,8 +31,12 @@ namespace _Source.Scripts.Buildings
         private IEnumerator MergingTower(List<BuildingCell> cellsToMerge, BuildingCell cellMergeTo)
         {
             Coroutine mergingCoroutine = null;
+           
             for (int i = 0; i < cellsToMerge.Count; i++)
             {
+                if (cellsToMerge[i] == cellMergeTo)
+                    continue;
+
                 mergingCoroutine = StartCoroutine(PlayingEffect(cellsToMerge[i].Tower, cellMergeTo.Tower));
             }
 

@@ -8,7 +8,6 @@ namespace _Source.Scripts.Buildings
 {
     public class AttackTower : Tower
     {
-        [SerializeField] private SphereCollider _enemyTrigger;
         [SerializeField] private Projectile _projectile;
         [SerializeField] private EnemyPoolReference _enemyPoolReference;
         
@@ -24,18 +23,7 @@ namespace _Source.Scripts.Buildings
 
         private void Start()
         {
-            StartCoroutine(Attacking());
-        }
-
-        private IEnumerator Attacking()
-        {
-            while (true)
-            {
-                _enemyTrigger.radius = Stats.AttackRadius;
-                var attackDelay = Mathf.Lerp(1, 0.2f, Stats.AttackSpeed / 700);
-                _attackBehaviour.Attack();
-                yield return new WaitForSeconds(attackDelay);
-            }
+            StartCoroutine(_attackBehaviour.Attack());
         }
     }
 }

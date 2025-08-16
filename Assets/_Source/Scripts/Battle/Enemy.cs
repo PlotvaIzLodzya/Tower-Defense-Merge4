@@ -82,7 +82,6 @@ namespace _Source.Scripts.Battle
             var startPos = transform.position.ToGrid();
             var dist = Vector3Int.Distance(startPos, path.GridPosition);
             var time = dist / _speed;
-            Debug.Log(_speed);
             var elapsedTime = 0f;
             while (elapsedTime < time)
             {

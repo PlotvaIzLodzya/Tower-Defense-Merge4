@@ -9,6 +9,7 @@ namespace _Source.Scripts.Buildings
         public const int PricePerTowerLvl = 10;
         public const int StartMoney = 100;
         public const int RefreshPrice = 10;
+        public const int MaxAttackSpeed = 700;
     }
     
     [CreateAssetMenu(fileName = "LevelConfig", menuName = "Levels/LevelConfig")]

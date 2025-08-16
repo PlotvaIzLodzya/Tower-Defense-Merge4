@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
     public class SingleTargetAttack : IAttack
     {
-        private TowerStats _towerStats;
         private ITargetSeek _targetSeek;
+        private TowerStats _towerStats;
         private Projectile _projectilePrefab;
         private Transform _shootPoint;
         
-
         public SingleTargetAttack(ITargetSeek targetSeek, TowerStats towerStats, Projectile projectilePrefab, Transform shootPoint)
         {
             _targetSeek = targetSeek;
@@ -18,13 +19,22 @@ namespace _Source.Scripts.Buildings
             _shootPoint = shootPoint;
         }
 
-        public void Attack()
+        public IEnumerator Attack()
         {
-            if (_targetSeek.TryGetTarget(out var enemy))
+
+            while (true)
             {
-                var projectile = Object.Instantiate(_projectilePrefab,_shootPoint.position, Quaternion.identity);
-                projectile.Launch(enemy, _towerStats);
+                var attackDelay = Mathf.Lerp(1, 0.2f, _towerStats.AttackSpeed / GameConfig.MaxAttackSpeed);
+
+                if (_targetSeek.TryGetTarget(out var enemy))
+                {
+                    var projectile = Object.Instantiate(_projectilePrefab, _shootPoint.position, Quaternion.identity);
+                    projectile.Launch(enemy, _towerStats);
+                }
+
+                yield return new WaitForSeconds(attackDelay);
             }
+
         }
     }
 }

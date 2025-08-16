@@ -1,7 +1,9 @@
-﻿namespace _Source.Scripts.Buildings
+﻿using System.Collections;
+
+namespace _Source.Scripts.Buildings
 {
     public interface IAttack
     {
-        public void Attack();
+        public IEnumerator Attack();
     }
 }

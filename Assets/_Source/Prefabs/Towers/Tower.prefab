@@ -286,6 +286,4 @@ MonoBehaviour:
   _lvl: {fileID: 44428093014334853}
   <Stats>k__BackingField:
     Level: 1
-    ProjectileStats:
-      Speed: 15
-  _defaultAttack: {fileID: 11400000, guid: 736273d0b131770428ef1dd6765037ff, type: 2}
+  _defaultAttack: {fileID: 11400000, guid: 6534ec069c7701641ae36ef255cdc150, type: 2}

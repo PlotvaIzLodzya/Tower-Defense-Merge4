@@ -9,6 +9,6 @@ namespace _Source.Scripts.Buildings
         [field: SerializeField] protected Projectile Projectile { get; private set; }
         [field: SerializeField] protected EnemyPoolReference EnemyPoolReference {get ; private set; }
 
-        public abstract IAttack GetAttackBehaviour(Tower tower);
+        public abstract IAttack GetBehaviour(Tower tower);
     }
 }

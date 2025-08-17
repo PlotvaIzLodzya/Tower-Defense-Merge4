@@ -2,6 +2,11 @@
 
 namespace _Source.Scripts.Buildings
 {
+    public static class NamingConstant
+    {
+        public const string AttackBehaviours = "AttackBehaviours";
+    }
+
     public class GameConfig
     {
         public const int GateHealth = 100;

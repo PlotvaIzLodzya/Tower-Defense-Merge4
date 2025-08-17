@@ -5,12 +5,12 @@ namespace _Source.Scripts.Buildings
 {
     public class SingleTargetAttack : IAttack
     {
-        private ITargetSeek _targetSeek;
+        private FirstAtPath _targetSeek;
         private TowerStats _towerStats;
         private Projectile _projectilePrefab;
         private Transform _shootPoint;
         
-        public SingleTargetAttack(ITargetSeek targetSeek, TowerStats towerStats, Projectile projectilePrefab, Transform shootPoint)
+        public SingleTargetAttack(FirstAtPath targetSeek, TowerStats towerStats, Projectile projectilePrefab, Transform shootPoint)
         {
             _targetSeek = targetSeek;
             _towerStats = towerStats;

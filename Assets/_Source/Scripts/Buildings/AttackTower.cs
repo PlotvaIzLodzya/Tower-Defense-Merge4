@@ -10,7 +10,7 @@ namespace _Source.Scripts.Buildings
 
         private void Awake()
         {
-            var defaultAttack = _defaultAttack.GetAttackBehaviour(this);
+            var defaultAttack = _defaultAttack.GetBehaviour(this);
             SetAttackBehaviour(defaultAttack);
         }
 

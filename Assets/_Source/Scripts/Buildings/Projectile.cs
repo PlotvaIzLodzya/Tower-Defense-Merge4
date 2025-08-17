@@ -19,7 +19,7 @@ namespace _Source.Scripts.Buildings
         private IEnumerator MovingToTarget(Enemy enemy)
         {
             var speed = _stats.Speed;
-            while (IsCloseEnough(enemy.transform.position))
+            while (IsCloseEnough(enemy))
             {
                 transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
                 transform.LookAt(enemy.transform);
@@ -35,9 +35,10 @@ namespace _Source.Scripts.Buildings
             Destroy(gameObject);
         }
 
-        private bool IsCloseEnough(Vector3 target)
+        private bool IsCloseEnough(Enemy target)
         {
-            return Vector3.Distance(target, transform.position) > _stats.Speed * Time.deltaTime;
+            Debug.Log(target == null);
+            return Vector3.Distance(target.transform.position, transform.position) > _stats.Speed * Time.deltaTime;
         }
     }
 }

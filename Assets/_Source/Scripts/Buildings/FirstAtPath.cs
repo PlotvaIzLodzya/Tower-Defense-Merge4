@@ -5,9 +5,10 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
+
     public class FirstAtPath : ITargetSeek
     {
-        private EnemyPool _enemiesPoolPool;
+        private EnemyPool _enemiesPool;
         private Transform _shootPoint;
         private Enemy _current;
         private TowerStats _stats;
@@ -17,7 +18,7 @@ namespace _Source.Scripts.Buildings
         {
             _stats = stats;
             _shootPoint = shootPoint;
-            _enemiesPoolPool = enemiesPool;
+            _enemiesPool = enemiesPool;
             _lockIn = lockIn;
         }
 
@@ -25,7 +26,7 @@ namespace _Source.Scripts.Buildings
         {
             enemy = null;
             
-            if (_enemiesPoolPool.HaveEnemy == false)
+            if (_enemiesPool.HaveEnemy == false)
                 return false;
             
             if (_lockIn && _current != null && _current.IsDead == false)
@@ -35,7 +36,7 @@ namespace _Source.Scripts.Buildings
                 return true;
             }
 
-            enemy = _enemiesPoolPool.GetEnemy(ChooseTarget);
+            enemy = _enemiesPool.GetEnemy(ChooseTarget);
             if(enemy == null)
                 return false;
             

@@ -13,6 +13,7 @@ namespace _Source.Scripts.Buildings
         private Transform _shootPoint;
         private MultiAtPath _multiAtPath;
         private List<Enemy> _targets;
+        private AttackSpeed _attackSpeed;
 
         public MultiTargetAttack(MultiAtPath multiAtPath, TowerStats towerStats, Projectile projectilePrefab, Transform shootPoint)
         {
@@ -26,10 +27,9 @@ namespace _Source.Scripts.Buildings
 
         public IEnumerator Attack()
         {
-
             while (true)
             {
-                var attackDelay = Mathf.Lerp(1, 0.2f, _towerStats.AttackSpeed / GameConfig.MaxAttackSpeed);
+                var attackDelay = _attackSpeed.CalculateAttackDelay(_towerStats.AttackSpeed);
 
                 if (_multiAtPath.TryGetTargets(_targets, _targetCount))
                 {

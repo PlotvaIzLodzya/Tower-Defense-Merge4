@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
+
     public class SingleTargetAttack : IAttack
     {
         private FirstAtPath _targetSeek;
         private TowerStats _towerStats;
         private Projectile _projectilePrefab;
         private Transform _shootPoint;
+        private AttackSpeed _attackSpeed;
         
         public SingleTargetAttack(FirstAtPath targetSeek, TowerStats towerStats, Projectile projectilePrefab, Transform shootPoint)
         {
@@ -16,14 +18,14 @@ namespace _Source.Scripts.Buildings
             _towerStats = towerStats;
             _projectilePrefab = projectilePrefab;
             _shootPoint = shootPoint;
+            _attackSpeed = new AttackSpeed();
         }
 
         public IEnumerator Attack()
         {
-
             while (true)
             {
-                var attackDelay = Mathf.Lerp(1, 0.2f, _towerStats.AttackSpeed / GameConfig.MaxAttackSpeed);
+                var attackDelay = _attackSpeed.CalculateAttackDelay(_towerStats.AttackSpeed);
 
                 if (_targetSeek.TryGetTarget(out var enemy))
                 {

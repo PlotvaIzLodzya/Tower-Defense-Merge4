@@ -1,7 +1,7 @@
 ﻿using _Source.Scripts.Battle;
 using System.Collections.Generic;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.AttackBehaviours
 {
     public interface IMutipleTargetSeek
     {

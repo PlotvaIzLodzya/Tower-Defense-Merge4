@@ -2,11 +2,6 @@
 
 namespace _Source.Scripts.Buildings
 {
-    [Serializable]
-    public struct ProjectileStats
-    {
-        public float Speed;
-    }
     
     [Serializable]
     public class TowerStats

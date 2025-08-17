@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.AttackBehaviours
 {
     public interface IAttack
     {

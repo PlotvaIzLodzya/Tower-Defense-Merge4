@@ -1,13 +1,15 @@
 ﻿using _Source.Scripts.Battle;
+using _Source.Scripts.Buildings;
+using _Source.Scripts.Projectiles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.AttackBehaviours
 {
     public class MultiTargetAttack : IAttack
     {
-        private int _targetCount;
+        private readonly int _targetCount;
         private TowerStats _towerStats;
         private Projectile _projectilePrefab;
         private Transform _shootPoint;

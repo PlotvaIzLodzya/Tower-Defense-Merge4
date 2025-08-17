@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using _Source.Scripts.Buildings;
+using _Source.Scripts.Projectiles;
+using System.Collections;
 using UnityEngine;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.AttackBehaviours
 {
 
     public class SingleTargetAttack : IAttack

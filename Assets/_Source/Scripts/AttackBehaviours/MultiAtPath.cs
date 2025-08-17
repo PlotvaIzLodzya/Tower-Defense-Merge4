@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Source.Scripts.Battle;
+using _Source.Scripts.Buildings;
 using UnityEngine;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.AttackBehaviours
 {
     public class MultiAtPath : IMutipleTargetSeek
     {

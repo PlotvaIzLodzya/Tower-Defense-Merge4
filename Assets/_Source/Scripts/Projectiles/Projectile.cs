@@ -1,8 +1,9 @@
 ﻿using _Source.Scripts.Battle;
+using _Source.Scripts.Buildings;
 using System.Collections;
 using UnityEngine;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.Projectiles
 {
     public class Projectile : MonoBehaviour
     {
@@ -37,7 +38,6 @@ namespace _Source.Scripts.Buildings
 
         private bool IsCloseEnough(Enemy target)
         {
-            Debug.Log(target == null);
             return Vector3.Distance(target.transform.position, transform.position) > _stats.Speed * Time.deltaTime;
         }
     }

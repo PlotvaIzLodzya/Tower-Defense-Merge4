@@ -22,6 +22,7 @@ namespace _Source.Scripts.Buildings
             _shootPoint = shootPoint;
             _multiAtPath = multiAtPath;
             _targetCount = 2;
+            _attackSpeed = new();
             _targets = new ();
         }
 

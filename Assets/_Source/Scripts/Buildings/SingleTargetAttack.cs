@@ -18,7 +18,7 @@ namespace _Source.Scripts.Buildings
             _towerStats = towerStats;
             _projectilePrefab = projectilePrefab;
             _shootPoint = shootPoint;
-            _attackSpeed = new AttackSpeed();
+            _attackSpeed = new ();
         }
 
         public IEnumerator Attack()

@@ -1,7 +1,7 @@
 ﻿using _Source.Scripts.Battle;
 using System.Collections;
 
-namespace _Source.Scripts.Buildings
+namespace _Source.Scripts.Projectiles
 {
     public interface IProjectileMovement
     {

@@ -7,38 +7,40 @@ namespace _Source.Scripts.Projectiles
 {
     public class Projectile : MonoBehaviour
     {
-        [SerializeField] private ProjectileStats _stats;
+        [field: SerializeField] public ProjectileStats Stats { get; private set; }
 
-        private TowerStats _towerStats;
+        [SerializeField] private ProjectileMovementBehaviour _movementBehaviour;
+        [SerializeField] private OnMovementEndBehaviour _onMovementEndBehaviour;
+        [SerializeField] private OnHitBehaviour _onHitBehaviour;
+
+        private IProjectileMovement _movement;
+
+        public TowerStats TowerStats { get; private set; }
 
         public void Launch(Enemy enemy, TowerStats stats)
         {
-            _towerStats = stats;
-            StartCoroutine(MovingToTarget(enemy));
+            TowerStats = stats;
+            _movement = _movementBehaviour.GetMovement(this);
+            StartCoroutine(MovingTowards(enemy));
         }
 
-        private IEnumerator MovingToTarget(Enemy enemy)
+        private void OnTriggerEnter(Collider other)
         {
-            var speed = _stats.Speed;
-            while (IsCloseEnough(enemy))
-            {
-                transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
-                transform.LookAt(enemy.transform);
-                yield return null;
-            }
-            
-            enemy.TakeDamage(_towerStats.Damage);
-            DestroyProjectile();
+            if(other.TryGetComponent(out Enemy enemy))
+                _onHitBehaviour.OnHit(enemy, this);
         }
 
-        private void DestroyProjectile()
+        public void Destroy()
         {
             Destroy(gameObject);
         }
 
-        private bool IsCloseEnough(Enemy target)
+        private IEnumerator MovingTowards(Enemy enemy)
         {
-            return Vector3.Distance(target.transform.position, transform.position) > _stats.Speed * Time.deltaTime;
+            var speed = Stats.Speed;
+            yield return _movement.Moving(enemy);
+
+            _onMovementEndBehaviour.OnEnd(enemy, this);
         }
     }
 }

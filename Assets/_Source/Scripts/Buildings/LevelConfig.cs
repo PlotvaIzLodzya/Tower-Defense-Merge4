@@ -4,7 +4,11 @@ namespace _Source.Scripts.Buildings
 {
     public static class NamingConstant
     {
-        public const string AttackBehaviours = "AttackBehaviours";
+        public const string AttackBehaviours = "Attack behaviours";
+        public const string ProjectilesBehaviours = "Projectiles behaviours";
+        public const string ProjectilesMovements = "Movements";
+        public const string OnMovementEnd = "On movement end";
+        public const string OnHit = "On enemy hit";
     }
 
     public class GameConfig

@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde0d09bd06a40049f65db6ed40114e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Projectile
-  _stats:
+  <Stats>k__BackingField:
     Speed: 15
+  _movementBehaviour: {fileID: 11400000, guid: 6d8931453e8a6ff43af7c450e9015214, type: 2}
+  _onMovementEndBehaviour: {fileID: 11400000, guid: 439a078ac1945cc4a819d331da85c198, type: 2}
+  _onHitBehaviour: {fileID: 11400000, guid: a2ae3efd3e299624f825e4dc6bfbd0ec, type: 2}
 --- !u!1 &7718652322878048065
 GameObject:
   m_ObjectHideFlags: 0

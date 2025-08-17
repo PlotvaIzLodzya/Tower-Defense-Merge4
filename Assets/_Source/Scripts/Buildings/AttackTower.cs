@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using _Source.Scripts.Battle;
-using _Source.Scripts.ReferencesAndSources;
+﻿using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
@@ -11,12 +8,10 @@ namespace _Source.Scripts.Buildings
         [SerializeField] private Projectile _projectile;
         [SerializeField] private EnemyPoolReference _enemyPoolReference;
         
-        private List<Enemy> _enemies;
         private IAttack _attackBehaviour;
 
         private void Awake()
         {
-            _enemies = new();
             var seekTarget = new FirstAtPath(_enemyPoolReference.Value, transform, Stats, lockIn: true);
             _attackBehaviour = new SingleTargetAttack(seekTarget, Stats, _projectile, transform);
         }

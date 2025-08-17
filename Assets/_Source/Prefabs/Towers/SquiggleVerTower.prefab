@@ -48,32 +48,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44853cc87c984b29a184d6988e26f275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.BuildingBlock
+  _towers:
+  - {fileID: 6423943905060095754}
+  - {fileID: 6831503714562535308}
+  - {fileID: 274520051558127679}
+  - {fileID: 8362860541911433163}
   Blueprints:
   - Offset: {x: 0, y: 0, z: 0}
     Stats:
       Level: 1
       ProjectileStats:
-        Speed: 15
+        Speed: 10
   - Offset: {x: -1, y: 0, z: 0}
     Stats:
       Level: 1
       ProjectileStats:
-        Speed: 15
+        Speed: 10
   - Offset: {x: -1, y: 0, z: -1}
     Stats:
       Level: 1
       ProjectileStats:
-        Speed: 15
+        Speed: 10
   - Offset: {x: 0, y: 0, z: 1}
     Stats:
       Level: 1
       ProjectileStats:
-        Speed: 15
-  _towers:
-  - {fileID: 1327029092817167408}
-  - {fileID: 1549945743553301686}
-  - {fileID: 5225206461520771845}
-  - {fileID: 4558269841535900913}
+        Speed: 10
 --- !u!1001 &1798958505153470053
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,22 +131,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
---- !u!114 &1327029092817167408 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
-  m_PrefabInstance: {fileID: 1798958505153470053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
 --- !u!4 &4058940776788592638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 1798958505153470053}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6423943905060095754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4742644212522260847, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 1798958505153470053}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f504fb7845f452ab8b4c256ae6bf0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.AttackTower
 --- !u!1001 &2242548137966270179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -204,22 +204,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
---- !u!114 &1549945743553301686 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
-  m_PrefabInstance: {fileID: 2242548137966270179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
 --- !u!4 &4592633394633076600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 2242548137966270179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6831503714562535308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4742644212522260847, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_PrefabInstance: {fileID: 2242548137966270179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f504fb7845f452ab8b4c256ae6bf0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.AttackTower
 --- !u!1001 &3881989158221211300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,17 +282,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 3881989158221211300}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4558269841535900913 stripped
+--- !u!114 &8362860541911433163 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4742644212522260847, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 3881989158221211300}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f504fb7845f452ab8b4c256ae6bf0da, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.AttackTower
 --- !u!1001 &4764257828861608272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,17 +350,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
---- !u!114 &5225206461520771845 stripped
+--- !u!114 &274520051558127679 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4742644212522260847, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
   m_PrefabInstance: {fileID: 4764257828861608272}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f504fb7845f452ab8b4c256ae6bf0da, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.AttackTower
 --- !u!4 &7114954431693166795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2351844493558421915, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}

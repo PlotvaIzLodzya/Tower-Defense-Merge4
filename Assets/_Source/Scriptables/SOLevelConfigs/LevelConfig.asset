@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.LevelConfig
   Presets: {fileID: 11400000, guid: efb8afc885fc4c4468ab1aa68d5f871d, type: 2}
-  TowerPrefab: {fileID: 764946558082808405, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}
+  TowerPrefab: {fileID: 4742644212522260847, guid: 7bb5c525e7360154a9711fd1910f57b5, type: 3}

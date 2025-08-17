@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde0d09bd06a40049f65db6ed40114e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Projectile
+  _stats:
+    Speed: 15
 --- !u!1 &7718652322878048065
 GameObject:
   m_ObjectHideFlags: 0

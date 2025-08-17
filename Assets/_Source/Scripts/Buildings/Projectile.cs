@@ -1,23 +1,24 @@
-﻿using System.Collections;
-using _Source.Scripts.Battle;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
+﻿using _Source.Scripts.Battle;
+using System.Collections;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
     public class Projectile : MonoBehaviour
     {
-        private TowerStats _stats;
+        [SerializeField] private ProjectileStats _stats;
+
+        private TowerStats _towerStats;
 
         public void Launch(Enemy enemy, TowerStats stats)
         {
-            _stats = stats;
+            _towerStats = stats;
             StartCoroutine(MovingToTarget(enemy));
         }
 
         private IEnumerator MovingToTarget(Enemy enemy)
         {
-            var speed = _stats.ProjectileStats.Speed;
+            var speed = _stats.Speed;
             while (IsCloseEnough(enemy.transform.position))
             {
                 transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
@@ -25,7 +26,7 @@ namespace _Source.Scripts.Buildings
                 yield return null;
             }
             
-            enemy.TakeDamage(_stats.Damage);
+            enemy.TakeDamage(_towerStats.Damage);
             DestroyProjectile();
         }
 
@@ -36,7 +37,7 @@ namespace _Source.Scripts.Buildings
 
         private bool IsCloseEnough(Vector3 target)
         {
-            return Vector3.Distance(target, transform.position) > _stats.ProjectileStats.Speed * Time.deltaTime;
+            return Vector3.Distance(target, transform.position) > _stats.Speed * Time.deltaTime;
         }
     }
 }

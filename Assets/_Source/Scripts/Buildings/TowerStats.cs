@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
@@ -16,8 +15,6 @@ namespace _Source.Scripts.Buildings
         public float AttackRadius => 25f;
         public int Damage => Level * 10;
         public float AttackSpeed => Level * 100;
-        
-        public ProjectileStats ProjectileStats;
 
         public TowerStats()
         {

@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2351844493558421915}
   - component: {fileID: 8967496374974604238}
-  - component: {fileID: 764946558082808405}
+  - component: {fileID: 4742644212522260847}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -271,7 +271,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &764946558082808405
+--- !u!114 &4742644212522260847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,13 +280,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2584351095680270508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b28aa389c74872be3f767a140f790e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f504fb7845f452ab8b4c256ae6bf0da, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.SimpleTower
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.AttackTower
   _lvl: {fileID: 44428093014334853}
   <Stats>k__BackingField:
     Level: 1
     ProjectileStats:
       Speed: 15
-  _projectile: {fileID: 8513947783266868676, guid: 90042f81c1843b04d80f9bbda2aefb0a, type: 3}
-  _enemyPoolReference: {fileID: 11400000, guid: 2d248ac51c0c14a40857adf3284f3668, type: 2}
+  _defaultAttack: {fileID: 11400000, guid: 736273d0b131770428ef1dd6765037ff, type: 2}

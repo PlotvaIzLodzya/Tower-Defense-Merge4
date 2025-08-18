@@ -34,7 +34,6 @@ namespace _Source.Scripts.Projectiles
 
         private IEnumerator MovingTowards(Enemy enemy)
         {
-            var speed = Stats.Speed;
             yield return _movement.Moving(enemy, this);
 
             _onMovementEndBehaviour.OnEnd(enemy, this);

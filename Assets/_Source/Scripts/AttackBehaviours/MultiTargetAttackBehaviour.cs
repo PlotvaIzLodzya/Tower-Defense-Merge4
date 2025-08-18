@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Source.Scripts.AttackBehaviours
 {
-    [CreateAssetMenu(fileName = nameof(MultiTargetAttackBehaviour), menuName = NamingConstant.AttackBehaviours + "/" + nameof(MultiTargetAttackBehaviour))]
+    [CreateAssetMenu(fileName = nameof(MultiTargetAttackBehaviour), menuName = NamingConstant.AttackBehaviour + "/" + nameof(MultiTargetAttackBehaviour))]
     public class MultiTargetAttackBehaviour : AttackBehaviour
     {
         public override IAttack GetBehaviour(Tower tower)

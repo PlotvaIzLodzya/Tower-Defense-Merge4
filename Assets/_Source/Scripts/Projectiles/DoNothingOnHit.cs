@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
-    [CreateAssetMenu(fileName = nameof(DoNothingOnHit), menuName = NamingConstant.ProjectilesBehaviours + "/" + NamingConstant.OnHit + "/" + nameof(DoNothingOnHit))]
+
+    [CreateAssetMenu(fileName = nameof(DoNothingOnHit), menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.OnHit + "/" + nameof(DoNothingOnHit))]
     public class DoNothingOnHit : OnHitBehaviour
     {
         public override void OnHit(Enemy enemy, Projectile projectile)

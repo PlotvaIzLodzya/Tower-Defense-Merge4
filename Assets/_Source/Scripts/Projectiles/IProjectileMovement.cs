@@ -3,8 +3,9 @@ using System.Collections;
 
 namespace _Source.Scripts.Projectiles
 {
+
     public interface IProjectileMovement
     {
-        IEnumerator Moving(Enemy enemy);
+        IEnumerator Moving(Enemy enemy, Projectile projectile);
     }
 }

@@ -1,34 +1,27 @@
 ﻿using _Source.Scripts.Battle;
+using _Source.Scripts.Buildings;
 using System.Collections;
 using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
 
-    public class ToTargetMovement : IProjectileMovement
+    [CreateAssetMenu(fileName = nameof(ToTargetMovement), menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.ProjectilesMovement + "/" + nameof(ToTargetMovement))]
+    public class ToTargetMovement : ProjectileMovement
     {
-        private float _speed;
-        private Transform _transform;
-
-        public ToTargetMovement(float speed, Transform transform)
+        public override IEnumerator Moving(Enemy enemy, Projectile projectile)
         {
-            _speed = speed;
-            _transform = transform;
-        }
-
-        public IEnumerator Moving(Enemy enemy)
-        {
-            while (IsCloseEnough(enemy))
+            while (IsCloseEnough(enemy, projectile))
             {
-                _transform.position = Vector3.MoveTowards(_transform.position, enemy.transform.position, _speed * Time.deltaTime);
-                _transform.LookAt(enemy.transform);
+                projectile.transform.position = Vector3.MoveTowards(projectile.transform.position, enemy.transform.position, projectile.Stats.Speed * Time.deltaTime);
+                projectile.transform.LookAt(enemy.transform);
                 yield return null;
             }
         }
 
-        private bool IsCloseEnough(Enemy target)
+        private bool IsCloseEnough(Enemy target, Projectile projectile)
         {
-            return Vector3.Distance(target.transform.position, _transform.position) > _speed * Time.deltaTime;
+            return Vector3.Distance(target.transform.position, projectile.transform.position) > projectile.Stats.Speed * Time.deltaTime;
         }
     }
 }

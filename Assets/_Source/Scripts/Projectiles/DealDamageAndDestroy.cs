@@ -5,8 +5,8 @@ using UnityEngine;
 namespace _Source.Scripts.Projectiles
 {
 
-    [CreateAssetMenu(fileName = nameof(DealDamageAndDestroy), menuName = NamingConstant.ProjectilesBehaviours + "/" + NamingConstant.OnMovementEnd + "/" + nameof(DealDamageAndDestroy))]
-    public class DealDamageAndDestroy : OnMovementEndBehaviour
+    [CreateAssetMenu(fileName = nameof(DealDamageAndDestroy), menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.OnMovementEnd + "/" + nameof(DealDamageAndDestroy))]
+    public class DealDamageAndDestroy : OnMovementEnd
     {
         public override void OnEnd(Enemy enemy, Projectile projectile)
         {

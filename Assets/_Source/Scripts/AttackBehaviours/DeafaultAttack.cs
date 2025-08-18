@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Source.Scripts.AttackBehaviours
 {
 
-    [CreateAssetMenu(fileName = nameof(DeafaultAttackBehaviour), menuName = NamingConstant.AttackBehaviours + "/" + nameof(DeafaultAttackBehaviour))] 
+    [CreateAssetMenu(fileName = nameof(DeafaultAttackBehaviour), menuName = NamingConstant.AttackBehaviour + "/" + nameof(DeafaultAttackBehaviour))] 
     public class DeafaultAttackBehaviour : AttackBehaviour
     {
         public override IAttack GetBehaviour(Tower tower)

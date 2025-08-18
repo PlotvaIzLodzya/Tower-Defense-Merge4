@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
-    public abstract class OnMovementEndBehaviour : ScriptableObject
+    public abstract class OnMovementEnd : ScriptableObject
     {
         public abstract void OnEnd(Enemy enemy, Projectile projectile);
     }

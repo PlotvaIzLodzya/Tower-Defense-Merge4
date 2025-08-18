@@ -9,7 +9,7 @@ namespace _Source.Scripts.Buildings
         public int Level;
         public float AttackRadius => 25f;
         public int Damage => Level * 10;
-        public float AttackSpeed => Level * 100;
+        public float AttackSpeed => Level * 10;
 
         public TowerStats()
         {

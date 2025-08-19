@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace _Source.Scripts.AttackBehaviours
 {
-
     public class SingleTargetAttack : IAttack
     {
         private FirstAtPath _targetSeek;

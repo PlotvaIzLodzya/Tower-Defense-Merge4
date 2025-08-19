@@ -6,7 +6,6 @@ using UnityEngine;
 
 namespace _Source.Scripts.AttackBehaviours
 {
-
     public class FirstAtPath : ITargetSeek
     {
         private EnemyPool _enemiesPool;

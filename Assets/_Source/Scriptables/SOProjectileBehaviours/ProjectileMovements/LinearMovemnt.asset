@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b62942c6585b6e438036fe6d287626c, type: 3}
   m_Name: LinearMovemnt
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.LinearMovemnt
-  <LifeTime>k__BackingField: 0
+  <LifeTime>k__BackingField: 1

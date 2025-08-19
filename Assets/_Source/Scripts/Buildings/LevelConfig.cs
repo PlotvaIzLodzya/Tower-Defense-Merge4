@@ -2,29 +2,6 @@
 
 namespace _Source.Scripts.Buildings
 {
-    public static class NamingConstant
-    {
-        public const string AttackBehaviour = "Attack behaviour";
-        public const string ProjectilesBehaviour = "Projectiles behaviour";
-        public const string ProjectilesMovement = "Movement";
-        public const string OnMovementEnd = "On movement end";
-        public const string OnHit = "On enemy hit";
-        public const string OnStay = "On enemy stay";
-    }
-
-    public class GameConfig
-    {
-        public const int GateHealth = 100;
-        public const int WalletMaxAmount = 999;
-        public const int PricePerTowerLvl = 10;
-        public const int StartMoney = 1000;
-        public const int RefreshPrice = 10;
-
-
-        public const int MaxAttackSpeed = 700;
-        public const float MaxAttackDelay = 1f;
-        public const float MinAttackDelay = 0.2f;
-    }
     
     [CreateAssetMenu(fileName = "LevelConfig", menuName = "Levels/LevelConfig")]
     public class LevelConfig : ScriptableObject

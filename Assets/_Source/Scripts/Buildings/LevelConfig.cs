@@ -9,6 +9,7 @@ namespace _Source.Scripts.Buildings
         public const string ProjectilesMovement = "Movement";
         public const string OnMovementEnd = "On movement end";
         public const string OnHit = "On enemy hit";
+        public const string OnStay = "On enemy stay";
     }
 
     public class GameConfig

@@ -12,6 +12,9 @@ namespace _Source.Scripts.Projectiles
         [SerializeField] private ProjectileMovement _movement;
         [SerializeField] private OnMovementEnd _onMovementEndBehaviour;
         [SerializeField] private OnHitBehaviour _onHitBehaviour;
+        [SerializeField] private OnStayOnEnemy _onStayOnEnemyBehaviour;
+
+        private float enemyStayedElapsedTime;
 
         public TowerStats TowerStats { get; private set; }
 
@@ -24,7 +27,13 @@ namespace _Source.Scripts.Projectiles
         private void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent(out Enemy enemy))
-                _onHitBehaviour.OnHit(enemy, this);
+                _onHitBehaviour?.OnHit(enemy, this);
+        }
+
+        private void OnTriggerStay(Collider other)
+        {
+            if(other.TryGetComponent(out Enemy enemy))
+                _onStayOnEnemyBehaviour?.OnStay(enemy, this, ref enemyStayedElapsedTime);
         }
 
         public void Destroy()
@@ -34,9 +43,9 @@ namespace _Source.Scripts.Projectiles
 
         private IEnumerator MovingTowards(Enemy enemy)
         {
-            yield return _movement.Moving(enemy, this);
+            yield return _movement?.Moving(enemy, this);
 
-            _onMovementEndBehaviour.OnEnd(enemy, this);
+            _onMovementEndBehaviour?.OnEnd(enemy, this);
         }
     }
 }

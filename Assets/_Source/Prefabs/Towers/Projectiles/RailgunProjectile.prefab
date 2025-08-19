@@ -52,6 +52,7 @@ MonoBehaviour:
   _movement: {fileID: 11400000, guid: aa36249794f981b42a87eaa9531f85d5, type: 2}
   _onMovementEndBehaviour: {fileID: 11400000, guid: 384ffafdaac5fd94e86929dce583fe34, type: 2}
   _onHitBehaviour: {fileID: 11400000, guid: 36ad1e60640b2724b8d0f0fb0a6c543a, type: 2}
+  _onStayOnEnemyBehaviour: {fileID: 0}
 --- !u!54 &158010028657927308
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,6 +10,9 @@ namespace _Source.Scripts.Projectiles
     {
         public override IEnumerator Moving(Enemy enemy, Projectile projectile)
         {
+            var direction = projectile.transform.position.CalculateDirection90Degrees(enemy.transform.position);
+            var rotation = Quaternion.LookRotation(direction);
+            projectile.transform.rotation = rotation;
             yield return new WaitForSeconds(LifeTime);
         }
     }

@@ -12,12 +12,15 @@ namespace _Source.Scripts.Projectiles
 
         public void OnStay(Enemy enemy, Projectile projectile, ref float elapsedTime)
         {
-            elapsedTime += Time.deltaTime;
-
-            if(elapsedTime > _delay)
+            if (elapsedTime > _delay)
+            {
                 _hitBehaviour.OnHit(enemy, projectile);
+                elapsedTime = 0;
+            }
             else
-                elapsedTime = 0f;
+            {
+                elapsedTime += Time.deltaTime;
+            }
         }
     }
 }

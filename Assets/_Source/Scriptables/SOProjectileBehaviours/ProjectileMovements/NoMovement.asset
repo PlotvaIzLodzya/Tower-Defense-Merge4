@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb196f60f4cd9ee4e816fc7a65043504, type: 3}
   m_Name: NoMovement
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.NoMovement
-  <LifeTime>k__BackingField: 0
+  <LifeTime>k__BackingField: 0.5

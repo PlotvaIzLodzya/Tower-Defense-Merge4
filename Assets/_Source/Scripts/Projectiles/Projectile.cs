@@ -14,7 +14,7 @@ namespace _Source.Scripts.Projectiles
         [SerializeField] private OnHitBehaviour _onHitBehaviour;
         [SerializeField] private OnStayOnEnemy _onStayOnEnemyBehaviour;
 
-        private float enemyStayedElapsedTime;
+        private float _enemyStayedElapsedTime;
 
         public TowerStats TowerStats { get; private set; }
 
@@ -33,7 +33,7 @@ namespace _Source.Scripts.Projectiles
         private void OnTriggerStay(Collider other)
         {
             if(other.TryGetComponent(out Enemy enemy))
-                _onStayOnEnemyBehaviour?.OnStay(enemy, this, ref enemyStayedElapsedTime);
+                _onStayOnEnemyBehaviour?.OnStay(enemy, this, ref _enemyStayedElapsedTime);
         }
 
         public void Destroy()

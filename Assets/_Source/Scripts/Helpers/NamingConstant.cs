@@ -4,6 +4,7 @@
     {
         public const string AttackBehaviour = "Attack behaviour";
         public const string ProjectilesBehaviour = "Projectiles behaviour";
+        public const string Upgrades = "Upgrades";
         public const string ProjectilesMovement = "Movement";
         public const string OnMovementEnd = "On movement end";
         public const string OnHit = "On enemy hit";

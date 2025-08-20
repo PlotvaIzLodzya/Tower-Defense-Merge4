@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f018353332b713f4f8b4a0c42b680ade, type: 3}
+  m_Name: UpgradeList
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Upgrades.UpgradeList
+  _attackBehaviours:
+  - {fileID: 11400000, guid: 736273d0b131770428ef1dd6765037ff, type: 2}
+  - {fileID: 11400000, guid: 6534ec069c7701641ae36ef255cdc150, type: 2}
+  - {fileID: 11400000, guid: ae180a89a5b9ce848a1c827731784f95, type: 2}
+  _projectileMovements:
+  - {fileID: 11400000, guid: 35e59ff12f400bf4bad07073e7ba6323, type: 2}
+  - {fileID: 11400000, guid: aa36249794f981b42a87eaa9531f85d5, type: 2}
+  - {fileID: 11400000, guid: d893bff088d0c104bbfc34552abfa7a6, type: 2}
+  - {fileID: 11400000, guid: d37f08b746afd914ab15e699cd7e78c5, type: 2}
+  - {fileID: 11400000, guid: 6d8931453e8a6ff43af7c450e9015214, type: 2}
+  _onHitBehaviours:
+  - {fileID: 11400000, guid: 36ad1e60640b2724b8d0f0fb0a6c543a, type: 2}
+  - {fileID: 11400000, guid: a2ae3efd3e299624f825e4dc6bfbd0ec, type: 2}
+  _onMovementEnds:
+  - {fileID: 11400000, guid: 439a078ac1945cc4a819d331da85c198, type: 2}
+  - {fileID: 11400000, guid: 384ffafdaac5fd94e86929dce583fe34, type: 2}
+  - {fileID: 11400000, guid: 0195afd7303fa844abcd81d7cbda1e8d, type: 2}
+  _onStayOnEnemies:
+  - {fileID: 11400000, guid: ed98313975f7ad14bbd10f58df0b6609, type: 2}

@@ -22,23 +22,29 @@ namespace _Source.Scripts.AttackBehaviours
             _towerStats = towerStats;
             _projectilePrefab = projectilePrefab;
             _shootPoint = shootPoint;
-            _projectileCount = 3;
-            _attackSpeed = new AttackSpeed();
+            _projectileCount = 5;
+            _attackSpeed = new ();
         }
         
         public IEnumerator Attack()
         {
-            
             while (true)
             {
                 if (_randomEnemyAtPath.TryGetTarget(out Enemy enemy))
                 {
-                    var forwardDirection = _shootPoint.position.CalculateDirection90Degrees(enemy.transform.position);
+                    var enemyDirection = _shootPoint.position.CalculateDirection90Degrees(enemy.transform.position);
+                    var directions = VectorExtensions.GenerateDirections(enemyDirection, 2, _projectileCount);
                     
-                    
+                    foreach (var direction in directions)
+                    {
+                        var projectile = Object.Instantiate(_projectilePrefab, _shootPoint.position, Quaternion.identity);
+                        projectile.transform.rotation = Quaternion.LookRotation(direction);
+                        projectile.Launch(enemy, _towerStats);
+                    }
                 }
+                var delay = _attackSpeed.CalculateAttackDelay(_towerStats.AttackSpeed);
 
-                yield return _attackSpeed.CalculateAttackDelay(_towerStats.AttackSpeed);
+                yield return new WaitForSeconds(delay);
             }    
         }
     }

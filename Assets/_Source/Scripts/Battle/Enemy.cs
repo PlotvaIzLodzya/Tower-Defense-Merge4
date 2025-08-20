@@ -56,6 +56,7 @@ namespace _Source.Scripts.Battle
         public void TakeDamage(int damage)
         {
             _health.TakeDamage(damage);
+
             if (_health.IsEmpty)
             {
                 Die();

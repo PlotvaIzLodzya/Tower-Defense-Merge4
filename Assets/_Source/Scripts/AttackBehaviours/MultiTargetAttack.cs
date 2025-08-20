@@ -9,7 +9,7 @@ namespace _Source.Scripts.AttackBehaviours
 {
     public class MultiTargetAttack : IAttack
     {
-        private readonly int _targetCount;
+        private int _targetCount;
         private TowerStats _towerStats;
         private Projectile _projectilePrefab;
         private Transform _shootPoint;

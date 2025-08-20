@@ -22,7 +22,11 @@ namespace _Source.Scripts.AttackBehaviours
 
         private Enemy GetRandomEnemy(List<Enemy> enemies)
         {
+            if (enemies.Count == 0)
+                return null;
+            
             var randomIndex = Random.Range(0, enemies.Count);
+            
             return enemies[randomIndex];
         }
     }

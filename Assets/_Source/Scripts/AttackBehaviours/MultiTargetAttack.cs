@@ -28,7 +28,7 @@ namespace _Source.Scripts.AttackBehaviours
             _targets = new ();
         }
 
-        public IEnumerator Attack()
+        public IEnumerator Perform()
         {
             while (true)
             {

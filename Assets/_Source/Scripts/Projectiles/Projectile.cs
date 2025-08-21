@@ -8,7 +8,8 @@ namespace _Source.Scripts.Projectiles
     public class Projectile : MonoBehaviour
     {
         [field: SerializeField] public ProjectileStats Stats { get; private set; }
-
+        [field: SerializeField] public Tags Tags { get; private set; }
+        
         [SerializeField] private ProjectileMovement _movement;
         [SerializeField] private OnMovementEnd _onMovementEndBehaviour;
         [SerializeField] private OnHitBehaviour _onHitBehaviour;

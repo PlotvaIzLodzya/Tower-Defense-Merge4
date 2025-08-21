@@ -2,8 +2,13 @@
 
 namespace _Source.Scripts.AttackBehaviours
 {
+    public interface IShotgunAttack
+    {
+        
+    }
+    
     public interface IAttack
     {
-        public IEnumerator Attack();
+        public IEnumerator Perform();
     }
 }

@@ -22,7 +22,7 @@ namespace _Source.Scripts.AttackBehaviours
             _attackSpeed = new ();
         }
 
-        public IEnumerator Attack()
+        public IEnumerator Perform()
         {
             while (true)
             {
@@ -36,7 +36,6 @@ namespace _Source.Scripts.AttackBehaviours
 
                 yield return new WaitForSeconds(attackDelay);
             }
-
         }
     }
 }

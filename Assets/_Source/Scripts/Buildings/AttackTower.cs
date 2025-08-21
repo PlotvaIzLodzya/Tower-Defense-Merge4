@@ -7,7 +7,7 @@ namespace _Source.Scripts.Buildings
     {
         [SerializeField] private AttackBehaviour _defaultAttack;
 
-        private IAttack _attackBehaviour;
+        private IAttack _attack;
 
         private void Awake()
         {
@@ -17,12 +17,12 @@ namespace _Source.Scripts.Buildings
 
         private void Start()
         {
-            StartCoroutine(_attackBehaviour.Attack());
+            StartCoroutine(_attack.Perform());
         }
 
         public void SetAttackBehaviour(IAttack attackBehaviour)
         {
-            _attackBehaviour = attackBehaviour;
+            _attack = attackBehaviour;
         }
     }
 }

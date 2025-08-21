@@ -26,7 +26,7 @@ namespace _Source.Scripts.AttackBehaviours
             _attackSpeed = new ();
         }
         
-        public IEnumerator Attack()
+        public IEnumerator Perform()
         {
             while (true)
             {

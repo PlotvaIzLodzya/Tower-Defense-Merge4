@@ -13,4 +13,5 @@ public enum Tags
     Damage = Forward*2,
     AOE = Damage*2,
     Duration = AOE*2,
+    Straight = Duration*2,
 }

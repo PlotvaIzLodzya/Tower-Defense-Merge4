@@ -1,11 +1,12 @@
-﻿using _Source.Scripts.Battle;
+﻿using System;
+using _Source.Scripts.Battle;
 using _Source.Scripts.Buildings;
 using System.Collections;
 using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : MonoBehaviour, ITagUser
     {
         [field: SerializeField] public ProjectileStats Stats { get; private set; }
         [field: SerializeField] public Tags Tags { get; private set; }
@@ -18,6 +19,19 @@ namespace _Source.Scripts.Projectiles
         private float _enemyStayedElapsedTime;
 
         public TowerStats TowerStats { get; private set; }
+        
+        [ContextMenu(nameof(UpdateTags))]
+        private void UpdateTags()
+        {
+            if(_movement != null)
+                Tags |= _movement.Tags;
+            if(_onHitBehaviour != null)
+                Tags |= _onHitBehaviour.Tags;
+            if(_onMovementEndBehaviour != null)
+                Tags |= _onMovementEndBehaviour.Tags;
+            if(_onStayOnEnemyBehaviour != null)
+                Tags |= _onStayOnEnemyBehaviour.Tags;
+        }
 
         public void Launch(Enemy enemy, TowerStats stats)
         {

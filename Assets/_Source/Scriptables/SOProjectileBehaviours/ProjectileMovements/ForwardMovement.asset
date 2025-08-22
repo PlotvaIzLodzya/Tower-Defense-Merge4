@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ForwardMovement
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.ForwardMovement
   <LifeTime>k__BackingField: 1
+  <Tags>k__BackingField: 32

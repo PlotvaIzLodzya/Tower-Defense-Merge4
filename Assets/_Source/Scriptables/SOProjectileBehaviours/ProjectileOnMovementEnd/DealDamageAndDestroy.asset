@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: affd5c0cea7e90a47a909c356d9bc85b, type: 3}
   m_Name: DealDamageAndDestroy
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.DealDamageAndDestroy
+  <Tags>k__BackingField: 64

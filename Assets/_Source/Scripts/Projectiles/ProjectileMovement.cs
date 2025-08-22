@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
-    public abstract class ProjectileMovement : ScriptableObject, IProjectileMovement
+    public abstract class ProjectileMovement : ScriptableObject, IProjectileMovement, ITagUser
     {
         [field: SerializeField] public float LifeTime { get; private set; }
+        [field: SerializeField] public Tags Tags { get; private set; }
 
         public abstract IEnumerator Moving(Enemy enemy, Projectile projectile);
     }

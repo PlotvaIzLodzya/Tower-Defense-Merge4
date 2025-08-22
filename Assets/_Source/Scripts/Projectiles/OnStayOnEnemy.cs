@@ -5,11 +5,13 @@ using UnityEngine;
 namespace _Source.Scripts.Projectiles
 {
     [CreateAssetMenu(fileName = nameof(OnStayOnEnemy), menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.OnStay + "/" + nameof(OnStayOnEnemy))]
-    public class OnStayOnEnemy : ScriptableObject
+    public class OnStayOnEnemy : ScriptableObject, ITagUser
     {
         [SerializeField] private OnHitBehaviour _hitBehaviour;
         [SerializeField] private float _delay;
 
+        [field: SerializeField] public Tags Tags { get; private set; }
+        
         public void OnStay(Enemy enemy, Projectile projectile, ref float elapsedTime)
         {
             if (elapsedTime > _delay)

@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.OnStayOnEnemy
   _hitBehaviour: {fileID: 11400000, guid: 36ad1e60640b2724b8d0f0fb0a6c543a, type: 2}
   _delay: 0.2
+  <Tags>k__BackingField: 448

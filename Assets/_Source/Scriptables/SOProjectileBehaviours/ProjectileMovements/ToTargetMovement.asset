@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d57afcbb12b32148a0072f4ae716c6a, type: 3}
   m_Name: ToTargetMovement
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.ToTargetMovementVariant
+  <LifeTime>k__BackingField: 0
+  <Tags>k__BackingField: 8

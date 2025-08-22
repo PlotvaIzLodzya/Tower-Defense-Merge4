@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: LinearMovemnt
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.LinearMovemnt
   <LifeTime>k__BackingField: 1
+  <Tags>k__BackingField: 16

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: StraightMovement
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.StraightMovement
   <LifeTime>k__BackingField: 1
+  <Tags>k__BackingField: 512

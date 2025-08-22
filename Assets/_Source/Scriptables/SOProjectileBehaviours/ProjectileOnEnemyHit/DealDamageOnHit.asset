@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104ba8a98e25bfd4799a92be15e5f6a5, type: 3}
   m_Name: DealDamageOnHit
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.DealDamageOnHit
+  <Tags>k__BackingField: 64

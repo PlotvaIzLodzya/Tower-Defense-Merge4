@@ -5,12 +5,10 @@ using UnityEngine;
 
 namespace _Source.Scripts.AttackBehaviours
 {
-
     public abstract class AttackBehaviour : ScriptableObject
     {
-        [field: SerializeField] protected Projectile Projectile { get; private set; }
         [field: SerializeField] protected EnemyPoolReference EnemyPoolReference {get ; private set; }
 
-        public abstract IAttack GetBehaviour(Tower tower);
+        public abstract IAttack GetBehaviour(Tower tower, Projectile projectilePrefab);
     }
 }

@@ -9,6 +9,8 @@ namespace _Source.Scripts.AttackBehaviours
 {
     public class ShotgunAttack : IAttack
     {
+        public Tags Tags { get; private set; }
+        
         private int _projectileCount;
         private TowerStats _towerStats;
         private Projectile _projectilePrefab;
@@ -24,6 +26,8 @@ namespace _Source.Scripts.AttackBehaviours
             _shootPoint = shootPoint;
             _projectileCount = 5;
             _attackSpeed = new ();
+            Tags = Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
+                   Tags.Duration | Tags.Straight;
         }
         
         public IEnumerator Perform()

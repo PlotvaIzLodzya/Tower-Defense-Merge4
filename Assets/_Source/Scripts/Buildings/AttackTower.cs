@@ -1,18 +1,20 @@
 ﻿using _Source.Scripts.AttackBehaviours;
+using _Source.Scripts.Projectiles;
 using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    public class AttackTower : Tower
+    public class AttackTower : Tower, ITagUser
     {
         [SerializeField] private AttackBehaviour _defaultAttack;
-
-        private IAttack _attack;
+        [SerializeField] private Projectile _projectilePrefab;
+        
+        private Attack _attack;
+        public Tags Tags => _attack.Tags;
 
         private void Awake()
         {
-            var defaultAttack = _defaultAttack.GetBehaviour(this);
-            SetAttackBehaviour(defaultAttack);
+            _attack = new Attack(_defaultAttack, this, _projectilePrefab);
         }
 
         private void Start()
@@ -20,9 +22,15 @@ namespace _Source.Scripts.Buildings
             StartCoroutine(_attack.Perform());
         }
 
-        public void SetAttackBehaviour(IAttack attackBehaviour)
+        public void UpdateProjectile(Projectile projectile)
         {
-            _attack = attackBehaviour;
+            _attack.UpdateProjectile(projectile);
         }
+
+        public void UpdateAttackBehaviour(AttackBehaviour attackBehaviour)
+        {
+            _attack.UpdateAttackBehaviour(attackBehaviour);
+        }
+
     }
 }

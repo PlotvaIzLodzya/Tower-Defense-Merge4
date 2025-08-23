@@ -6,6 +6,14 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
+    public class ProjectileDTO
+    {
+        public ProjectileMovement Movement;
+        public OnMovementEnd MovementEnd;
+        public OnHitBehaviour  HitBehaviour;
+        public OnStayOnEnemy StayOnEnemy;
+    }
+    
     public class Projectile : MonoBehaviour, ITagUser
     {
         [field: SerializeField] public ProjectileStats Stats { get; private set; }
@@ -31,6 +39,14 @@ namespace _Source.Scripts.Projectiles
                 Tags |= _onMovementEndBehaviour.Tags;
             if(_onStayOnEnemyBehaviour != null)
                 Tags |= _onStayOnEnemyBehaviour.Tags;
+        }
+
+        public void Upgrade(ProjectileDTO dto)
+        {
+            _movement = dto.Movement ?? _movement;
+            _onMovementEndBehaviour = dto.MovementEnd ?? _onMovementEndBehaviour;
+            _onHitBehaviour = dto.HitBehaviour ?? _onHitBehaviour;
+            _onStayOnEnemyBehaviour = dto.StayOnEnemy ?? _onStayOnEnemyBehaviour;
         }
 
         public void Launch(Enemy enemy, TowerStats stats)

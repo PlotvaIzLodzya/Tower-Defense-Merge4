@@ -7,7 +7,7 @@ namespace _Source.Scripts.AttackBehaviours
         
     }
     
-    public interface IAttack
+    public interface IAttack : ITagUser
     {
         public IEnumerator Perform();
     }

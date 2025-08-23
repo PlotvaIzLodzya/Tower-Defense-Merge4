@@ -9,6 +9,8 @@ namespace _Source.Scripts.AttackBehaviours
 {
     public class MultiTargetAttack : IAttack
     {
+        public Tags Tags { get; private set; }
+        
         private int _targetCount;
         private TowerStats _towerStats;
         private Projectile _projectilePrefab;
@@ -26,6 +28,8 @@ namespace _Source.Scripts.AttackBehaviours
             _targetCount = 2;
             _attackSpeed = new();
             _targets = new ();
+            Tags = Tags.MultiTarget | Tags.Homing | Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
+                   Tags.Duration | Tags.Straight;
         }
 
         public IEnumerator Perform()

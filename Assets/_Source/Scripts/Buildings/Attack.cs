@@ -4,7 +4,7 @@ using _Source.Scripts.Projectiles;
 
 namespace _Source.Scripts.AttackBehaviours
 {
-    public class Attack : IAttack, ITagUser
+    public class Attack : IAttack
     {
         private IAttack _attack;
         private AttackBehaviour _attackBehaviour;

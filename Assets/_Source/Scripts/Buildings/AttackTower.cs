@@ -8,7 +8,8 @@ namespace _Source.Scripts.Buildings
     {
         [SerializeField] private AttackBehaviour _defaultAttack;
         [SerializeField] private Projectile _projectilePrefab;
-        
+
+        private Coroutine _attackCoroutine;
         private Attack _attack;
         public Tags Tags => _attack.Tags;
 
@@ -19,18 +20,27 @@ namespace _Source.Scripts.Buildings
 
         private void Start()
         {
-            StartCoroutine(_attack.Perform());
+            RestartAttack();
         }
 
         public void UpdateProjectile(Projectile projectile)
         {
             _attack.UpdateProjectile(projectile);
+            RestartAttack();
         }
 
         public void UpdateAttackBehaviour(AttackBehaviour attackBehaviour)
         {
             _attack.UpdateAttackBehaviour(attackBehaviour);
+            RestartAttack();
         }
 
+        private void RestartAttack()
+        {
+            if(_attackCoroutine != null)
+                StopCoroutine(_attackCoroutine);
+            
+            _attackCoroutine = StartCoroutine(_attack.Perform());
+        }
     }
 }

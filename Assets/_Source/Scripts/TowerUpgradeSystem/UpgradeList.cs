@@ -4,7 +4,7 @@ using _Source.Scripts.Helpers;
 using _Source.Scripts.Projectiles;
 using UnityEngine;
 
-namespace _Source.Scripts.Upgrades
+namespace _Source.Scripts.TowerUpgradeSystem
 {
     [CreateAssetMenu(fileName = nameof(UpgradeList), menuName = NamingConstant.Upgrades + "/" + nameof(UpgradeList))]
     public class UpgradeList : ScriptableObject

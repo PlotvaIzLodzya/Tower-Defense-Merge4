@@ -1,7 +1,9 @@
-﻿using _Source.Scripts.Grid;
+﻿using System;
+using _Source.Scripts.Grid;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using _Source.Scripts.TowerUpgradeSystem;
 
 namespace _Source.Scripts.Buildings
 {
@@ -17,12 +19,15 @@ namespace _Source.Scripts.Buildings
         private CellGrid _cellGrid;
         private List<BuildingCell> _squareCell;
         private MergeEffect _mergeEffect;
+        private Action<Tower> _onMerged;
+        private TowerUpgrade _towerUpgrade;
 
-        public TowerMerge(CellGrid cellGrid, MergeEffect mergeEffect)
+        public TowerMerge(CellGrid cellGrid, MergeEffect mergeEffect, TowerUpgrade towerUpgrade)
         {
             _squareCell = new List<BuildingCell>(4);
             _cellGrid = cellGrid;
             _mergeEffect = mergeEffect;
+            _towerUpgrade = towerUpgrade; 
         }
 
         public IEnumerator TryMerge(List<BindTowerToCell> bindings)
@@ -59,6 +64,7 @@ namespace _Source.Scripts.Buildings
         private void Merge(MergeData mergeData)
         {
             mergeData.CellMergeTo.Tower.SetStats(mergeData.Config);
+            _towerUpgrade.OnTowerMerge(mergeData.CellMergeTo.Tower);
         }
 
         private MergeData CreateMergeData(List<BuildingCell> cellsToMerge)

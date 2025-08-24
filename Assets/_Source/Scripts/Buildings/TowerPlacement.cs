@@ -4,6 +4,7 @@ using System.Linq;
 using _Source.Scripts.Controls;
 using _Source.Scripts.Grid;
 using _Source.Scripts.ReferencesAndSources;
+using _Source.Scripts.TowerUpgradeSystem;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -31,14 +32,15 @@ namespace _Source.Scripts.Buildings
         [SerializeField] private TowerPlacementPreview _towerPreview;
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
-        [SerializeField] private TowerBlockPreset _towerBlockPresetPrefab;
         [SerializeField] private MergeEffect _mergeEffect;
+        [SerializeField] private TowerUpgrade _towerUpgrade;
         
         private IInput _input;
         private TowerMerge _towerMerge;
         private Camera _camera;
         private CellGrid _cellGrid;
         private LevelConfig _levelConfig;
+        private TowerBlockPreset _towerBlockPresetPrefab;
         private SortedSet<BindTowerToCell> _bindsSorted;
         private List<BindTowerToCell> _binds;
         private Action _onPlacement;
@@ -49,7 +51,7 @@ namespace _Source.Scripts.Buildings
             _levelConfig = _levelConfigProvider.LevelConfig;
             _cellGrid = _cellGridReference.Value;
             _binds = new();
-            _towerMerge = new(_cellGrid, _mergeEffect);
+            _towerMerge = new(_cellGrid, _mergeEffect, _towerUpgrade);
             _camera = Camera.main;
         }
 

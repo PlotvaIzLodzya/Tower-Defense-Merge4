@@ -1,6 +1,7 @@
 ﻿using _Source.Scripts.Buildings;
 using _Source.Scripts.Projectiles;
 using System.Collections;
+using _Source.Scripts.Helpers;
 using UnityEngine;
 
 namespace _Source.Scripts.AttackBehaviours
@@ -21,8 +22,7 @@ namespace _Source.Scripts.AttackBehaviours
             _projectilePrefab = projectilePrefab;
             _shootPoint = shootPoint;
             _attackSpeed = new ();
-            Tags = Tags.SingleTarget | Tags.Homing | Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
-                   Tags.Duration | Tags.Straight;
+            Tags = TagsMapper.GetTags<SingleTargetAttack>();
         }
 
         public IEnumerator Perform()

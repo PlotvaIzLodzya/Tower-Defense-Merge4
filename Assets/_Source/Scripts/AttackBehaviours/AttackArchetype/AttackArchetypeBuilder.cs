@@ -11,7 +11,7 @@ namespace _Source.Scripts.AttackBehaviours
         [SerializeField] private Projectile _projectile;
         [SerializeField] private AttackBehaviour _attackBehaviour;
 
-        public Tags Tags => _projectile.Tags;
+        public Tags Tags => _projectile.Tags | _attackBehaviour.Tags;
 
         public Attack BuildIn(AttackTower tower)
         {

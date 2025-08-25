@@ -8,6 +8,8 @@ namespace _Source.Scripts.AttackBehaviours
     [CreateAssetMenu(fileName = nameof(MultiTargetAttackBehaviour), menuName = NamingConstant.AttackBehaviour + "/" + nameof(MultiTargetAttackBehaviour))]
     public class MultiTargetAttackBehaviour : AttackBehaviour
     {
+        public override Tags Tags => TagsMapper.GetTags<MultiTargetAttack>();
+
         public override IAttack GetBehaviour(Tower tower, Projectile projectilePrefab)
         {
             var multiTargetSeek = new MultiAtPath(EnemyPoolReference.Value, tower.transform, tower.Stats);

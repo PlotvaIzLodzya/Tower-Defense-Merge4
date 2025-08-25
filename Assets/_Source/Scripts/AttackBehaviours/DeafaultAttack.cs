@@ -8,7 +8,7 @@ namespace _Source.Scripts.AttackBehaviours
     [CreateAssetMenu(fileName = nameof(DefaultAttackBehaviour), menuName = NamingConstant.AttackBehaviour + "/" + nameof(DefaultAttackBehaviour))] 
     public class DefaultAttackBehaviour : AttackBehaviour
     {
-        public Tags Tags {get; private set;}
+        public override Tags Tags => TagsMapper.GetTags<SingleTargetAttack>();
         
         public override IAttack GetBehaviour(Tower tower, Projectile projectilePrefab)
         {

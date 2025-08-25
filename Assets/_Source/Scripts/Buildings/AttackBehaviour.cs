@@ -9,6 +9,7 @@ namespace _Source.Scripts.AttackBehaviours
     {
         [field: SerializeField] protected EnemyPoolReference EnemyPoolReference {get ; private set; }
 
+        public abstract Tags Tags { get; }
         public abstract IAttack GetBehaviour(Tower tower, Projectile projectilePrefab);
     }
 }

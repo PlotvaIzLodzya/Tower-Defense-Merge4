@@ -175,7 +175,7 @@ MonoBehaviour:
   _levelConfigProvider: {fileID: 7265722961766445261}
   _cellGridReference: {fileID: 11400000, guid: fd3f57a5a032b4447b36432d36265bc1, type: 2}
   _mergeEffect: {fileID: 4363526423868930552}
-  _towerUpgrade: {fileID: 2727979614703805104}
+  _towerUpgradePanel: {fileID: 2727979614703805104}
 --- !u!114 &7218254832180057170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,13 +702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.TowerUpgrade
   _upgradeViews:
-  - {fileID: 7055625642716173040}
-  - {fileID: 5979668490286353968}
-  - {fileID: 3368534809440605678}
-  _attackBehaviours:
-  - {fileID: 11400000, guid: 6534ec069c7701641ae36ef255cdc150, type: 2}
-  - {fileID: 11400000, guid: 5b1e876dc67203d4081fc321742becd3, type: 2}
-  - {fileID: 11400000, guid: ae180a89a5b9ce848a1c827731784f95, type: 2}
+  - {fileID: 769008412998735342}
+  - {fileID: 4159782338918795566}
+  - {fileID: 5042342457280385776}
   _projectile: {fileID: 5228155411944166035, guid: fbb346d58dc77394f92f8b58fc447df2, type: 3}
 --- !u!114 &1032688861871119266
 MonoBehaviour:
@@ -1011,6 +1007,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: _archetypeBuilder
+      value: 
+      objectReference: {fileID: 11400000, guid: a60ed4024e11ca34c82b693d669b0123, type: 2}
+    - target: {fileID: 8079225455280014686, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: m_text
+      value: ZoneAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 8203935495874494780, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
       propertyPath: m_Name
       value: TowerUpgradeView (2)
@@ -1025,17 +1029,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 117734079321805443, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
   m_PrefabInstance: {fileID: 2275187337829986132}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3368534809440605678 stripped
+--- !u!114 &5042342457280385776 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3543319550393875130, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
   m_PrefabInstance: {fileID: 2275187337829986132}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b1426dcf534aaf9b99fdc5f579bdba, type: 3}
+  m_Script: {fileID: 11500000, guid: d33c6cf1bdbe4d21b7958caad5d08fdd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.TowerUpgradeView
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.ArchetypeUpgrade
 --- !u!1001 &3008051658281155113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1230,6 +1234,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: _archetypeBuilder
+      value: 
+      objectReference: {fileID: 11400000, guid: ce840f4ae13bee742a421e41734939be, type: 2}
+    - target: {fileID: 8079225455280014686, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: m_text
+      value: 'Railgun
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 8203935495874494780, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
       propertyPath: m_Name
       value: TowerUpgradeView
@@ -1239,22 +1253,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
---- !u!224 &5865022609237703369 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 117734079321805443, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
-  m_PrefabInstance: {fileID: 5820612764058544202}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7055625642716173040 stripped
+--- !u!114 &769008412998735342 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3543319550393875130, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
   m_PrefabInstance: {fileID: 5820612764058544202}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b1426dcf534aaf9b99fdc5f579bdba, type: 3}
+  m_Script: {fileID: 11500000, guid: d33c6cf1bdbe4d21b7958caad5d08fdd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.TowerUpgradeView
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.ArchetypeUpgrade
+--- !u!224 &5865022609237703369 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 117734079321805443, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+  m_PrefabInstance: {fileID: 5820612764058544202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7192365792974943370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1343,6 +1357,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: _archetypeBuilder
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c4ae2d95908cd14fa47af7ba3ce19c4, type: 2}
+    - target: {fileID: 8079225455280014686, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: m_text
+      value: Shotgun
+      objectReference: {fileID: 0}
     - target: {fileID: 8203935495874494780, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
       propertyPath: m_Name
       value: TowerUpgradeView (1)
@@ -1352,17 +1374,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
---- !u!114 &5979668490286353968 stripped
+--- !u!114 &4159782338918795566 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3543319550393875130, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+  m_CorrespondingSourceObject: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
   m_PrefabInstance: {fileID: 7192365792974943370}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b1426dcf534aaf9b99fdc5f579bdba, type: 3}
+  m_Script: {fileID: 11500000, guid: d33c6cf1bdbe4d21b7958caad5d08fdd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.TowerUpgradeView
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.ArchetypeUpgrade
 --- !u!224 &7093780816989136393 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 117734079321805443, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}

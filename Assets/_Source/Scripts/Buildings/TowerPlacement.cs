@@ -33,7 +33,7 @@ namespace _Source.Scripts.Buildings
         [SerializeField] private LevelConfigProvider _levelConfigProvider;
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private MergeEffect _mergeEffect;
-        [SerializeField] private TowerUpgrade _towerUpgrade;
+        [SerializeField] private TowerUpgradePanel _towerUpgradePanel;
         
         private IInput _input;
         private TowerMerge _towerMerge;
@@ -51,7 +51,7 @@ namespace _Source.Scripts.Buildings
             _levelConfig = _levelConfigProvider.LevelConfig;
             _cellGrid = _cellGridReference.Value;
             _binds = new();
-            _towerMerge = new(_cellGrid, _mergeEffect, _towerUpgrade);
+            _towerMerge = new(_cellGrid, _mergeEffect, _towerUpgradePanel);
             _camera = Camera.main;
         }
 

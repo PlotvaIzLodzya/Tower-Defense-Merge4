@@ -15,7 +15,6 @@ namespace _Source.Scripts.Buildings
         
         [field: SerializeField] public TowerStats Stats { get; private set; }
         // [SerializeField] private TowerConfig _config;
-        
         public Vector3Int GridPosition => transform.position.ToGrid();
 
         public void OnBuild()

@@ -1,58 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using _Source.Scripts.AttackBehaviours;
 using _Source.Scripts.Buildings;
-using _Source.Scripts.Projectiles;
 using _Source.Scripts.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace _Source.Scripts.TowerUpgradeSystem
 {
-    public class TowerUpgrade : Panel
+    public abstract class TowerUpgrade : Panel
     {
-        [SerializeField] private TowerUpgradeView[] _upgradeViews;
-        [SerializeField] private AttackBehaviour[] _attackBehaviours;
-        [SerializeField] private Projectile _projectile;
-
-        private AttackTower _attackTower;
-        private Dictionary<TowerUpgradeView, AttackBehaviour> _bindViewToUpgrade;
+        [SerializeField] private Button _upgradeButton; 
+        
+        private Panel _upgradePanel;
         
         private void Awake()
         {
-            _bindViewToUpgrade = new();
-            for (int i = 0; i < _upgradeViews.Length; i++)
-            {
-                _bindViewToUpgrade.Add(_upgradeViews[i], _attackBehaviours[i]);
-                _upgradeViews[i].OnUpgrade += OnUpgradeBuy;
-            }
-            
-            Hide();
-            
+            _upgradeButton.onClick.AddListener(OnUpgradeButtonClick);
         }
 
         private void OnDestroy()
         {
-            for (int i = 0; i < _upgradeViews.Length; i++)
-            {
-                _upgradeViews[i].OnUpgrade -= OnUpgradeBuy;
-            }
+            _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClick);       
         }
 
-
-        public void OnTowerMerge(Tower tower)
+        public virtual void Initialize(Panel upgradePanel)
         {
-            Show();
-            if (tower is AttackTower attackTower)
-            {
-                _attackTower = attackTower;
-            }
+            _upgradePanel = upgradePanel;
         }
 
-        public void OnUpgradeBuy(TowerUpgradeView view)
+        public abstract void SetTower(Tower tower);
+        protected abstract void OnUpgrade();
+
+        
+        private void OnUpgradeButtonClick()
         {
-            _attackTower.UpdateProjectile(_projectile);
-            _attackTower.UpdateAttackBehaviour(_bindViewToUpgrade[view]);
-            Hide();
+            _upgradePanel.Hide();
+            OnUpgrade();
         }
     }
 }

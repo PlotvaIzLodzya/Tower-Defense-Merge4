@@ -20,14 +20,14 @@ namespace _Source.Scripts.Buildings
         private List<BuildingCell> _squareCell;
         private MergeEffect _mergeEffect;
         private Action<Tower> _onMerged;
-        private TowerUpgrade _towerUpgrade;
+        private TowerUpgradePanel _towerUpgradePanel;
 
-        public TowerMerge(CellGrid cellGrid, MergeEffect mergeEffect, TowerUpgrade towerUpgrade)
+        public TowerMerge(CellGrid cellGrid, MergeEffect mergeEffect, TowerUpgradePanel towerUpgradePanel)
         {
             _squareCell = new List<BuildingCell>(4);
             _cellGrid = cellGrid;
             _mergeEffect = mergeEffect;
-            _towerUpgrade = towerUpgrade; 
+            _towerUpgradePanel = towerUpgradePanel; 
         }
 
         public IEnumerator TryMerge(List<BindTowerToCell> bindings)
@@ -64,7 +64,7 @@ namespace _Source.Scripts.Buildings
         private void Merge(MergeData mergeData)
         {
             mergeData.CellMergeTo.Tower.SetStats(mergeData.Config);
-            _towerUpgrade.OnTowerMerge(mergeData.CellMergeTo.Tower);
+            _towerUpgradePanel.OnTowerMerge(mergeData.CellMergeTo.Tower);
         }
 
         private MergeData CreateMergeData(List<BuildingCell> cellsToMerge)

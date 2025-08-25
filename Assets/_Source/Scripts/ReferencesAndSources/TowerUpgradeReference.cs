@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Source.Scripts.ReferencesAndSources
 {
     [CreateAssetMenu(menuName = "References/" + nameof(TowerUpgradeReference), fileName = nameof(TowerUpgradeReference))]
-    public class TowerUpgradeReference : ReferenceAsset<TowerUpgrade>
+    public class TowerUpgradeReference : ReferenceAsset<TowerUpgradePanel>
     {
         
     }

@@ -9,7 +9,8 @@ namespace _Source.Scripts.TowerUpgradeSystem
         [SerializeField] private AttackArchetypeBuilder _archetypeBuilder;
 
         private AttackTower _attackTower;
-        
+        public override Tags Tags => _archetypeBuilder.Tags;
+
         public override void SetTower(Tower tower)
         {
             if (tower is AttackTower attackTower)

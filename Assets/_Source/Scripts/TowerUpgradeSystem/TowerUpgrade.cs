@@ -8,9 +8,11 @@ namespace _Source.Scripts.TowerUpgradeSystem
 {
     public abstract class TowerUpgrade : Panel
     {
-        [SerializeField] private Button _upgradeButton; 
+        [SerializeField] private Button _upgradeButton;
         
         private Panel _upgradePanel;
+        
+        public abstract Tags Tags { get; }
         
         private void Awake()
         {

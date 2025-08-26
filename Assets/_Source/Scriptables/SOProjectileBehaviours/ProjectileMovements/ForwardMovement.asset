@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2d21810ec44a65bba050fc6017d047, type: 3}
   m_Name: ForwardMovement
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.ForwardMovement
-  <LifeTime>k__BackingField: 1
+  <LifeTime>k__BackingField: 2
   <Tags>k__BackingField: 32

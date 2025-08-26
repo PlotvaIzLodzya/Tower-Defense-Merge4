@@ -53,6 +53,7 @@ namespace _Source.Scripts.Projectiles
         {
             TowerStats = stats;
             StartCoroutine(MovingTowards(enemy));
+            StartCoroutine(DestroyAfter(5f, _movement.LifeTime));
         }
 
         private void OnTriggerEnter(Collider other)
@@ -77,6 +78,13 @@ namespace _Source.Scripts.Projectiles
             yield return _movement?.Moving(enemy, this);
 
             _onMovementEndBehaviour?.OnEnd(enemy, this);
+        }
+
+        private IEnumerator DestroyAfter(float time, float lifeTime)
+        {
+            var delay = Mathf.Max(time, lifeTime);
+            yield return new WaitForSeconds(delay);
+            Destroy();
         }
     }
 }

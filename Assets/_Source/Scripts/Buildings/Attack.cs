@@ -26,7 +26,12 @@ namespace _Source.Scripts.AttackBehaviours
             yield return _attack.Perform();
         }
 
-        public void UpdateProjectile(Projectile projectile)
+        public void UpgradeProjectile(ProjectileDTO dto)
+        {
+            _projectile.Upgrade(dto);
+        }
+
+        public void SetProjectile(Projectile projectile)
         {
             _projectile = projectile;
             UpdateAttackBehaviour(_attackBehaviour);

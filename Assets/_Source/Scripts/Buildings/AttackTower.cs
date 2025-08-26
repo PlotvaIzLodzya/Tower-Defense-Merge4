@@ -31,13 +31,18 @@ namespace _Source.Scripts.Buildings
             RestartAttack();
         }
 
-        public void UpdateProjectile(Projectile projectile)
+        public void UpgradeProjectile(ProjectileDTO dto)
         {
-            _attack.UpdateProjectile(projectile);
+            _attack.UpgradeProjectile(dto);
+        }
+
+        public void SetProjectile(Projectile projectile)
+        {
+            _attack.SetProjectile(projectile);
             RestartAttack();
         }
 
-        public void UpdateAttackBehaviour(AttackBehaviour attackBehaviour)
+        public void SetAttackBehaviour(AttackBehaviour attackBehaviour)
         {
             _attack.UpdateAttackBehaviour(attackBehaviour);
             RestartAttack();

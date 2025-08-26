@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379cb91d9057be745981610b81e2040f, type: 3}
   m_Name: StraightMovement
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.StraightMovement
-  <LifeTime>k__BackingField: 1
+  <LifeTime>k__BackingField: 2
   <Tags>k__BackingField: 512

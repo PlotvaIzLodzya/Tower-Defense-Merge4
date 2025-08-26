@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using _Source.Scripts.Buildings;
 using _Source.Scripts.Projectiles;
+using UnityEngine;
 
 namespace _Source.Scripts.AttackBehaviours
 {
@@ -15,10 +16,10 @@ namespace _Source.Scripts.AttackBehaviours
         
         public Attack(AttackBehaviour attackBehaviour, Tower tower,  Projectile projectile)
         {
-            _attack = attackBehaviour.GetBehaviour(tower, projectile);
             _attackBehaviour = attackBehaviour;
-            _projectile = projectile;
             _tower = tower;
+            RecreateProjectileDummy(projectile);
+            _attack = attackBehaviour.GetBehaviour(tower, _projectile);
         }
         
         public IEnumerator Perform()
@@ -33,7 +34,7 @@ namespace _Source.Scripts.AttackBehaviours
 
         public void SetProjectile(Projectile projectile)
         {
-            _projectile = projectile;
+            RecreateProjectileDummy(projectile);
             UpdateAttackBehaviour(_attackBehaviour);
             UpdateTags();
         }
@@ -48,6 +49,13 @@ namespace _Source.Scripts.AttackBehaviours
         {
             Tags |= _projectile.Tags;
             Tags |= _attack.Tags;
+        }
+
+        private void RecreateProjectileDummy(Projectile projectile)
+        {
+            _projectile?.Destroy();
+            _projectile = Object.Instantiate(projectile, _tower.transform);
+            _projectile.transform.localPosition = Vector3.forward * 5f;
         }
     }
 }

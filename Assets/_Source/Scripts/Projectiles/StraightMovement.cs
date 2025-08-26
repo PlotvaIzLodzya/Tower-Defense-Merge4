@@ -14,6 +14,7 @@ namespace _Source.Scripts.Projectiles
 
             var direction = (enemy.transform.position - projectile.transform.position).normalized;
 
+            projectile.transform.rotation = Quaternion.LookRotation(direction);
             while(elapsedTime < LifeTime)
             {
                 elapsedTime += Time.deltaTime;

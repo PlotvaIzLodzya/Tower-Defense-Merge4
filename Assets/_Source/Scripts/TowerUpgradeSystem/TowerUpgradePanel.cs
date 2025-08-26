@@ -7,11 +7,13 @@ namespace _Source.Scripts.TowerUpgradeSystem
 {
     public class TowerUpgradePanel : Panel
     {
-        [SerializeField] private TowerUpgrade[] _upgradeViews;
         [SerializeField] private Projectile _projectile;
+        
+        private TowerUpgrade[] _upgradeViews;
         
         private void Awake()
         {
+            _upgradeViews = GetComponentsInChildren<TowerUpgrade>();
             foreach (var view in _upgradeViews)
             {
                 view.Initialize(this);

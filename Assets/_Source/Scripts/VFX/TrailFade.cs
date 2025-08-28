@@ -8,10 +8,10 @@ namespace _Source.Scripts.VFX
         [SerializeField] private TrailRenderer _trail;
         [SerializeField] private AnimationCurve _fadeCurve;
 
-        private void Awake()
-        {
-            StartCoroutine(Fading(0.75f));
-        }
+        // private void Awake()
+        // {
+        //     // StartCoroutine(Fading(0.75f));
+        // }
 
         private IEnumerator Fading(float fadeTime)
         {

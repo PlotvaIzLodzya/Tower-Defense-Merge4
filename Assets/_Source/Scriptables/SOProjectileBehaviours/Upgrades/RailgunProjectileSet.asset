@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22f245caaa24cf5aff9f5bad4200187, type: 3}
+  m_Name: RailgunProjectileSet
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.ProjectileSet
+  _projectile: {fileID: 2815671702332506203, guid: c12303c811c569e4aa101dc7470bb81c, type: 3}

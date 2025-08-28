@@ -50,7 +50,7 @@ MonoBehaviour:
   _cellGridReference: {fileID: 11400000, guid: fd3f57a5a032b4447b36432d36265bc1, type: 2}
   _config:
     Damage: 5
-    Health: 100
+    Health: 1000
     Reward: 10
     Speed: 1
 --- !u!135 &3797211425401664401

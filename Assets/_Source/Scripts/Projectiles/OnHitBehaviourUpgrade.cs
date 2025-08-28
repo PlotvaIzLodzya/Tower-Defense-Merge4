@@ -9,6 +9,8 @@ namespace _Source.Scripts.Projectiles
     {
         [SerializeField] private OnHitBehaviour _onHit;
         [SerializeField] private ProjectileMovement _projectileMovement;
+        [SerializeField] private OnMovementEnd _onEnd;
+        [SerializeField] private OnStayOnEnemy _onStay;
         
         public override Tags Tags => _onHit.Tags;
         
@@ -18,6 +20,8 @@ namespace _Source.Scripts.Projectiles
             {
                 HitBehaviour = _onHit,
                 Movement = _projectileMovement,
+                StayOnEnemy = _onStay,
+                MovementEnd = _onEnd
             };
             tower.UpgradeProjectile(dto);
         }

@@ -1,11 +1,16 @@
 ﻿using _Source.Scripts.Buildings;
+using _Source.Scripts.Projectiles;
+using UnityEngine;
 
 namespace _Source.Scripts.TowerUpgradeSystem
 {
-    public abstract class AttackTowerUpgrade : TowerUpgrade
+    public class AttackTowerUpgrade : TowerUpgrade
     {
-        private AttackTower _attackTower;
+        [SerializeField] private BehaviourUpgrade _upgradeBehaviour;
         
+        private AttackTower _attackTower;
+        public override Tags Tags => _upgradeBehaviour.Tags;
+
         public override void SetTower(Tower tower)
         {
             if (tower is AttackTower attackTower)
@@ -14,9 +19,7 @@ namespace _Source.Scripts.TowerUpgradeSystem
 
         protected override void OnUpgrade()
         {
-            OnUpgrade(_attackTower);
+            _upgradeBehaviour.Upgrade(_attackTower);
         }
-        
-        protected abstract void OnUpgrade(AttackTower tower);
     }
 }

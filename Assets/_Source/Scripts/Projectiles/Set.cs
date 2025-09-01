@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
-    [CreateAssetMenu(fileName = nameof(ProjectileSet),  menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.Upgrades + "/" + nameof(ProjectileSet))]
-    public class ProjectileSet : ProjectileBehaviourUpgrade
+    [CreateAssetMenu(fileName = nameof(Set),  menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.Upgrades + "/" + nameof(Set))]
+    public class Set : BehaviourUpgrade
     {
         [SerializeField] private Projectile _projectile;
 

@@ -260,11 +260,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8203935495874494780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33c6cf1bdbe4d21b7958caad5d08fdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b82cd3d1684482aa418c85ce113dee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.ArchetypeUpgrade
   _upgradeButton: {fileID: 6032223541110135975}
-  _archetypeBuilder: {fileID: 0}
+  _upgradeBehaviour: {fileID: 0}
 --- !u!1 &8921563390604119749
 GameObject:
   m_ObjectHideFlags: 0

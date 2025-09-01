@@ -5,7 +5,7 @@ using UnityEngine;
 namespace _Source.Scripts.Projectiles
 {
     [CreateAssetMenu(fileName = nameof(OnHitBehaviourUpgrade),  menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.Upgrades + "/" + nameof(OnHitBehaviourUpgrade))]
-    public class OnHitBehaviourUpgrade : ProjectileBehaviourUpgrade
+    public class OnHitBehaviourUpgrade : BehaviourUpgrade
     {
         [SerializeField] private OnHitBehaviour _onHit;
         [SerializeField] private ProjectileMovement _projectileMovement;

@@ -6,18 +6,17 @@ using UnityEngine;
 namespace _Source.Scripts.AttackBehaviours
 {
     [CreateAssetMenu(fileName = nameof(AttackArchetypeBuilder), menuName = NamingConstant.AttackBehaviour + "/" + nameof(AttackArchetypeBuilder))]
-    public class AttackArchetypeBuilder : ScriptableObject, ITagUser
+    public class AttackArchetypeBuilder : BehaviourUpgrade, ITagUser
     {
         [SerializeField] private Projectile _projectile;
         [SerializeField] private AttackBehaviour _attackBehaviour;
 
-        public Tags Tags => _projectile.Tags | _attackBehaviour.Tags;
+        public override Tags Tags => _projectile.Tags | _attackBehaviour.Tags;
 
-        public Attack BuildIn(AttackTower tower)
+        public override void Upgrade(AttackTower tower)
         {
             var attack = new Attack(_attackBehaviour, tower, _projectile);
             tower.SetAttack(attack);
-            return attack;
         }
 
     }

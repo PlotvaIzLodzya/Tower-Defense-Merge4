@@ -1003,6 +1003,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: _upgradeBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: ce840f4ae13bee742a421e41734939be, type: 2}
     - target: {fileID: 8203935495874494780, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
       propertyPath: m_Name
       value: TowerUpgradeView
@@ -1211,6 +1215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: _upgradeBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c4ae2d95908cd14fa47af7ba3ce19c4, type: 2}
     - target: {fileID: 8203935495874494780, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
       propertyPath: m_Name
       value: TowerUpgradeView (1)
@@ -1313,6 +1321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6515276459245043108, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
+      propertyPath: _upgradeBehaviour
+      value: 
+      objectReference: {fileID: 11400000, guid: 08600645d7c112b4089be7608c31fcd3, type: 2}
     - target: {fileID: 8203935495874494780, guid: ce1f9b1bb124430468758c3787dea7a5, type: 3}
       propertyPath: m_Name
       value: TowerUpgradeView (2)

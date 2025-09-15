@@ -9,7 +9,6 @@ namespace _Source.Scripts.Battle
     public class EnemyPool : MonoBehaviour
     {
         [SerializeField] private WalletReference _walletReference;
-        [SerializeField] private RewardEffect _rewardEffectPrefab;
         
         private List<Enemy> _enemies;
         private Wallet _wallet;
@@ -28,11 +27,7 @@ namespace _Source.Scripts.Battle
             {
                 if (_enemies[i].IsDead)
                 {
-                    _wallet.Add(_enemies[i].Reward);
-                    
-                    var effect = Instantiate(_rewardEffectPrefab);
-                    effect.Play(_enemies[i].transform.position, _enemies[i].Reward);
-                    
+
                     _enemies.RemoveAt(i);
                 }
             }

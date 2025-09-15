@@ -14,6 +14,12 @@ namespace _Source.Scripts.Projectiles
         public OnHitBehaviour  HitBehaviour;
         public OnStayOnEnemy StayOnEnemy;
     }
+
+    public struct DamageDTO
+    {
+        public int Damage;
+        public Vector3 Position;
+    }
     
     public class Projectile : MonoBehaviour, ITagUser
     {

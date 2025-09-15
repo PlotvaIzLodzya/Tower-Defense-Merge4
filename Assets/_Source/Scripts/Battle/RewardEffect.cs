@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -12,28 +12,12 @@ namespace _Source.Scripts.Battle
         
         public void Play(Vector3 position, int reward)
         {
-            StartCoroutine(Playing(position, reward));
-        }
-
-        private IEnumerator Playing(Vector3 position, int reward)
-        {
-            float elapsedTime = 0;
-
             position.y += 1f;
             transform.position = position;
             _reward.text = $"{reward}";
-            var startPosition = transform.position;
-            var endPosition = startPosition + Vector3.forward * _height;
-            
-            while (elapsedTime < _playTime)
-            {
-                elapsedTime += Time.deltaTime;
-                transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / _playTime);
-                _reward.alpha = Mathf.Lerp(1, 0, elapsedTime / _playTime);
-                yield return null;
-            }
-            
-            Destroy(gameObject);
+            var endHeight = position.z + _height;
+            _reward.DOFade(0, _playTime).SetEase(Ease.OutQuad);
+            transform.DOMoveZ(endHeight, _playTime).SetEase(Ease.OutQuad).OnComplete(()=>Destroy(gameObject));
         }
     }
 }

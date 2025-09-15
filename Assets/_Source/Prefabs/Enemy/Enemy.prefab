@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1124979024012585828}
   - component: {fileID: 3797211425401664401}
   - component: {fileID: 8952717284619257356}
+  - component: {fileID: 5893703266929354230}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -53,6 +54,8 @@ MonoBehaviour:
     Health: 1000
     Reward: 10
     Speed: 1
+  _vfx: {fileID: 5893703266929354230}
+  _walletReference: {fileID: 11400000, guid: 5c6b72c7bbe74b04e973c375a1adadd1, type: 2}
 --- !u!135 &3797211425401664401
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -101,6 +104,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5893703266929354230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180988958598299817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b33611fe1484578ad1157d97dbdf37c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Battle.EnemyVFX
+  _rewardEffectPrefab: {fileID: 4999459512682305650, guid: 4a25c321ea2566c43ac7ddd3d1732629, type: 3}
+  _damageTextEffectPrefab: {fileID: 4820454237807452099, guid: dccd7050d91610546bacbe287680aa4f, type: 3}
 --- !u!1 &7126276618961251993
 GameObject:
   m_ObjectHideFlags: 0

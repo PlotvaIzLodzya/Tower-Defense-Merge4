@@ -9,7 +9,12 @@ namespace _Source.Scripts.Projectiles
     {
         public override void OnHit(Enemy enemy, Projectile projectile)
         {
-            enemy.TakeDamage(projectile.TowerStats.Damage);
+            var dto = new DamageDTO()
+            {
+                Damage = projectile.TowerStats.Damage,
+                Position = projectile.transform.position,
+            };
+            enemy.TakeDamage(dto);
             projectile.Destroy();
         }
     }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using _Source.Scripts.Buildings;
 using _Source.Scripts.Grid;
+using _Source.Scripts.Projectiles;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
 
@@ -15,11 +16,13 @@ namespace _Source.Scripts.Battle
         public int Reward = 10;
         public float Speed = 100f;
     }
-    
+
     public class Enemy : MonoBehaviour
     {
         [SerializeField] private CellGridReference _cellGridReference;
         [SerializeField] private EnemyConfig _config;
+        [SerializeField] private EnemyVFX _vfx;
+        [SerializeField] private WalletReference _walletReference;
 
         private int _damage;
         private float _speed;
@@ -53,10 +56,10 @@ namespace _Source.Scripts.Battle
             StartCoroutine(MovingByPath());
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(DamageDTO dto)
         {
-            _health.TakeDamage(damage);
-
+            _health.TakeDamage(dto.Damage);
+            _vfx.PlayDamageEffect(transform.position, dto);
             if (_health.IsEmpty)
             {
                 Die();
@@ -65,6 +68,8 @@ namespace _Source.Scripts.Battle
 
         private void Die()
         {
+            _walletReference.Value.Add(Reward);
+            _vfx.PlayRewardEffect(transform.position, Reward);
             IsDead = true;
             gameObject.SetActive(false);
         }

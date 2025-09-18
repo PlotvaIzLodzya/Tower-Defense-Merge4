@@ -7,7 +7,6 @@ namespace _Source.Scripts.TowerUpgradeSystem
 {
     public class TowerUpgradePanel : Panel
     {
-        [SerializeField] private Projectile _projectile;
         
         private TowerUpgrade[] _upgradeViews;
         

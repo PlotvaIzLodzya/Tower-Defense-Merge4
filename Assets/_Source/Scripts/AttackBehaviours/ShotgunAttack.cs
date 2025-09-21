@@ -27,7 +27,7 @@ namespace _Source.Scripts.AttackBehaviours
             _projectileCount = 5;
             _attackSpeed = new ();
             Tags = Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
-                   Tags.Duration | Tags.Straight;
+                   Tags.Duration;
         }
         
         public IEnumerator Perform()

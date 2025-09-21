@@ -12,11 +12,11 @@ namespace _Source.Scripts.Helpers
             return type switch
             {
                 var t when t == typeof(SingleTargetAttack) => Tags.SingleTarget | Tags.Homing | Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
-                                                              Tags.Duration | Tags.Straight,
+                                                              Tags.Duration,
                 var t when t == typeof(MultiTargetAttack) => Tags.MultiTarget | Tags.Homing | Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
-                                                             Tags.Duration | Tags.Straight,
+                                                             Tags.Duration,
                 var t when t == typeof(ShotgunAttack) => Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
-                                                         Tags.Duration | Tags.Straight,
+                                                         Tags.Duration,
                 _ => throw new Exception($"No pattern match for {type}")
             };
         }

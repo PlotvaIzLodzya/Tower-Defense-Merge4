@@ -33,7 +33,9 @@ namespace _Source.Scripts.AttackBehaviours
 
                 if (_targetSeek.TryGetTarget(out var enemy))
                 {
-                    var projectile = Object.Instantiate(_projectilePrefab, _shootPoint.position, Quaternion.identity);
+                    var direction = enemy.transform.position - _shootPoint.position;
+                    var rotation = Quaternion.LookRotation(direction);
+                    var projectile = Object.Instantiate(_projectilePrefab, _shootPoint.position, rotation);
                     projectile.Launch(enemy, _towerStats);
                 }
 

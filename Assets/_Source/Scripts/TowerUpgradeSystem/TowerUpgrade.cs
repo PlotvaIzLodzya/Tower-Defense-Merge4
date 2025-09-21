@@ -1,5 +1,7 @@
 ﻿using _Source.Scripts.Buildings;
+using _Source.Scripts.Projectiles;
 using _Source.Scripts.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +10,7 @@ namespace _Source.Scripts.TowerUpgradeSystem
     public abstract class TowerUpgrade : Panel
     {
         [SerializeField] private Button _upgradeButton;
-        
+
         private Panel _upgradePanel;
         
         public abstract Tags Tags { get; }
@@ -23,7 +25,7 @@ namespace _Source.Scripts.TowerUpgradeSystem
             _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClick);       
         }
 
-        public virtual void Initialize(Panel upgradePanel)
+        public virtual void Initialize(Panel upgradePanel, BehaviourUpgrade behaviourUpgrade)
         {
             _upgradePanel = upgradePanel;
         }

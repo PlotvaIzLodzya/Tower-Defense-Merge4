@@ -24,7 +24,7 @@ namespace _Source.Scripts.AttackBehaviours
             _towerStats = towerStats;
             _projectilePrefab = projectilePrefab;
             _shootPoint = shootPoint;
-            _projectileCount = 5;
+            _projectileCount = 3;
             _attackSpeed = new ();
             Tags = Tags.Linear | Tags.Forward | Tags.Damage | Tags.AOE |
                    Tags.Duration;
@@ -37,12 +37,12 @@ namespace _Source.Scripts.AttackBehaviours
                 if (_randomEnemyAtPath.TryGetTarget(out Enemy enemy))
                 {
                     var enemyDirection = _shootPoint.position.CalculateDirection90Degrees(enemy.transform.position);
-                    var directions = VectorExtensions.GenerateDirections(enemyDirection, 2, _projectileCount);
-                    
+                    var directions = VectorExtensions.GenerateDirections(enemyDirection, 5, _projectileCount);
                     foreach (var direction in directions)
                     {
-                        var projectile = Object.Instantiate(_projectilePrefab, _shootPoint.position, Quaternion.identity);
-                        projectile.transform.rotation = Quaternion.LookRotation(direction);
+                        var rotation = Quaternion.LookRotation(direction);
+                        var projectile = Object.Instantiate(_projectilePrefab, _shootPoint.position, rotation);
+                        
                         projectile.Launch(enemy, _towerStats);
                     }
                 }

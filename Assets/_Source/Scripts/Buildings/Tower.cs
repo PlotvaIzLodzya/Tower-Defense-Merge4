@@ -4,19 +4,16 @@ using UnityEngine;
 
 namespace _Source.Scripts.Buildings
 {
-    public class TowerConfig : ScriptableObject
-    {
-        public TowerStats TowerStats;
-    }
-
-    public abstract class Tower : MonoBehaviour
+    public abstract class Tower : MonoBehaviour, ITagUser
     {
         [SerializeField] private TMP_Text _lvl;
         
         [field: SerializeField] public TowerStats Stats { get; private set; }
-        // [SerializeField] private TowerConfig _config;
+        
         public Vector3Int GridPosition => transform.position.ToGrid();
-
+        
+        public abstract Tags Tags { get; }
+        
         public void OnBuild()
         {
             transform.localPosition = Vector3.zero;

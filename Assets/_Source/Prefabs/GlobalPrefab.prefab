@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeb207763c64bc98a7b6a7ceb9b66ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.TowerUpgrade
-  _projectile: {fileID: 5228155411944166035, guid: fbb346d58dc77394f92f8b58fc447df2, type: 3}
+  _upgradeList: {fileID: 11400000, guid: c1176fe8327c05645a74d4943e6baf91, type: 2}
 --- !u!114 &1032688861871119266
 MonoBehaviour:
   m_ObjectHideFlags: 0

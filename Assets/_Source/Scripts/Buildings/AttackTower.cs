@@ -12,7 +12,7 @@ namespace _Source.Scripts.Buildings
         private Coroutine _attackCoroutine;
         private Attack _attack;
         
-        public Tags Tags => _attack.Tags;
+        public override Tags Tags => _attack.Tags;
         public Transform AttackPoint => transform;
 
         private void Awake()

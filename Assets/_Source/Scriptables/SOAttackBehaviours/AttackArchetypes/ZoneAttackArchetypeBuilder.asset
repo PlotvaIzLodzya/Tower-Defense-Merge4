@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.AttackBehaviours.AttackArchetypeBuilder
   _projectile: {fileID: 6240727588273687038, guid: bbf7bda4f82535c4c8ee0a9f120f1af4, type: 3}
   _attackBehaviour: {fileID: 11400000, guid: 736273d0b131770428ef1dd6765037ff, type: 2}
+  <Name>k__BackingField: Big laser

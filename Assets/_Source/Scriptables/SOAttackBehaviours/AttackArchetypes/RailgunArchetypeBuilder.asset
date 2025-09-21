@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.AttackBehaviours.AttackArchetypeBuilder
   _projectile: {fileID: 2815671702332506203, guid: c12303c811c569e4aa101dc7470bb81c, type: 3}
   _attackBehaviour: {fileID: 11400000, guid: 736273d0b131770428ef1dd6765037ff, type: 2}
+  <Name>k__BackingField: Railgun

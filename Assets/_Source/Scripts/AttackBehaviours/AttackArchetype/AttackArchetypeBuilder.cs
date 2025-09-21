@@ -11,6 +11,8 @@ namespace _Source.Scripts.AttackBehaviours
         [SerializeField] private Projectile _projectile;
         [SerializeField] private AttackBehaviour _attackBehaviour;
 
+        [field: SerializeField] public override string Name { get; protected set; }
+        
         public override Tags Tags => _projectile.Tags | _attackBehaviour.Tags;
 
         public override void Upgrade(AttackTower tower)

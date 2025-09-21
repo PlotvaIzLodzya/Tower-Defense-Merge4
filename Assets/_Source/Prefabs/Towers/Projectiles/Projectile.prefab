@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Projectile
   <Stats>k__BackingField:
     Speed: 15
-  <Tags>k__BackingField: 767
+  <Tags>k__BackingField: 255
   _movement: {fileID: 11400000, guid: 6d8931453e8a6ff43af7c450e9015214, type: 2}
   _onMovementEndBehaviour: {fileID: 11400000, guid: 439a078ac1945cc4a819d331da85c198, type: 2}
   _onHitBehaviour: {fileID: 11400000, guid: 36ad1e60640b2724b8d0f0fb0a6c543a, type: 2}

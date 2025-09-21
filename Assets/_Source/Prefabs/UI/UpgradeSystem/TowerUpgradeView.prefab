@@ -265,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.TowerUpgradeSystem.ArchetypeUpgrade
   _upgradeButton: {fileID: 6032223541110135975}
   _upgradeBehaviour: {fileID: 0}
+  _name: {fileID: 8079225455280014686}
 --- !u!1 &8921563390604119749
 GameObject:
   m_ObjectHideFlags: 0

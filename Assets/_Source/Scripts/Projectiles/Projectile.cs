@@ -82,7 +82,6 @@ namespace _Source.Scripts.Projectiles
 
         private IEnumerator MovingTowards(Enemy enemy)
         {
-            transform.LookAt(enemy.transform);
             yield return _movement?.Moving(enemy, this);
 
             _onMovementEndBehaviour?.OnEnd(enemy, this);

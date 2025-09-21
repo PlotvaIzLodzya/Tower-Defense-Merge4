@@ -12,6 +12,8 @@ namespace _Source.Scripts.Projectiles
         [SerializeField] private OnMovementEnd _onEnd;
         [SerializeField] private OnStayOnEnemy _onStay;
         
+        [field: SerializeField] public override string Name { get; protected set; }
+        
         public override Tags Tags => _onHit.Tags;
         
         public override void Upgrade(AttackTower tower)

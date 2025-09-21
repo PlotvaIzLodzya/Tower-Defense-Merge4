@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using _Source.Scripts.Helpers;
 using _Source.Scripts.Projectiles;
 using UnityEditor;
@@ -10,6 +11,21 @@ namespace _Source.Scripts.TowerUpgradeSystem
     public class UpgradeList : ScriptableObject
     {
         [SerializeField] private BehaviourUpgrade[] _upgrades;
+
+        public List<BehaviourUpgrade> GetBehaviourUpgrades(Tags tags, int amount)
+        {
+            var upgradeList = new List<BehaviourUpgrade>(amount);
+            var appropriateUpgrades = _upgrades.Where(b => b.Tags.HasFlag(tags)).ToList();
+            for (int i = 0; i < amount; i++)
+            {
+                var randomIndex = Random.Range(0, amount);
+                var upgrade = appropriateUpgrades[randomIndex];
+                upgradeList.Add(upgrade);
+                appropriateUpgrades.RemoveAt(randomIndex);
+            }
+            
+            return upgradeList;
+        }
         
 #if UNITY_EDITOR
         [ContextMenu(nameof(Populate))]

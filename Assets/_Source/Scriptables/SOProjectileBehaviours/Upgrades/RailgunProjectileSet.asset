@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: RailgunProjectileSet
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.ProjectileSet
   _projectile: {fileID: 2815671702332506203, guid: c12303c811c569e4aa101dc7470bb81c, type: 3}
+  <Name>k__BackingField: RailgunProjectile

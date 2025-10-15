@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace _Source.Scripts.Battle
 {
-    public class EnemySpawner : MonoBehaviour
+    public class EnemySpawnerMovementByPath : MonoBehaviour
     {
         [SerializeField] private EnemyPool _enemyPool;
         [SerializeField] private Path[] _paths;

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using _Source.Scripts.Buildings;
 using _Source.Scripts.Grid;
+using _Source.Scripts.Helpers;
 using _Source.Scripts.Projectiles;
 using _Source.Scripts.ReferencesAndSources;
 using UnityEngine;
@@ -28,7 +29,6 @@ namespace _Source.Scripts.Battle
         private float _speed;
         private Health _health;
         private CellGrid _cellGrid;
-        private Path[] _paths;
         
         public int Reward { get; private set; }
         public bool IsDead { get; private set; }
@@ -52,8 +52,12 @@ namespace _Source.Scripts.Battle
 
         public void StartMoving(Path[] paths)
         {
-            _paths = paths;
-            StartCoroutine(MovingByPath());
+            StartCoroutine(MovingByPath(paths));
+        }
+
+        public void StartMoving(Gates gates)
+        {
+            StartCoroutine(MovingToGates(gates));
         }
 
         public void TakeDamage(DamageDTO dto)
@@ -74,9 +78,20 @@ namespace _Source.Scripts.Battle
             gameObject.SetActive(false);
         }
 
-        private IEnumerator MovingByPath()
+        private IEnumerator MovingToGates(Gates gate)
         {
-            foreach (var path in _paths)
+            var direction = transform.position.CalculateDirection90Degrees(gate.GridPosition);
+            while (IsDead == false)
+            {
+                transform.position += direction * _speed * Time.deltaTime;
+                yield return null;
+            }
+        }
+        
+
+        private IEnumerator MovingByPath(Path[] paths)
+        {
+            foreach (var path in paths)
             {
                 yield return MovingToNextPoint(path);
             }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
+
     [CreateAssetMenu(fileName = nameof(DealDamageOnHit), menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.OnHit + "/" + nameof(DealDamageOnHit))]
     public class DealDamageOnHit : OnHitBehaviour
     {

@@ -6,5 +6,6 @@ namespace _Source.Scripts.Projectiles
     public struct ProjectileStats
     {
         public float Speed;
+        public float AOERadius;
     }
 }

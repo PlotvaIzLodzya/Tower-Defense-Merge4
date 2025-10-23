@@ -27,7 +27,6 @@ namespace _Source.Scripts.Battle
             {
                 if (_enemies[i].IsDead)
                 {
-
                     _enemies.RemoveAt(i);
                 }
             }
@@ -37,7 +36,12 @@ namespace _Source.Scripts.Battle
         {
             return chooseFrom(_enemies);
         }
-        
+
+        public void GetEnemys(Action<List<Enemy>> chooseFrom)
+        {
+           chooseFrom(_enemies);
+        }
+
         public void Add(Enemy enemy)
         {
             _enemies.Add(enemy);

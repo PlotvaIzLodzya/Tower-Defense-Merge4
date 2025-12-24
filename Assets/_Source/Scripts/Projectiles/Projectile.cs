@@ -3,24 +3,10 @@ using _Source.Scripts.Battle;
 using _Source.Scripts.Buildings;
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace _Source.Scripts.Projectiles
 {
-    [Serializable]
-    public class ProjectileDTO
-    {
-        public ProjectileMovement Movement;
-        public OnMovementEnd MovementEnd;
-        public OnHitBehaviour  HitBehaviour;
-        public OnStayOnEnemy StayOnEnemy;
-    }
-
-    public struct DamageDTO
-    {
-        public int Damage;
-        public Vector3 Position;
-    }
-    
     public class Projectile : MonoBehaviour, ITagUser
     {
         [field: SerializeField] public ProjectileStats Stats { get; private set; }
@@ -28,7 +14,7 @@ namespace _Source.Scripts.Projectiles
         
         [SerializeField] private ProjectileMovement _movement;
         [SerializeField] private OnMovementEnd _onMovementEndBehaviour;
-        [SerializeField] private OnHitBehaviour _onHitBehaviour;
+        [SerializeField] private List<OnHitBehaviour> _onHitBehaviours;
         [SerializeField] private OnStayOnEnemy _onStayOnEnemyBehaviour;
 
         private float _enemyStayedElapsedTime;
@@ -38,10 +24,10 @@ namespace _Source.Scripts.Projectiles
         [ContextMenu(nameof(UpdateTags))]
         private void UpdateTags()
         {
+            Tags |= _onHitBehaviours.GetTags();
+
             if(_movement != null)
                 Tags |= _movement.Tags;
-            if(_onHitBehaviour != null)
-                Tags |= _onHitBehaviour.Tags;
             if(_onMovementEndBehaviour != null)
                 Tags |= _onMovementEndBehaviour.Tags;
             if(_onStayOnEnemyBehaviour != null)
@@ -52,7 +38,7 @@ namespace _Source.Scripts.Projectiles
         {
             _movement = dto.Movement ?? _movement;
             _onMovementEndBehaviour = dto.MovementEnd ?? _onMovementEndBehaviour;
-            _onHitBehaviour = dto.HitBehaviour ?? _onHitBehaviour;
+            _onHitBehaviours.Add(dto.HitBehaviour);
             _onStayOnEnemyBehaviour = dto.StayOnEnemy ?? _onStayOnEnemyBehaviour;
         }
 
@@ -66,7 +52,12 @@ namespace _Source.Scripts.Projectiles
         private void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent(out Enemy enemy))
-                _onHitBehaviour?.OnHit(enemy, this);
+            {
+                foreach (var behaviour in _onHitBehaviours)
+                {
+                    behaviour.OnHit(enemy, this);
+                }
+            }
         }
 
         private void OnTriggerStay(Collider other)

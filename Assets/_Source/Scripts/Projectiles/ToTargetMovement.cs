@@ -11,7 +11,7 @@ namespace _Source.Scripts.Projectiles
     {
         public override IEnumerator Moving(Enemy enemy, Projectile projectile)
         {
-            while (IsCloseEnough(enemy, projectile))
+            while (enemy != null && IsCloseEnough(enemy, projectile))
             {
                 projectile.transform.position = Vector3.MoveTowards(projectile.transform.position, enemy.transform.position, projectile.Stats.Speed * Time.deltaTime);
                 projectile.transform.LookAt(enemy.transform);

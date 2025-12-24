@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _Source.Scripts.ReferencesAndSources;
 using _Source.Scripts.Trade;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace _Source.Scripts.Battle
@@ -11,13 +12,11 @@ namespace _Source.Scripts.Battle
         [SerializeField] private WalletReference _walletReference;
         
         private List<Enemy> _enemies;
-        private Wallet _wallet;
         
         public bool HaveEnemy => _enemies.Count > 0;
 
         private void Awake()
         {
-            _wallet = _walletReference.Value;
             _enemies = new();
         }
 
@@ -30,6 +29,28 @@ namespace _Source.Scripts.Battle
                     _enemies.RemoveAt(i);
                 }
             }
+        }
+
+        [CanBeNull]
+        public Enemy GetClosestTo(Enemy enemy, float radius)
+        {
+            Enemy nearestEnemy = null;
+            var minDist = float.MaxValue;
+
+            foreach (var e in _enemies)
+            {
+                if (e == enemy || e.IsDead)
+                    continue;
+
+                var dist = Vector3.Distance(enemy.transform.position, e.transform.position);
+                if (dist < radius && dist < minDist)
+                {
+                    nearestEnemy = e;
+                    minDist = dist;
+                }
+            }
+
+            return nearestEnemy;
         }
         
         public Enemy GetEnemy(Func<List<Enemy>, Enemy> chooseFrom)

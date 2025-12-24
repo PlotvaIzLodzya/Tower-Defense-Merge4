@@ -19,6 +19,8 @@ namespace _Source.Scripts.Projectiles
 
         private float _enemyStayedElapsedTime;
 
+        public int HitCount { get; private set; }
+
         public TowerStats TowerStats { get; private set; }
         
         [ContextMenu(nameof(UpdateTags))]
@@ -49,10 +51,18 @@ namespace _Source.Scripts.Projectiles
             StartCoroutine(DestroyAfter(5f, _movement.LifeTime));
         }
 
+        public void CopyStats(Projectile projectile)
+        {
+            HitCount = projectile.HitCount;
+            TowerStats = projectile.TowerStats;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if(other.TryGetComponent(out Enemy enemy))
             {
+                HitCount++;
+
                 foreach (var behaviour in _onHitBehaviours)
                 {
                     behaviour.OnHit(enemy, this);

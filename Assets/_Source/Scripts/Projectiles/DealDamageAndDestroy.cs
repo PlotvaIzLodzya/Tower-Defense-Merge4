@@ -15,7 +15,7 @@ namespace _Source.Scripts.Projectiles
                 Damage = projectile.TowerStats.Damage,
                 Position = projectile.transform.position,
             };
-            enemy.TakeDamage(dto);
+            enemy?.TakeDamage(dto);
             projectile.Destroy();
         }
     }

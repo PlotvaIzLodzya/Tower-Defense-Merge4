@@ -14,4 +14,5 @@ public enum Tags
     AOE = Damage*2,
     Duration = AOE*2,
     Ricochet = Duration * 2,
+    Shrapnel = Ricochet * 2,
 }

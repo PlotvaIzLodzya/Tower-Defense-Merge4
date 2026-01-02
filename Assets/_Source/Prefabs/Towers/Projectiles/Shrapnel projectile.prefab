@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8401988006388701764}
   - component: {fileID: 3397766665418317712}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Shrapnel projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,15 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Projectile
   <Stats>k__BackingField:
-    Speed: 15
+    Speed: 7.5
     AOERadius: 1
   <Tags>k__BackingField: 255
-  _movement: {fileID: 11400000, guid: 6d8931453e8a6ff43af7c450e9015214, type: 2}
-  _onMovementEndBehaviour: {fileID: 11400000, guid: 439a078ac1945cc4a819d331da85c198, type: 2}
+  _movement: {fileID: 11400000, guid: 35e59ff12f400bf4bad07073e7ba6323, type: 2}
+  _onMovementEndBehaviour: {fileID: 11400000, guid: 384ffafdaac5fd94e86929dce583fe34, type: 2}
   _onHitBehaviours:
   - {fileID: 11400000, guid: 36ad1e60640b2724b8d0f0fb0a6c543a, type: 2}
-  - {fileID: 11400000, guid: 2146c1279228cc64ab81a20f2ceef2fb, type: 2}
-  - {fileID: 11400000, guid: 3ec0c72b23d19b44ea1dd420e5db8cd0, type: 2}
   _onStayOnEnemyBehaviour: {fileID: 0}
 --- !u!54 &8401988006388701764
 Rigidbody:
@@ -187,8 +185,8 @@ SpriteRenderer:
   m_SortingLayerID: -1977218485
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

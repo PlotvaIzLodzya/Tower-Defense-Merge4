@@ -24,8 +24,44 @@ namespace _Source.Scripts.Helpers
             return direction.normalized;
 
         }
-        
-        
+
+
+        //Some ai genereated shit
+        /// <summary>
+        /// Возвращает список случайных направлений в конусе вокруг direction
+        /// </summary>
+        /// <param name="direction">Центральное направление</param>
+        /// <param name="angle">Угол конуса в градусах</param>
+        /// <param name="count">Количество направлений</param>
+        public static List<Vector3> GetRandomDirections(Vector3 direction, float angle, int count)
+        {
+            List<Vector3> result = new List<Vector3>(count);
+
+            direction = direction.normalized;
+            float halfAngle = angle * 0.5f;
+
+            for (int i = 0; i < count; i++)
+            {
+                float randomAngle = Random.Range(0f, halfAngle);
+                Vector3 randomAxis = Random.onUnitSphere;
+
+                Quaternion rotation = Quaternion.AngleAxis(randomAngle, randomAxis);
+                Vector3 randomDirection = rotation * direction;
+
+                result.Add(randomDirection.normalized);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Generate directions around given <paramref name="direction"></paramref> with <paramref name="angle"></paramref> step and <paramref name="count"></paramref>
+        /// 
+        /// </summary>
+        /// <param name="direction"> Around this will be generate others direction, it's centeral </param>
+        /// <param name="angle">Angle between two directions</param>
+        /// <param name="count">Amount of directions genterated</param>
+        /// <returns></returns>
         //Some ai genereated shit
         public static List<Vector3> GenerateDirections(Vector3 direction, float angle, int count)
         {

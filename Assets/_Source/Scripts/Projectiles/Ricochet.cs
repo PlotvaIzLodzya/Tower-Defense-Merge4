@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace _Source.Scripts.Projectiles
 {
+
     [CreateAssetMenu(fileName = nameof(Ricochet), menuName = NamingConstant.ProjectilesBehaviour + "/" + NamingConstant.OnHit + "/" + nameof(Ricochet))]
     public class Ricochet : OnHitBehaviour
     {

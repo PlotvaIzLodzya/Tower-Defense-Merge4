@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Buildings.Projectile
   <Stats>k__BackingField:
+    LifeTime: 0.5
     Speed: 7.5
     AOERadius: 1
   <Tags>k__BackingField: 255

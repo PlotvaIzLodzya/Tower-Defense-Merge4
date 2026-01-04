@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Source.Scripts.Projectiles.Shrapnel
   <Tags>k__BackingField: 1024
   _shrapnelAmount: 3
+  _angle: 90
   _shrapnelProjectile: {fileID: 8513947783266868676, guid: 0c76c6334b42fcb4f99a950147dc0be4, type: 3}
   _enemyPool: {fileID: 11400000, guid: 2d248ac51c0c14a40857adf3284f3668, type: 2}

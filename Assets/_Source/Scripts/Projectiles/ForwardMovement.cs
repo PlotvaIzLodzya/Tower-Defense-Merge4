@@ -11,7 +11,7 @@ namespace _Source.Scripts.Projectiles
         public override IEnumerator Moving(Enemy enemy, Projectile projectile)
         {
             var elapsedTime = 0f;
-            while (elapsedTime < LifeTime)
+            while (elapsedTime < projectile.Stats.LifeTime)
             {
                 elapsedTime += Time.deltaTime;
                 projectile.transform.position += projectile.transform.forward * projectile.Stats.Speed * Time.deltaTime;

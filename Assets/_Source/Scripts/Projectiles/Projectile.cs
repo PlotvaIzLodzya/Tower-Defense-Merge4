@@ -48,7 +48,7 @@ namespace _Source.Scripts.Projectiles
         {
             TowerStats = stats;
             StartCoroutine(MovingTowards(enemy));
-            StartCoroutine(DestroyAfter(5f, _movement.LifeTime));
+            StartCoroutine(DestroyAfter(5f, Stats.LifeTime));
         }
 
         public void CopyStats(Projectile projectile)

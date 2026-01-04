@@ -13,7 +13,7 @@ namespace _Source.Scripts.Projectiles
             var direction = projectile.transform.position.CalculateDirection90Degrees(enemy.transform.position);
             var rotation = Quaternion.LookRotation(direction);
             projectile.transform.rotation = rotation;
-            yield return new WaitForSeconds(LifeTime);
+            yield return new WaitForSeconds(projectile.Stats.LifeTime);
         }
     }
 }

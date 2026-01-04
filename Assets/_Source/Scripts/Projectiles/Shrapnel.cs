@@ -9,12 +9,13 @@ namespace _Source.Scripts.Projectiles
     public class Shrapnel : OnHitBehaviour
     {
         [SerializeField] private int _shrapnelAmount;
+        [SerializeField] private int _angle;
         [SerializeField] private Projectile _shrapnelProjectile;
         [SerializeField] private EnemyPoolReference _enemyPool;
 
         public override void OnHit(Enemy enemy, Projectile projectile)
         {
-            var dirs = VectorExtensions.GetRandomDirections(Vector3.right, 15f, _shrapnelAmount);
+            var dirs = VectorExtensions.GetRandomDirections(Vector3.right, _angle, _shrapnelAmount);
             for (int i = 0; i < _shrapnelAmount; i++)
             {
                 var rot = Quaternion.LookRotation(dirs[i]);

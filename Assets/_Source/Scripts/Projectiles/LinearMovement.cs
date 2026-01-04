@@ -15,7 +15,7 @@ namespace _Source.Scripts.Projectiles
             var rotation = Quaternion.LookRotation(direction);
             projectile.transform.rotation = rotation;
 
-            while(elapsedTime < LifeTime)
+            while(elapsedTime < projectile.Stats.LifeTime)
             {
                 elapsedTime += Time.deltaTime;  
                 projectile.transform.position += direction * projectile.Stats.Speed * Time.deltaTime;
